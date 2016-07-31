@@ -185,8 +185,6 @@ Error message and password prompt
 
 <li>Footer</li>
 
-<li>HelloThere</li>
-
 <li>Installation</li>
 
 <li>License</li>
@@ -8011,7 +8009,7 @@ untagged-background: #999999
 very-muted-foreground: #888888
 </pre>
 </div>
-<div author="Danielo Rodriguez" core-version="&gt;=5.1.0" dependents="" description="tiddlypouch for TiddlyWiki" list="readme" plugin-type="plugin" title="$:/plugins/danielo515/tiddlypouch" type="application/json" version="0.8">
+<div author="Danielo Rodriguez" core-version="&gt;=5.1.0" dependents="" description="tiddlypouch for TiddlyWiki" list="readme" plugin-type="plugin" title="$:/plugins/danielo515/tiddlypouch" type="application/json" version="0.9">
 <pre>{
     &quot;tiddlers&quot;: {
         &quot;$:/plugins/danielo515/tiddlypouch/startup/event-listeners.js&quot;: {
@@ -8362,7 +8360,7 @@ Download
         &lt;h1&gt;Note Self&lt;/h1&gt;
     &lt;/div&gt;
     &lt;div class=&quot;tc-tp-navbar&quot;&gt;
-        &lt;$button class=&quot;tc-btn-invisible tc-tiddlylink&quot;&gt;&lt;$action-sendmessage $message=&quot;tm-close-all-tiddlers&quot;/&gt;&lt;$list filter=&quot;[tag[Home]!sort[home-order]]&quot;&gt;&lt;$action-navigate $to={{!!title}}/&gt;&lt;/$list&gt;Home&lt;/$button&gt;
+        &lt;$button class=&quot;tc-btn-invisible tc-tiddlylink&quot;&gt;&lt;$action-sendmessage $message=&quot;tm-close-all-tiddlers&quot;/&gt;&lt;$list filter=&quot;[tag[Home]]&quot;&gt;&lt;$action-navigate $to={{!!title}}/&gt;&lt;/$list&gt;Home&lt;/$button&gt;
         &lt;$button class=&quot;tc-btn-invisible tc-tiddlylink&quot;&gt;&lt;$action-sendmessage $message=&quot;tm-close-all-tiddlers&quot;/&gt;&lt;$list filter=&quot;[tag[About]!sort[home-order]]&quot;&gt;&lt;$action-navigate $to={{!!title}}/&gt;&lt;/$list&gt;About&lt;/$button&gt;
         {{Features||$:/nav_btn}}
         {{FAQ||$:/nav_btn}}
@@ -8374,7 +8372,7 @@ Download
 <div tags="$:/tags/Stylesheet" title="$:/TiddlyPouch/Site/Styles">
 <pre>\rules only filteredtranscludeinline transcludeinline macrodef macrocallinline
 
-@media (min-width: {{$:/themes/tiddlywiki/vanilla/metrics/sidebarbreakpoint}}) {
+@media (min-width: 980px ) {
    html .tc-story-river {
         padding: 0px;
         width: 100%;
@@ -8382,44 +8380,70 @@ Download
     }
 
   html .tc-tiddler-frame {
-          padding: 28px 20% 42px 20%;
+    padding: 28px 20% 42px 20%;
     }
 }
 
-@media (max-width: {{$:/themes/tiddlywiki/vanilla/metrics/sidebarbreakpoint}}) {
-  .tc-sidebar-header {
-      display: none;
+
+@media (max-width: 1380px) {
+
+  html .tc-tagged-even .tc-image-wrapper {
+    float: none;
+  }
+
+  html .story-backdrop .tc-header.tc-tiddler-frame {
+    padding: 5px;
+
   }
 }
 
-    .tc-tagged-even {
-        background-color: #f4f4f4;
-    }
+@media (max-width: 850px){
+  /* On small screeens hide the Name, but not the logo*/
+  html .tc-header #logo-bar h1 { 
+    display: none;
+  }
+}
 
-    .tc-tagged-odd {
-        background-color: #eeeeee
-    }
+@media (max-width: 651px){
+  /* On very small screeens hide the whole logo bar*/
+  html .tc-header div#logo-bar{
+    display: none;
+  }
+  /* the navbar should not float to be centered*/
+  html .tc-header .tc-tp-navbar {
+    float: none;
+  }
+}
 
-    html .tc-tiddler-frame {
-          border: 0px;
-          margin: 0px;
-    }
+
+.tc-tagged-even {
+    background-color: #f4f4f4;
+}
+
+.tc-tagged-odd {
+    background-color: #eeeeee
+}
+
+html .tc-tiddler-frame {
+      border: 0px;
+      margin: 0px;
+}
 
 
-/*   images */
+/*  ======================== images =========================== */
 
-html .tc-tagged-even .tc-image-wrapper{ 
+.tc-tagged-even .tc-image-wrapper{ 
     float: right;
     margin-right: -20%;    
 }
-
+/* This is for svg. Probably you have to add another rule for regular images.*/ 
 html .tc-tagged-odd .tc-image-wrapper img {
     height: 120px;
     float: left;
     margin-right: 20px;
 }
 
-/* Buttons */
+/* ========================= Buttons =========================== */
   .tc-btn-big-green:hover {
       background-color: #2FBA2F;
   }
@@ -8434,8 +8458,10 @@ html .tc-tagged-odd .tc-image-wrapper img {
   }
 
 
+
 /*==== HEADER AND FOOTER STYLES ===*/
 
+/* hide the arrow that swithces to TW layour */
 .tc-topbar-right .tc-image-chevron-left.tc-image-button { 
   display: none;
 }
@@ -8444,6 +8470,34 @@ html .tc-tagged-odd .tc-image-wrapper img {
 section.story-backdrop p {
   margin-top: 0px;
   margin-bottom: 0px;
+}
+
+/* Make the element on top of the river fixed. 
+    I think thi is better than applying it directly to the header.
+*/
+section.story-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+/* 
+ * Select all tiddler-frame children of story river, including the first one,
+ * and give them an extra padding to fix the fixed header.
+ */
+
+.tc-story-river &gt; .tc-tiddler-view-frame {
+  padding-top: 120px;
+}
+
+/* 
+ * Select all but the first tiddler frame, child of story river,
+ * and remove the padding from the previous rule.
+ */
+.tc-story-river &gt; .tc-tiddler-view-frame ~ .tc-tiddler-view-frame {
+    padding-top: 28px;
 }
 
 /* General header */
@@ -8455,7 +8509,7 @@ html .tc-header {
 }
 
 /*  Navigation bar */
-html .tc-header .tc-tp-navbar {
+.tc-header .tc-tp-navbar {
   float: right;
   padding-top: 20px;
   text-align: center;
@@ -8478,7 +8532,7 @@ html .tc-header img {
   width: 100px;
 }
 
-html .tc-header #logo-bar, html .tc-header #logo-bar img, html .tc-header #logo-bar h1 {
+html .tc-header #logo-bar, html .tc-header #logo-bar img, .tc-header #logo-bar h1 {
   float: left;
   display: inline-block;
 }
@@ -8488,9 +8542,7 @@ html .tc-header #logo-bar, html .tc-header #logo-bar img, html .tc-header #logo-
    height: 0; 
    clear: both;
 }
-
-
-
+/* FOOTER */
 html .tc-footer {
   text-align:center;
   border-top: 2px solid #c8c8c8;
@@ -8531,35 +8583,6 @@ html .tc-footer {
 html .tc-footer .tc-footer-icon svg.tc-image-github.tc-image-button{
   height: 65px;
   width: 65px;
-}
-
-
-
-.icon {
-    margin: auto;
-    margin-bottom: 1.5rem;
-    background-image: url(&lt;&lt;datauri &quot;icons.svg&quot; &gt;&gt;);
-    background-repeat: no-repeat;
-}
-
-.icon-node {
-    background-position: 0 0;
-    background-position-x: 0px;
-    background-position-y: 0px;
-    width: 68px;
-    height: 73px;
-}
-
-.icon-couchdb {
-    background-position: -439px -15px;
-    width: 90px;
-    height: 57px;
-}
-
-.icon-open {
-    background-position: -267px -5px;
-    width: 111px;
-    height: 77px;
 }</pre>
 </div>
 <div home-order="0" tags="even About" title="About">
@@ -8719,13 +8742,8 @@ Or maybe ask for some help on [[tiddliwiki boards|https://groups.google.com/foru
     &lt;a href=&quot;https://github.com/danielo515&quot;  target=&quot;_blank&quot; class=&quot;tc-footer-icon&quot;&gt;{{$:/core/images/github}}&lt;/a&gt;
 &lt;/div&gt;</pre>
 </div>
-<div created="20140901120057909" modified="20140901120057909" title="HelloThere" type="text/vnd.tiddlywiki">
-<pre>This is tiddlypouch plugin for ~TiddlyWiki (http://tiddlywiki.com).
-</pre>
-</div>
-<div created="20140901120057909" home-order="2" modified="20140901120057909" tags="Home even" title="Installation" type="text/vnd.tiddlywiki">
-<pre>
-NoteSelf does not require any installation and just a very little setup.
+<div created="20140901120057909" home-order="2" list-before="Features" modified="20140901120057909" tags="Home even" title="Installation" type="text/vnd.tiddlywiki">
+<pre>NoteSelf does not require any installation and just a very little setup.
 It works directly in your browser, which includes most modern web browsers
 and many mobile browsers.
 &lt;br&gt;All you need to do is give a name to your database (please do not include spaces) and click on the download button:
@@ -8791,7 +8809,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 <div tags="picture" title="SiteLogo" type="image/png">
 <pre>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</pre>
 </div>
-<div home-order="0" tags="Home even" title="Your selfish notebook!">
+<div home-order="0" list-after="Features" tags="Home even" title="Your selfish notebook!">
 <pre>&lt;span class=&quot;tc-image-wrapper&quot;&gt;[img[ExampleNotebooks]]&lt;/span&gt;
 
 NoteSelf is your personal, private, customizable, Evernote-like experience.
