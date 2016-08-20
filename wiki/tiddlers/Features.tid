@@ -1,0 +1,12 @@
+title: Features
+tags: Home odd
+home-order: 1
+
+<span class="tc-image-wrapper">{{database.svg}}</span>
+
+* Two way synchronization with ''any'' remote CouchDB server
+* Work offline, sync when you get back online
+* Work totally offline if you want
+* ''Free'' and personal: you choose where to store your data
+* Works out of the box on ''your browser'', does not require any plugin
+* ''Plug and Play'', No installation or configuration required.

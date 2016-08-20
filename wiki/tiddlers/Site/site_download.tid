@@ -1,0 +1,6 @@
+title: $:/TiddlyPouch/Site/Buttons/Download
+
+<$button class="tc-btn-big-green">
+<$action-sendmessage $message="tm-download-file" $param="$:/plugins/danielo515/tiddlypouch/save/basic" filename="empty.html"/>
+Download
+</$button>

@@ -1,0 +1,212 @@
+@media (min-width: 980px ) {
+   html .tc-story-river {
+        padding: 0px;
+        width: 100%;
+        padding-right: 0px;
+    }
+
+  html .tc-tiddler-frame {
+    padding: 28px 20% 42px 20%;
+    }
+}
+
+
+@media (max-width: 1380px) {
+
+  html .tc-tagged-even .tc-image-wrapper {
+    float: none;
+  }
+
+  html .story-backdrop .tc-header.tc-tiddler-frame {
+    padding: 5px;
+
+  }
+}
+
+@media (max-width: 850px){
+  /* On small screeens hide the Name, but not the logo*/
+  html .tc-header #logo-bar h1 { 
+    display: none;
+  }
+}
+
+@media (max-width: 651px){
+  /* On very small screeens hide the whole logo bar*/
+  html .tc-header div#logo-bar{
+    display: none;
+  }
+  /* the navbar should not float to be centered*/
+  html .tc-header .tc-tp-navbar {
+    float: none;
+  }
+}
+
+
+.tc-tagged-even {
+    background-color: #f4f4f4;
+}
+
+.tc-tagged-odd {
+    background-color: #eeeeee
+}
+
+html .tc-tiddler-frame {
+      border: 0px;
+      margin: 0px;
+}
+
+
+/*  ======================== images =========================== */
+
+.tc-tagged-even .tc-image-wrapper{ 
+    float: right;
+    margin-right: -20%;    
+}
+/* This is for svg. Probably you have to add another rule for regular images.*/ 
+html .tc-tagged-odd .tc-image-wrapper img {
+    height: 120px;
+    float: left;
+    margin-right: 20px;
+}
+
+/* ========================= Buttons =========================== */
+  .tc-btn-big-green:hover {
+      background-color: #2FBA2F;
+  }
+
+  .tc-btn-big-green {
+      border-radius: 4px;
+  }
+
+/* Hide common TW elements */
+  .tc-tags-wrapper, .tc-tiddler-controls, .tc-subtitle {
+    display: none;
+  }
+
+
+
+/*==== HEADER AND FOOTER STYLES ===*/
+
+/* hide the arrow that switchs to TW layour */
+.tc-topbar-right .tc-image-chevron-left.tc-image-button { 
+ /* display: none;*/
+}
+
+/* This corrects header's top margin */
+section.story-backdrop p {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+/* Make the element on top of the river fixed. 
+    I think thi is better than applying it directly to the header.
+*/
+section.story-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+/* 
+ * Select all tiddler-frame children of story river, including the first one,
+ * and give them an extra padding to fix the fixed header.
+ */
+
+.tc-story-river > .tc-tiddler-view-frame {
+  padding-top: 120px;
+}
+
+/* 
+ * Select all but the first tiddler frame, child of story river,
+ * and remove the padding from the previous rule.
+ */
+.tc-story-river > .tc-tiddler-view-frame ~ .tc-tiddler-view-frame {
+    padding-top: 28px;
+}
+
+/* General header */
+html .tc-header {
+    border-bottom: 2px solid #c8c8c8;
+    margin-top: 0;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+/*  Navigation bar */
+.tc-header .tc-tp-navbar {
+  float: right;
+  padding-top: 20px;
+  text-align: center;
+}
+
+html .tc-header .tc-tp-navbar button{
+  padding-right: 20px;
+}
+
+/*html .tc-header .tc-tp-navbar::after {
+   content: "."; 
+   visibility: hidden; 
+   display: block; 
+   height: 0; 
+   clear: both;
+}*/
+
+/* Logo */
+html .tc-header img {
+  width: 100px;
+}
+
+html .tc-header #logo-bar, html .tc-header #logo-bar img, .tc-header #logo-bar h1 {
+  float: left;
+  display: inline-block;
+}
+
+/* For good display of the header */
+.tc-tp-cleaner {
+   height: 0; 
+   clear: both;
+}
+/* FOOTER */
+html .tc-footer {
+  text-align:center;
+  border-top: 2px solid #c8c8c8;
+    margin-bottom: 0px;
+}
+
+/* Footer icons */
+.tc-footer-icon::before {
+  content: " ";
+}
+
+.tc-tagged-footer .tc-tiddler-title{
+  display: none;
+}
+
+
+/*============= ICONS ==================*/
+
+.tc-footer-icon {
+  background-repeat: no-repeat;
+  background-size: 100%;
+  display: inline-block;
+  margin-left: 10px;
+  }
+
+.tc-pouch-logo{
+  height: 65px;
+  width: 200px;
+  background-image: url(<<datauri "pouch-logo.svg" >>);
+}
+
+.tc-tiddlywiki-logo{
+  height: 65px;
+  width: 100px;
+  background-image: url(<<datauri "Motovun Jack.svg">>);
+}
+
+html .tc-footer .tc-footer-icon svg.tc-image-github.tc-image-button{
+  height: 65px;
+  width: 65px;
+}

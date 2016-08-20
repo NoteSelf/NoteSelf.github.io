@@ -1,0 +1,26 @@
+title: Installation
+created: 20140901120057909
+modified: 20140901120057909
+type: text/vnd.tiddlywiki
+tags: Home even
+home-order: 2
+list-before: Features
+
+NoteSelf does not require any installation and just a very little setup.
+It works directly in your browser, which includes most modern web browsers
+and many mobile browsers.
+<br>All you need to do is give a name to your database (please do not include spaces) and click on the download button:
+
+<$edit-text tag="input" tiddler="$:/plugins/danielo515/tiddlypouch/config/DatabaseName"  default="" placeholder="MyNotebook"/>
+{{$:/TiddlyPouch/Site/Buttons/Download}}
+
+After downloading the file, you can start using it. For example, open your browser's download section and click on the `empty.html` file you just downloaded. 
+The very first thing you have to do if you didn't name your database is opening the control panel and name it.
+
+ 
+ !!! Congratulations! you got your own Notebook 
+
+,,Although NoteSelf is more a TW version than just a plugin, 
+if you are only interested on the plugin itself, there is
+also a method for [[installing the plugin|$:/plugins/danielo515/tiddlypouch/Installation]] 
+in your own tiddlywiki.,,

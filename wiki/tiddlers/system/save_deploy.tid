@@ -1,0 +1,6 @@
+title: $:/tiddlypouch/save/deploy
+
+\define saveTiddlerFilter()
+[is[tiddler]] -[[$:/boot/boot.css]] -[prefix[$:/plugins/danielo515/tiddlypouch/config/]] -[[$:/HistoryList]] -[type[application/javascript]library[yes]] -[[$:/boot/boot.js]] -[[$:/boot/bootprefix.js]] -[[$:/plugins/tiddlywiki/filesystem]] -[[$:/plugins/tiddlywiki/tiddlyweb]] +[sort[title]]
+\end
+{{$:/core/templates/tiddlywiki5.html}}

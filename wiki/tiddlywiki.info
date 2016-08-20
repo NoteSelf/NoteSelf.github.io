@@ -1,0 +1,21 @@
+{
+	"plugins": [
+          "tiddlypouch"
+	],
+	"themes": [
+		"tiddlywiki/vanilla",
+		"tiddlywiki/snowwhite"
+	],
+	"languages": [
+		"en-US"
+	],
+	"build": {
+		"index": [
+			"--rendertiddler","$:/tiddlypouch/save/deploy","index.html","text/plain"],
+		"favicon": [
+			"--savetiddler","$:/favicon.ico","favicon.ico"],
+		"readme": [
+			"--rendertiddler","ReadMe","readme.md","text/html",
+			"--rendertiddler","License","license.md","text/html"]
+	}
+}

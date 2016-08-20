@@ -1,0 +1,18 @@
+title: $:/TiddlyPouch/Site/Header
+tags: $:/tags/AboveStory
+
+<div class="tc-page-controls tc-header tc-tiddler-frame">
+    
+    <div id="logo-bar">
+        [img width=80 [SiteLogo]] 
+        <h1>Note Self</h1>
+    </div>
+    <div class="tc-tp-navbar">
+        <$button class="tc-btn-invisible tc-tiddlylink"><$action-sendmessage $message="tm-close-all-tiddlers"/><$list filter="[tag[Home]]"><$action-navigate $to={{!!title}}/></$list>Home</$button>
+        <$button class="tc-btn-invisible tc-tiddlylink"><$action-sendmessage $message="tm-close-all-tiddlers"/><$list filter="[tag[About]!sort[home-order]]"><$action-navigate $to={{!!title}}/></$list>About</$button>
+        {{Features||$:/nav_btn}}
+        {{FAQ||$:/nav_btn}}
+        {{$:/TiddlyPouch/Site/Buttons/Download}}
+    </div>
+    <div class="tc-tp-cleaner"></div>
+</div>

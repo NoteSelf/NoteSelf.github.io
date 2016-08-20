@@ -1,0 +1,25 @@
+title: FAQ
+tags: odd
+
+!!Where is my data stored?
+Your data is stored inside your browser. We use PouchDB in the background,
+which creates a database on your browser's LocalStorage.
+If LocalStorage is not available it will fallback to WebSQL.
+In any case your information is stored locally within your browser.
+
+!!How can I sync multiple devices?
+The best way at this moment is to use a remote `couchdb` server. There is a plenty list of compatible servers, but for simplicity, price and availability we recommend [[cloudant|https://cloudant.com/]]
+
+!!I just opened my Wiki in a different browser and I have nothing!
+That's because data is stored in your browser. This means inside your browser
+literally. If you open your wiki again with the browser you were previously using
+all your data should be there.
+
+!! How can I install regular tiddliwiki plugins?
+The first steps are quite easy. Just follow the regular way of installing them. 
+Drag and drop the plugin on top of your current Notebook.
+''After that'' open the `Control Panel` ( {{$:/core/images/options-button}} ), navigate to the `TiddlyPouch` tab and click on `Save config`.
+
+!! Still not clear?
+Just visit the project's [[site|https://github.com/danielo515]] and open an issue!
+Or maybe ask for some help on [[tiddliwiki boards|https://groups.google.com/forum/#!forum/tiddlywiki]]. They are very nice and helpful people

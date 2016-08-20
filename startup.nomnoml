@@ -1,0 +1,7 @@
+[startup-config]->[startup-pouch]
+[startup-pouch| pouchdb ]->[startup-utils]
+[startup-utils|utils| remove() | replace() ]->[startup-syncer]
+[startup-syncer| pouchdb-sycer]
+[startup-pouch]creates ->[database]
+[startup-pouch] depends -->[config]
+[startup-pouch] before->[Startup]

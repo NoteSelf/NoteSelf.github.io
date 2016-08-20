@@ -1,0 +1,54 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Iniciar",
+            "type": "node",
+            "request": "launch",
+            "program": "C:/Users/danielo/AppData/Roaming/npm/node_modules/tiddlywiki/tiddlywiki.js",
+            "stopOnEntry": false,
+            "args": [
+                "${workspaceRoot}/wiki",
+                "--verbose",
+                "--server", "8088",
+                "$:/core/save/all",
+                "text/plain",
+                "text/html"
+                  ],
+            "cwd": "${workspaceRoot}",
+            "preLaunchTask": null,
+            "runtimeExecutable": "C:/Program Files/nodejs/node.exe",
+            "runtimeArgs": [ 
+                "--nolazy"
+              ],
+            "env": {
+                "NODE_ENV": "development",
+                "TIDDLYWIKI_PLUGIN_PATH": "h:/My Dropbox/tiddlywiki/plugins/danielo515/tiddlypouchPlugin/master/tiddlypouchwiki/plugins"
+            },
+            "externalConsole": false,
+            "sourceMaps": false,
+            "outDir": null
+        },
+        {
+            "name": "Asociar",
+            "type": "node",
+            "request": "attach",
+            "port": 5858,
+            "address": "localhost",
+            "restart": false,
+            "sourceMaps": false,
+            "outDir": null,
+            "localRoot": "${workspaceRoot}",
+            "remoteRoot": null
+        },
+        {
+            "name": "Attach to Process",
+            "type": "node",
+            "request": "attach",
+            "processId": "${command.PickProcess}",
+            "port": 5858,
+            "sourceMaps": false,
+            "outDir": null
+        }
+    ]
+}

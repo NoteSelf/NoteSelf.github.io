@@ -1,0 +1,6 @@
+title: $:/nav_btn
+
+ <$button class="tc-btn-invisible tc-tiddlylink"><$action-sendmessage $message="tm-close-all-tiddlers"/>
+    <$action-navigate $to={{!!title}}/>
+    {{!!title}}
+</$button>
