@@ -1,3 +1,9 @@
+title: $:/TiddlyPouch/Site/Styles
+tags: $:/tags/Stylesheet
+
+
+\rules only filteredtranscludeinline transcludeinline macrodef macrocallinline macrocallblock
+
 @media (min-width: 980px ) {
    html .tc-story-river {
         padding: 0px;
@@ -41,6 +47,10 @@
   }
 }
 
+.tc-centered {
+    width: 100%;
+    text-align: center;
+}
 
 .tc-tagged-even {
     background-color: #f4f4f4;
