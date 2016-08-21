@@ -10,7 +10,7 @@ tags: $:/tags/AboveStory
     <div class="tc-tp-navbar">
         <$button class="tc-btn-invisible tc-tiddlylink"><$action-sendmessage $message="tm-close-all-tiddlers"/><$list filter="[tag[Home]]"><$action-navigate $to={{!!title}}/></$list>Home</$button>
         <$button class="tc-btn-invisible tc-tiddlylink"><$action-sendmessage $message="tm-close-all-tiddlers"/><$list filter="[tag[About]!sort[home-order]]"><$action-navigate $to={{!!title}}/></$list>About</$button>
-        {{Features||$:/nav_btn}}
+        <$button class="tc-btn-invisible tc-tiddlylink"><$action-navigate $to="Features"/>Features</$button>
         {{FAQ||$:/nav_btn}}
         {{$:/TiddlyPouch/Site/Buttons/Download}}
     </div>
