@@ -1,6 +1,10 @@
 title: FAQ
 tags: odd
 
+!! I love this! Can I use for production/very important things?
+I would love to answer yes, but for now please don't do it. Noteself is still on Beta stage, and has to be extensively tested.
+But, if you are an early adopter and want to try new and exciting technologies NoteSelf is stable enough to give it a try. 
+
 !!Where is my data stored?
 Your data is stored inside your browser. We use PouchDB in the background,
 which creates a database on your browser's LocalStorage.
@@ -18,7 +22,18 @@ all your data should be there.
 !! How can I install regular tiddliwiki plugins?
 The first steps are quite easy. Just follow the regular way of installing them. 
 Drag and drop the plugin on top of your current Notebook.
-''After that'' open the `Control Panel` ( {{$:/core/images/options-button}} ), navigate to the `TiddlyPouch` tab and click on `Save config`.
+''After that'' open the `Control Panel` ( ,,{{$:/core/images/options-button}},, ), navigate to the `TiddlyPouch` tab and click on `Save config`.
+
+!! I'm a regular TW user. What are the advantages of NoteSelf?
+* Multiple devices synchronization
+* Save your tiddlers on a remote server of your choize
+* Work totally online if you want, without downloading any file
+
+!! I don't want server synchronization, is NoteSelf still atractive?
+Yes it its. There are some features that you can take advantage of:
+
+* Manage several "//notebooks//" ,,(databases),, with a single file
+* Configuration changes do not require to re-download the file 
 
 !! Still not clear?
 Just visit the project's [[site|https://github.com/danielo515]] and open an issue!
