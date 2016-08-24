@@ -1,0 +1,6 @@
+title: $:/
+# put here simple configurations of tw general
+
+state/sidebar: no
+config/WikiParserRules/Inline/wikilink: disable
+config/Toolbar/Icons: no
