@@ -23,7 +23,7 @@
               ],
             "env": {
                 "NODE_ENV": "development",
-                "TIDDLYWIKI_PLUGIN_PATH": "h:/My Dropbox/tiddlywiki/plugins/danielo515/tiddlypouchPlugin/master/tiddlypouchwiki/plugins"
+                "TIDDLYWIKI_PLUGIN_PATH": "h:/My Dropbox/tiddlywiki/plugins/danielo515/tiddlypouchPlugin/master/src/plugins"
             },
             "externalConsole": false,
             "sourceMaps": false,

@@ -2,7 +2,7 @@
 
 # Build SamplePlugin for TiddlyWiki5
 
-TIDDLYWIKI_PLUGIN_PATH="/h/My Dropbox/tiddlywiki/plugins/danielo515/tiddlypouchPlugin/master/tiddlypouchwiki/plugins" tiddlywiki \
+TIDDLYWIKI_PLUGIN_PATH="/h/My Dropbox/tiddlywiki/plugins/danielo515/tiddlypouchPlugin/master/src/plugins" tiddlywiki \
 	./wiki \
 	--verbose \
 	--build \

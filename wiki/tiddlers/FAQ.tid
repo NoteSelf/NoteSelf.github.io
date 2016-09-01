@@ -35,6 +35,9 @@ Yes it its. There are some features that you can take advantage of:
 * Manage several "//notebooks//" ,,(databases),, with a single file
 * Configuration changes do not require to re-download the file 
 
+!! I got an error about `Access-Control-Allow-Origin`
+In order to synchronize NoteSelf to a remote database you have to enable CORS on that remote. 
+
 !! Still not clear?
 Just visit the project's [[site|https://github.com/danielo515]] and open an issue!
 Or maybe ask for some help on [[tiddliwiki boards|https://groups.google.com/forum/#!forum/tiddlywiki]]. They are very nice and helpful people
