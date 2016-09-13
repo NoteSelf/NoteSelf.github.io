@@ -1,0 +1,21 @@
+{
+  "name": "noteself",
+  "version": "0.14.3",
+  "description": "A notebook that syncs!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/noteself"
+  },
+  "keywords": [
+    "tiddlywiki",
+    "notebook",
+    "pouchdb",
+    "sync"
+  ],
+  "author": "Danielo Rodríguez Rivero",
+  "license": "BSD-3-Clause"
+}

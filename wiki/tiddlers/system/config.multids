@@ -2,4 +2,3 @@ title: $:/
 tags: $:/default-config
 
 themes/tiddlywiki/vanilla/options/sidebarlayout: fluid-fixed
-config/Plugins/Disabled/$:/plugins/danielo515/tiddlypouch: yes

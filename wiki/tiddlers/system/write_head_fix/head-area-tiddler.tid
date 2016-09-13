@@ -1,0 +1,7 @@
+title: $:/core/templates/head-area-tiddlers
+
+<$set name="plugintiddler" value=<<currentTiddler>>>
+<$list filter = "[plugin<plugintiddler>tag[$:/core/wiki/rawmarkup]]  [plugin<plugintiddler>tag[$:/tags/RawMarkup]] -[all[shadows+tiddlers]tag[$:/core/wiki/rawmarkup]] -[all[shadows+tiddlers]tag[$:/tags/RawMarkup]]">
+<$view tiddler=<<plugintiddler>> subtiddler=<<currentTiddler>> field="text" format="text"/>
+</$list>
+</$set>

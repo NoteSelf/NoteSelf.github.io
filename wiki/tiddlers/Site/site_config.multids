@@ -4,3 +4,4 @@ title: $:/
 state/sidebar: no
 config/WikiParserRules/Inline/wikilink: disable
 config/Toolbar/Icons: no
+config/Plugins/Disabled/$:/plugins/danielo515/tiddlypouch: yes
