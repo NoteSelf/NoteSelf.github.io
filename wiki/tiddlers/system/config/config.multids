@@ -1,4 +1,4 @@
 title: $:/
-tags: $:/default-config
+defaultconfig: yes
 
 themes/tiddlywiki/vanilla/options/sidebarlayout: fluid-fixed

@@ -13,7 +13,7 @@
 		"index": [
 			"--rendertiddler","$:/NoteSelf/save/deploy","index.html","text/plain"],
         "OnlineDemo": [
-			"--rendertiddler","$:/NoteSelf/save/download","online.html","text/plain"],
+			"--rendertiddler","$:/NoteSelf/save/online","online.html","text/plain"],
 		"favicon": [
 			"--savetiddler","$:/favicon.ico","favicon.ico"],
 		"readme": [

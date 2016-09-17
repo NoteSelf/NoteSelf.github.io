@@ -1,0 +1,7 @@
+title: $:/config/OfficialPluginLibrary
+tags: $:/tags/PluginLibrary
+url: https://noteself.github.io/PluginLibrary.html
+onlineconfig: yes
+caption: {{$:/language/OfficialPluginLibrary}}
+
+{{$:/language/OfficialPluginLibrary/Hint}}
