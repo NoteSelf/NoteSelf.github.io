@@ -1,23 +1,57 @@
 {
-	"plugins": [
-          "danielo515/tiddlypouch"
-	],
-	"themes": [
-		"tiddlywiki/vanilla",
-		"tiddlywiki/snowwhite"
-	],
-	"languages": [
-		"en-US"
-	],
-	"build": {
-		"index": [
-			"--rendertiddler","$:/NoteSelf/save/deploy","index.html","text/plain"],
+    "plugins": [
+        "danielo515/tiddlypouch"
+    ],
+    "themes": [
+        "tiddlywiki/vanilla",
+        "tiddlywiki/snowwhite"
+    ],
+    "languages": [
+        "en-US"
+    ],
+    "build": {
+        "index": [
+            "--rendertiddler",
+            "$:/NoteSelf/save/deploy",
+            "index.html",
+            "text/plain"
+        ],
         "OnlineDemo": [
-			"--rendertiddler","$:/NoteSelf/save/online","online.html","text/plain"],
-		"favicon": [
-			"--savetiddler","$:/favicon.ico","favicon.ico"],
-		"readme": [
-			"--rendertiddler","ReadMe","readme.md","text/html",
-			"--rendertiddler","License","license.md","text/html"]
-	}
+            "--rendertiddler",
+            "$:/NoteSelf/save/online",
+            "online.html",
+            "text/plain"
+        ],
+        "favicon": [
+            "--savetiddler",
+            "$:/favicon.ico",
+            "favicon.ico"
+        ],
+        "readme": [
+            "--rendertiddler",
+            "ReadMe",
+            "readme.md",
+            "text/html",
+            "--rendertiddler",
+            "License",
+            "license.md",
+            "text/html"
+        ],
+        "library": [
+            "--makelibrary",
+            "$:/UpgradeLibrary",
+            "--savelibrarytiddlers",
+            "$:/UpgradeLibrary",
+            "[prefix[$:/]] -[[$:/plugins/tiddlywiki/upgrade]] -[[$:/plugins/tiddlywiki/translators]] -[[$:/plugins/tiddlywiki/pluginlibrary]] -[[$:/plugins/tiddlywiki/jasmine]]",
+            "recipes/library/tiddlers/",
+            "$:/UpgradeLibrary/List",
+            "--savetiddler",
+            "$:/UpgradeLibrary/List",
+            "recipes/library/tiddlers.json",
+            "--rendertiddler",
+            "$:/plugins/tiddlywiki/pluginlibrary/library.template.html",
+            "PluginLibrary.html",
+            "text/plain"
+        ]
+    }
 }
