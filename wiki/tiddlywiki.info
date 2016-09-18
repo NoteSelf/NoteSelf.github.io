@@ -1,6 +1,7 @@
 {
     "plugins": [
-        "danielo515/tiddlypouch"
+        "danielo515/tiddlypouch",
+        "tiddlywiki/pluginlibrary"
     ],
     "themes": [
         "tiddlywiki/vanilla",
@@ -38,6 +39,10 @@
             "text/html"
         ],
         "library": [
+        "--rendertiddler",
+            "$:/plugins/tiddlywiki/pluginlibrary/library.template.html",
+            "PluginLibrary.html",
+            "text/plain",
             "--makelibrary",
             "$:/UpgradeLibrary",
             "--savelibrarytiddlers",
@@ -47,11 +52,8 @@
             "$:/UpgradeLibrary/List",
             "--savetiddler",
             "$:/UpgradeLibrary/List",
-            "recipes/library/tiddlers.json",
-            "--rendertiddler",
-            "$:/plugins/tiddlywiki/pluginlibrary/library.template.html",
-            "PluginLibrary.html",
-            "text/plain"
+            "recipes/library/tiddlers.json"
+
         ]
     }
 }

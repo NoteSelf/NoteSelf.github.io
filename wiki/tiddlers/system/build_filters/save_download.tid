@@ -1,7 +1,7 @@
 title: $:/NoteSelf/save/download
 
 \define saveTiddlerFilter()
-[[$:/core]] [[$:/isEncrypted]] [[$:/plugins/danielo515/tiddlypouch]] [[$:/themes/tiddlywiki/snowwhite]] [field:defaultconfig[yes]] [[$:/themes/tiddlywiki/vanilla]] -[[$:/boot/boot.css]] -[type[application/javascript]library[yes]] -[[$:/boot/boot.js]] -[[$:/boot/bootprefix.js]] -[prefix[$:/config/]] +[sort[title]]
+[[$:/core]] [[$:/isEncrypted]] [[$:/plugins/danielo515/tiddlypouch]] [[$:/themes/tiddlywiki/snowwhite]] [[$:/themes/tiddlywiki/vanilla]] -[[$:/boot/boot.css]] -[type[application/javascript]library[yes]] -[[$:/boot/boot.js]] -[[$:/boot/bootprefix.js]] -[prefix[$:/config/]] [field:defaultconfig[yes]] +[sort[title]]
 \end
 \define savingEmpty()
 yes

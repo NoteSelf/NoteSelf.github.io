@@ -2,6 +2,7 @@ title: $:/config/OfficialPluginLibrary
 tags: $:/tags/PluginLibrary
 url: https://noteself.github.io/PluginLibrary.html
 onlineconfig: yes
+defaultconfig: yes
 caption: {{$:/language/OfficialPluginLibrary}}
 
 {{$:/language/OfficialPluginLibrary/Hint}}
