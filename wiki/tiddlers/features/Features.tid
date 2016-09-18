@@ -2,10 +2,17 @@ title: Features
 tags: Home odd
 home-order: 1
 
-<span class="tc-image-wrapper">{{database.svg}}</span>
+{{Revisions}}
+
+---
+
+{{Plugins}}
+
+Not awesome enough? Check this other features too....
+
+<span class="tc-image-wrapper tc-image-left tc-image-small">{{database.svg}}</span>
 
 * ''Synchronize'' between multiple devices: Mobile, tablet, computer...
-* ''Revision handling'': store several versions of the same note and navigate through them.
 * Two way synchronization with ''any'' remote CouchDB server
 * Work offline, sync when you get back online
 * Work totally offline if you want

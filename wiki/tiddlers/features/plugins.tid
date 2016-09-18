@@ -1,0 +1,23 @@
+title: Plugins
+tags: Plugins
+
+<div>
+
+!!!Plugins
+<div class="tc-image-wrapper tc-image-left tc-image-border tc-image-medium">[img[plugins.gif]]</div>
+
+Plugins have just landed in NoteSelf!
+
+How many times have you ''wanted to test a plugin'' but you didn't want to go through all the hazle of installing it?<br>
+Not this task is easier than ever:
+
+* Go to the control panel
+* Click on the plugins tab
+* Open the plugins library
+* Click install on your favourite one
+* Wait a second and refresh the page
+
+That's all! No need to download the file, no need to complex configurations, just plug and play as promised!
+
+,,Note: the plugin library is just a subset of the official plugin library of tiddlywiki. All the plugins there belongs to their respective authors,,
+</div>

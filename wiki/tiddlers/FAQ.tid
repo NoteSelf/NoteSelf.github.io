@@ -3,7 +3,7 @@ tags: odd
 
 !! I love this! Can I use for production/very important things?
 I would love to answer yes, but for now please don't do it. Noteself is still on Beta stage, and has to be extensively tested.
-But, if you are an early adopter and want to try new and exciting technologies NoteSelf is stable enough to give it a try. 
+But, if you are an early adopter and want to try new and exciting technologies NoteSelf is stable enough to give it a try.
 
 !!Where is my data stored?
 Your data is stored inside your browser. We use PouchDB in the background,
@@ -20,23 +20,28 @@ literally. If you open your wiki again with the browser you were previously usin
 all your data should be there.
 
 !! How can I install regular tiddliwiki plugins?
-The first steps are quite easy. Just follow the regular way of installing them. 
-Drag and drop the plugin on top of your current Notebook.
-''After that'' open the `Control Panel` ( ,,{{$:/core/images/options-button}},, ), navigate to the `TiddlyPouch` tab and click on `Save config`.
+Since version `v0.14.5` is possible to install plugins in an easier way. Just go to the control panel, open the plugins tab and then go to the plugin library.
+After a plugin installation all you have to do is refresh the page. There is no need to download the file or save the wiki anymore.
+
+If you want it //"hardcoded"// into your file, install the plugin and ''after that'' open the `Control Panel` ( ,,{{$:/core/images/options-button}},, ),
+ navigate to the `TiddlyPouch` tab and click on `Save config`.
 
 !! I'm a regular TW user. What are the advantages of NoteSelf?
 * Multiple devices synchronization
-* Save your tiddlers on a remote server of your choize
+* Save your tiddlers on a remote server of your choice
 * Work totally online if you want, without downloading any file
+* Tiddlers revisions: navigate through previous versions of the same tiddler
 
 !! I don't want server synchronization, is NoteSelf still atractive?
 Yes it its. There are some features that you can take advantage of:
 
 * Manage several "//notebooks//" ,,(databases),, with a single file
-* Configuration changes do not require to re-download the file 
+* Configuration changes do not require to re-download the file
+* Tiddlers revisions work perfectly fine without any synchronization
+* You can install plugins without downloading any file, do it directly in the online version
 
 !! I got an error about `Access-Control-Allow-Origin`
-In order to synchronize NoteSelf to a remote database you have to enable CORS on that remote. 
+In order to synchronize NoteSelf to a remote database you have to enable CORS on that remote.
 
 !! Still not clear?
 Just visit the project's [[site|https://github.com/danielo515]] and open an issue!

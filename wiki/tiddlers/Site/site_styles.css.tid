@@ -31,9 +31,13 @@ tags: $:/tags/Stylesheet
 
 @media (max-width: 850px){
   /* On small screeens hide the Name, but not the logo*/
-  html .tc-header #logo-bar h1 { 
+  html .tc-header #logo-bar h1 {
     display: none;
   }
+  html .tc-image-revisions {
+    margin-top: 0;
+    }
+
 }
 
 @media (max-width: 651px){
@@ -43,6 +47,9 @@ tags: $:/tags/Stylesheet
   }
   /* the navbar should not float to be centered*/
   html .tc-header .tc-tp-navbar {
+    float: none;
+  }
+  html .tc-image-wrapper.tc-image-left {
     float: none;
   }
 }
@@ -68,16 +75,39 @@ html .tc-tiddler-frame {
 
 /*  ======================== images =========================== */
 
-.tc-tagged-even .tc-image-wrapper{ 
+.tc-tagged-even .tc-image-wrapper{
     float: right;
-    margin-right: -20%;    
+    margin-right: -20%;
 }
-/* This is for svg. Probably you have to add another rule for regular images.*/ 
-html .tc-tagged-odd .tc-image-wrapper img {
+
+html .tc-image-wrapper.tc-image-border img {
+   border: 1px solid #cecece;
+}
+
+html .tc-image-wrapper.tc-image-small img {
     height: 120px;
+}
+
+html .tc-image-wrapper.tc-image-medium img {
+    width: 350px;
+}
+
+html .tc-image-wrapper.tc-image-right {
+    float:right;
+    margin-right: 20px;
+}
+.tc-image-wrapper.tc-image-left {
     float: left;
     margin-right: 20px;
 }
+
+.tc-image-revisions {
+    margin-top: -100px;
+    overflow: hidden;
+    height: 300px;
+}
+
+
 
 /* ========================= Buttons =========================== */
   .tc-btn-big-green:hover {
@@ -98,7 +128,7 @@ html .tc-tagged-odd .tc-image-wrapper img {
 /*==== HEADER AND FOOTER STYLES ===*/
 
 /* hide the arrow that switchs to TW layour */
-.tc-topbar-right .tc-image-chevron-left.tc-image-button { 
+.tc-topbar-right .tc-image-chevron-left.tc-image-button {
     display: none;
 }
 
@@ -108,7 +138,7 @@ section.story-backdrop p {
   margin-bottom: 0px;
 }
 
-/* Make the element on top of the river fixed. 
+/* Make the element on top of the river fixed.
     I think thi is better than applying it directly to the header.
 */
 section.story-backdrop {
@@ -119,7 +149,7 @@ section.story-backdrop {
   z-index: 1;
 }
 
-/* 
+/*
  * Select all tiddler-frame children of story river, including the first one,
  * and give them an extra padding to fix the fixed header.
  */
@@ -128,7 +158,7 @@ section.story-backdrop {
   padding-top: 120px;
 }
 
-/* 
+/*
  * Select all but the first tiddler frame, child of story river,
  * and remove the padding from the previous rule.
  */
@@ -156,10 +186,10 @@ html .tc-header .tc-tp-navbar button{
 }
 
 /*html .tc-header .tc-tp-navbar::after {
-   content: "."; 
-   visibility: hidden; 
-   display: block; 
-   height: 0; 
+   content: ".";
+   visibility: hidden;
+   display: block;
+   height: 0;
    clear: both;
 }*/
 
@@ -175,7 +205,7 @@ html .tc-header #logo-bar, html .tc-header #logo-bar img, .tc-header #logo-bar h
 
 /* For good display of the header */
 .tc-tp-cleaner {
-   height: 0; 
+   height: 0;
    clear: both;
 }
 /* FOOTER */
