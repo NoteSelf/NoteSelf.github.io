@@ -5,7 +5,7 @@
 TIDDLYWIKI_PLUGIN_PATH="/h/My Dropbox/tiddlywiki/plugins/danielo515/tiddlypouchPlugin/master/src/plugins" tiddlywiki \
 	./wiki \
 	--verbose \
-	--build library
+	--build library \
 	|| exit 1
 
 rm -rf ../gh-pages/recipes

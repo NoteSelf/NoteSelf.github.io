@@ -13,4 +13,4 @@ mv ./wiki/output/license.md license.md
 mv ./wiki/output/index.html ../gh-pages
 mv ./wiki/output/online.html ../gh-pages/online/index.html
 
-cd ../gh-pages && git commit -am "$1" && git push origin master
+cd ../gh-pages && git add . && git commit -m "$1" && git push origin master

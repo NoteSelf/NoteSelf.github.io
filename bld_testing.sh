@@ -10,4 +10,4 @@ TIDDLYWIKI_PLUGIN_PATH="/h/My Dropbox/tiddlywiki/plugins/danielo515/tiddlypouchP
 
 mv ./wiki/output/online.html ../gh-pages/nightly/index.html
 
-cd ../gh-pages && git commit -am "Testing: $1" && git push origin master
+cd ../gh-pages && git add . && git commit -m "Testing: $1" && git push origin master

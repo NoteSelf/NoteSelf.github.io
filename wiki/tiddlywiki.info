@@ -39,21 +39,9 @@
             "text/html"
         ],
         "library": [
-        "--rendertiddler",
-            "$:/plugins/tiddlywiki/pluginlibrary/library.template.html",
-            "PluginLibrary.html",
-            "text/plain",
-            "--makelibrary",
-            "$:/UpgradeLibrary",
-            "--savelibrarytiddlers",
-            "$:/UpgradeLibrary",
-            "[prefix[$:/]] -[[$:/plugins/tiddlywiki/upgrade]] -[[$:/plugins/tiddlywiki/translators]] -[[$:/plugins/tiddlywiki/pluginlibrary]] -[[$:/plugins/tiddlywiki/jasmine]] -[[$:/plugins/tiddlywiki/filesystem]] -[[$:/plugins/tiddlywiki/nodewebkitsaver]] -[[$:/plugins/tiddlywiki/tiddlyweb]] -[[$:/plugins/tiddlywiki/tahoelafs]]",
-            "recipes/library/tiddlers/",
-            "$:/UpgradeLibrary/List",
-            "--savetiddler",
-            "$:/UpgradeLibrary/List",
-            "recipes/library/tiddlers.json"
-
-        ]
+			"--makelibrary","$:/UpgradeLibrary",
+   			"--savelibrarytiddlers","$:/UpgradeLibrary","[prefix[$:/]] -[[$:/plugins/tiddlywiki/upgrade]] -[[$:/plugins/tiddlywiki/translators]] -[[$:/plugins/tiddlywiki/pluginlibrary]] -[[$:/plugins/tiddlywiki/jasmine]] -[[$:/plugins/tiddlywiki/filesystem]] -[[$:/plugins/tiddlywiki/nodewebkitsaver]] -[[$:/plugins/tiddlywiki/tiddlyweb]] -[[$:/plugins/tiddlywiki/tahoelafs]]","recipes/library/tiddlers/","$:/UpgradeLibrary/List",
+   			"--savetiddler","$:/UpgradeLibrary/List","recipes/library/tiddlers.json",
+			"--rendertiddler","$:/plugins/tiddlywiki/pluginlibrary/library.template.html","PluginLibrary.html","text/plain"]
     }
 }
