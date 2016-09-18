@@ -42,7 +42,7 @@
             "$:/UpgradeLibrary",
             "--savelibrarytiddlers",
             "$:/UpgradeLibrary",
-            "[prefix[$:/]] -[[$:/plugins/tiddlywiki/upgrade]] -[[$:/plugins/tiddlywiki/translators]] -[[$:/plugins/tiddlywiki/pluginlibrary]] -[[$:/plugins/tiddlywiki/jasmine]]",
+            "[prefix[$:/]] -[[$:/plugins/tiddlywiki/upgrade]] -[[$:/plugins/tiddlywiki/translators]] -[[$:/plugins/tiddlywiki/pluginlibrary]] -[[$:/plugins/tiddlywiki/jasmine]] -[[$:/plugins/tiddlywiki/filesystem]] -[[$:/plugins/tiddlywiki/nodewebkitsaver]] -[[$:/plugins/tiddlywiki/tiddlyweb]] -[[$:/plugins/tiddlywiki/tahoelafs]]",
             "recipes/library/tiddlers/",
             "$:/UpgradeLibrary/List",
             "--savetiddler",
