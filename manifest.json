@@ -1,0 +1,15 @@
+{
+  "name": "NoteSelf, your wiki in sync",
+  "short_name": "NoteSelf",
+  "description": "The personal wiki that syncs",
+  "lang": "en",
+  "start_url": "/online",
+  "scope": "/online",
+  "display": "standalone",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "favicon.ico"
+    }
+  ]
+}
