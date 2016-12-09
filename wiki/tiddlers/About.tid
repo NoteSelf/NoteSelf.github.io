@@ -2,18 +2,18 @@ title: About
 tags: even About
 home-order: 0
 
-NoteSelf has been created and it's developed by 
+NoteSelf has been created and it's developed by
 [ext[Danielo Rodríguez Rivero|https://es.linkedin.com/in/danielorodriguez]], a single JavaScript developer.
 
 
 I only do this because my own interest about having something like this.
-I have been looking for a similar solution for years, and 
+I have been looking for a similar solution for years, and
 I didn't found anything, so I decided to create one myself.
 
 
-NoteSelf stands on the shoulders of two giants that made this project possible: 
-[ext[TiddlyWiki|http://www.tiddliwiki.com]] and [ext[PouchDb|https://www.pouchdb.com]].
-If you don't know any of those projects, please visit their home pages, 
+NoteSelf stands on the shoulders of two giants that made this project possible:
+[ext[TiddlyWiki|http://www.tiddliwiki.com]] and [ext[PouchDb|https://pouchdb.com]].
+If you don't know any of those projects, please visit their home pages,
 they deserve your attention.
 
 
@@ -24,5 +24,5 @@ Yes exactly! Customization.
 
 
 TiddlyPouch fills that gap, bringing to TiddlyWiki a sync mechanism that allows you to
-work offline and sync wen you come back online. Create your own, free and open sourced
+work offline and sync when you come back online. Create your own, free and open sourced
 note taking tool! With sync.

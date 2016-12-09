@@ -6,4 +6,4 @@ title: $:/NoteSelf/save/online
 \define savingEmpty()
 yes
 \end
-{{$:/core/templates/tiddlywiki5.html}}
+{{$:/NoteSelf/templates/online.html}}
