@@ -7,7 +7,7 @@ title: $:/NoteSelf/templates/online.html
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />		<!-- Force IE standards mode for Intranet and HTA - should be the first meta -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 
-<link rel="manifest" href="manifest.json" />
+<link rel="manifest" href="manifest.json" >
 
 <meta name="application-name" content="NoteSelf" />
 <meta name="generator" content="NoteSelf" />
@@ -51,5 +51,29 @@ title: $:/NoteSelf/templates/online.html
 <div id="bootKernel" style="display:none;">
 {{ $:/boot/boot.js ||$:/core/templates/javascript-tiddler}}
 </div>
+<script>
+(function(){
+    var shouldRegister = window.location.protocol === 'https:' || window.location.hostname === 'localhost';
+    if ('serviceWorker' in navigator && shouldRegister) {
+    navigator.serviceWorker.register('sw.js').then(function(registration) {
+        // only show message on worker installed event
+        registration.onupdatefound = function() {
+        var worker = registration.installing;
+        if (!worker) return;
+
+        worker.onstatechange = function() {
+            if (worker.state === "installed") {
+            console.log('<i class="fa fa-download"></i> Caching completed. This app works offline!');
+            console.log($tw);
+            }
+        };
+        };
+    }).catch(function(err) {
+        Raven.captureException(err);
+        console.log('sw failure', err);
+    });
+    }
+})();
+</script>
 </body>
 </html>
