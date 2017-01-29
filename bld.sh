@@ -2,14 +2,14 @@
 
 # Build SamplePlugin for TiddlyWiki5
 
-TIDDLYWIKI_PLUGIN_PATH="/h/My Dropbox/tiddlywiki/plugins/danielo515/tiddlypouchPlugin/master/dist" tiddlywiki \
+TIDDLYWIKI_PLUGIN_PATH="../../plugins_dist" tiddlywiki \
 	./wiki \
 	--verbose \
 	--build index --build OnlineDemo \
 	|| exit 1
 
-mv ./wiki/output/readme.md readme.md
-mv ./wiki/output/license.md license.md
+# mv ./wiki/output/readme.md readme.md
+# mv ./wiki/output/license.md license.md
 mv ./wiki/output/index.html ../gh-pages
 mv ./wiki/output/online.html ../gh-pages/online/index.html
 

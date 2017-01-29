@@ -1,5 +1,6 @@
 {
     "plugins": [
+        "danielo515/pouchdb",
         "danielo515/tiddlypouch",
         "tiddlywiki/pluginlibrary"
     ],
