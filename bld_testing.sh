@@ -2,7 +2,7 @@
 
 # Build the test version of noteself
 
-TIDDLYWIKI_PLUGIN_PATH="/h/My Dropbox/tiddlywiki/plugins/danielo515/tiddlypouchPlugin/master/src/plugins" tiddlywiki \
+TIDDLYWIKI_PLUGIN_PATH="../../plugins_dist" tiddlywiki \
 	./wiki \
 	--verbose \
     --build OnlineDemo \
