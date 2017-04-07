@@ -25,6 +25,12 @@
             "online/index.html",
             "text/plain"
         ],
+        "develop": [
+            "--rendertiddler",
+            "$:/NoteSelf/save/online",
+            "dev/index.html",
+            "text/plain"
+        ],
         "favicon": [
             "--savetiddler",
             "$:/favicon.ico",
