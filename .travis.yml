@@ -12,11 +12,12 @@ before_script:
  - cd noteself
  - "git checkout develop"
 script:
- - tiddlywiki ./wiki --verbose --build index --build OnlineDemo
+ - tiddlywiki ./wiki --verbose --build index --build OnlineDemo --build favicon --build library
+ - cp -R wiki/output ../dist
 deploy:
   provider: pages
   skip_cleanup: true
-  local_dir: wiki/output
+  local_dir: ../dist
   target_branch: master
   github_token: $GITHUB_TOKEN # Set in travis-ci.org dashboard
   on:
