@@ -13,7 +13,7 @@ before_script:
  - "git checkout develop"
 script:
  - tiddlywiki ./wiki --verbose --build index --build OnlineDemo --build favicon --build library
- - cp -R wiki/output/ ../dist
+ - cp -R wiki/output/ ../dist/
 deploy:
   provider: pages
   skip_cleanup: true
