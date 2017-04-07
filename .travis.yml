@@ -10,7 +10,7 @@ before_install:
 before_script:
  - TIDDLYWIKI_PLUGIN_PATH="$(pwd)/pouchdb/src/plugins"
  - "(cd tpouch && npm i && npm link tiddlywiki && gulp travis --production)"
- - export TIDDLYWIKI_PLUGIN_PATH="$TIDDLYWIKI_PLUGIN_PATH,$(pwd)/tpouch/dist"
+ - export TIDDLYWIKI_PLUGIN_PATH="$TIDDLYWIKI_PLUGIN_PATH:$(pwd)/tpouch/dist"
  - cd noteself
  - "git checkout develop"
  - "ls -l $TIDDLYWIKI_PLUGIN_PATH"
