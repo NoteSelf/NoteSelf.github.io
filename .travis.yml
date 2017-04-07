@@ -3,7 +3,7 @@ node_js:
   - "6"
 before_install:
   - "git clone https://github.com/Jermolene/TiddlyWiki5.git tw5"
-  - "git clone git@github.com:danielo515/tw5-pouchdb.git pouchdb"
+  - "git clone https://github.com/danielo515/tw5-pouchdb.git pouchdb"
   - "git clone https://github.com/danielo515/tiddlypouch.git tpouch"
   - "git clone https://github.com/NoteSelf/NoteSelf.github.io.git noteself"
   - "(cd tw5 && npm link)"
