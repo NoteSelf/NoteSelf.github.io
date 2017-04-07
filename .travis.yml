@@ -2,7 +2,8 @@ language: node_js
 node_js:
   - "6"
 before_install:
-  - "npm i -g tiddlywiki"
+  - "git clone https://github.com/Jermolene/TiddlyWiki5.git tw5"
+  - "(cd tw5 && npm link)"
 before_script:
  - "git clone https://github.com/danielo515/tiddlypouch.git tpouch"
  - "(cd tpouch && npm i && gulp --production)"
