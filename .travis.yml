@@ -8,7 +8,7 @@ before_install:
  - "git clone https://github.com/NoteSelf/NoteSelf.github.io.git noteself"
   - "(cd tw5 && npm link)"
 before_script:
- - TIDDLYWIKI_PLUGIN_PATH="$(pwd)/pouchdb/src/plugins"
+ - export TIDDLYWIKI_PLUGIN_PATH="$(pwd)/pouchdb/src/plugins"
  - "(cd tpouch && npm i && npm link tiddlywiki && gulp travis --production)"
  - export TIDDLYWIKI_PLUGIN_PATH="$TIDDLYWIKI_PLUGIN_PATH:$(pwd)/tpouch/dist"
  - cd noteself
