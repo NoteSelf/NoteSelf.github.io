@@ -1,0 +1,22 @@
+language: node_js
+node_js:
+  - "6"
+before_install:
+  - "npm i -g tiddlywiki"
+before_script:
+ - "git clone https://github.com/danielo515/tiddlypouch.git tpouch"
+ - "(cd tpouch && npm i && gulp --production)"
+ - export TIDDLYWIKI_PLUGIN_PATH="$(pwd)/tpouch/dist"
+ - "git clone https://github.com/NoteSelf/NoteSelf.github.io.git noteself"
+ - cd noteself
+ - "git checkout develop"
+script:
+ - tiddlywiki ./wiki --verbose --build index --build OnlineDemo
+deploy:
+  provider: pages
+  skip_cleanup: true
+  local_dir: /noteself/wiki/output
+  target_branch: master
+  github_token: $GITHUB_TOKEN # Set in travis-ci.org dashboard
+  on:
+    branch: develop

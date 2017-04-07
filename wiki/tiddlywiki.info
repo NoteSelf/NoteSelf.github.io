@@ -2,7 +2,8 @@
     "plugins": [
         "danielo515/pouchdb",
         "danielo515/tiddlypouch",
-        "tiddlywiki/pluginlibrary"
+        "tiddlywiki/pluginlibrary",
+        "tiddlywiki/googleanalytics"
     ],
     "themes": [
         "tiddlywiki/vanilla",
@@ -21,7 +22,7 @@
         "OnlineDemo": [
             "--rendertiddler",
             "$:/NoteSelf/save/online",
-            "online.html",
+            "online/index.html",
             "text/plain"
         ],
         "favicon": [
