@@ -6,7 +6,7 @@ before_install:
   - "(cd tw5 && npm link)"
 before_script:
  - "git clone https://github.com/danielo515/tiddlypouch.git tpouch"
- - "(cd tpouch && npm i && gulp --production)"
+ - "(cd tpouch && npm i && npm link tiddlywiki && gulp --production)"
  - export TIDDLYWIKI_PLUGIN_PATH="$(pwd)/tpouch/dist"
  - "git clone https://github.com/NoteSelf/NoteSelf.github.io.git noteself"
  - cd noteself
