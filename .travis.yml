@@ -13,7 +13,6 @@ before_script:
  - export TIDDLYWIKI_PLUGIN_PATH="$TIDDLYWIKI_PLUGIN_PATH:$(pwd)/tpouch/dist"
  - cd noteself
  - "git checkout develop"
- - "ls -l $TIDDLYWIKI_PLUGIN_PATH"
 script:
  - tiddlywiki ./wiki --verbose --build index --build OnlineDemo --build favicon --build library
  - cp -r ./wiki/output/* ../dist/
