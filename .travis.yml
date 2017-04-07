@@ -11,6 +11,7 @@ before_script:
  - "git clone https://github.com/NoteSelf/NoteSelf.github.io.git noteself"
  - cd noteself
  - "git checkout develop"
+ - "ls -l $TIDDLYWIKI_PLUGIN_PATH"
 script:
  - tiddlywiki ./wiki --verbose --build index --build OnlineDemo --build favicon --build library
  - cp -r ./wiki/output/* ../dist/
