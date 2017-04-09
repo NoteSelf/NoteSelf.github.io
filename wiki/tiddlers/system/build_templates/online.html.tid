@@ -51,6 +51,7 @@ title: $:/NoteSelf/templates/online.html
 <div id="bootKernel" style="display:none;">
 {{ $:/boot/boot.js ||$:/core/templates/javascript-tiddler}}
 </div>
+<!--~~ Service worker ~~-->
 <script>
 (function(){
     var shouldRegister = window.location.protocol === 'https:' || window.location.hostname === 'localhost';
