@@ -1,0 +1,9 @@
+{
+    "title": "$:/plugins/noteself/online",
+    "description": "Plugin containing specific configurations for the online version of NoteSelf",
+    "author": "Danielo Rodríguez Rivero",
+    "core-version": ">=5.1.13",
+    "list": "readme",
+    "version": "1.0.0",
+    "released": "Sat, 11 Apr 2017 12:23:41 GMT"
+}
