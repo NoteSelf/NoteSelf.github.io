@@ -4,7 +4,8 @@
   "description": "A notebook that syncs!",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "tw":"TIDDLYWIKI_PLUGIN_PATH=../../plugins_dist tiddlywiki ./wiki --verbose",
+    "build":"npm run tw -- --build index --build OnlineDemo"
   },
   "repository": {
     "type": "git",
