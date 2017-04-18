@@ -2,24 +2,24 @@ title: About
 tags: even About
 home-order: 0
 
-NoteSelf has been created and it's developed by
+NoteSelf was created and is developed by
 [ext[Danielo Rodríguez Rivero|https://es.linkedin.com/in/danielorodriguez]], a single JavaScript developer.
 
 
-I only do this because my own interest about having something like this.
-I have been looking for a similar solution for years, and
-I didn't found anything, so I decided to create one myself.
+I only do this because of my own interest in having something like this.
+I have been looking for a similar solution for years but
+I didn't find anything, so I decided to create one myself.
 
 
 NoteSelf stands on the shoulders of two giants that made this project possible:
 [ext[TiddlyWiki|http://www.tiddliwiki.com]] and [ext[PouchDb|https://pouchdb.com]].
-If you don't know any of those projects, please visit their home pages,
+If you don't know those projects, please visit their home pages,
 they deserve your attention.
 
 
 We all love TiddlyWiki. It is powerful, free, highly customizable and open source.
 But don't you miss something? Yes exactly! Sync capabilities like Evernote has.
-In the other hand, probably you love Evernote's sync ability, but don't you miss something?
+On the other hand, probably you love Evernote's sync ability, but don't you miss something?
 Yes exactly! Customization.
 
 
