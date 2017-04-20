@@ -7,7 +7,7 @@ home-order: 2
 list-before: Features
 
 NoteSelf does not require any installation.
-It works directly in your browser, which includes most modern web browsers
+It works directly in your browser which includes most modern web browsers
 and many mobile browsers.
 
 How you play it is up to you: 
@@ -19,13 +19,13 @@ How you play it is up to you:
  {{$:/NoteSelf/Site/Buttons/Online}}  {{$:/TiddlyPouch/Site/Buttons/Download}}
  </div> 
 
-If you decide to download a copy you can start using it just opening your browser's download section and click on the `empty.html` file you just downloaded. 
+If you decide to download a copy you can start using it by just opening your browser's download section and click on the `empty.html` file you just downloaded. 
 ''If you want to rename the file, do it before saving any note in it''! 
 
  
- !!! Congratulations! you got your own Notebook 
+ !!! Congratulations - you've got your own Notebook!
 
-,,Although NoteSelf is more a TW version than just a plugin, 
+,,Although NoteSelf is more of a TiddlyWiki version than a mere plugin, 
 if you are only interested on the plugin itself, there is
 also a method for [[installing the plugin|$:/plugins/danielo515/tiddlypouch/Installation]] 
-in your own tiddlywiki.,,
+into your own TiddlyWiki.,,
