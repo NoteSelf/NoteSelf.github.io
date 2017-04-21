@@ -6,13 +6,13 @@ list-after: Features
 <span class="tc-image-wrapper">[img[ExampleNotebooks]]</span>
 
 NoteSelf is your personal, private, customizable, Evernote-like experience.
-You want cloud ? Fine! You don't ? Fine too! is all yours, is your decision !
-Why not being a bit selfish?
+You want cloud? Fine! You don't? Fine too! It's all yours, it's your decision!
+Why not be a bit selfish?
 
 
 NoteSelf is the perfect place to store your ideas, notes, thoughts, tips, tricks, recipes... 
 whatever you want to put into it! NoteSelf will store, index, and make it easily 
-searchable, so you will find it instantly whenever you need it! 
+searchable so you will find it instantly whenever you need it! 
 
 
 You already know and love Evernote, we know it. It is comfortable, it syncs, has search capabilities...
@@ -22,7 +22,7 @@ Wow, it's almost perfect, but what about:
 * Customization - If you don't like the interface of Evernote, there's nothing you can do
 
 NoteSelf is built on top of TiddlyWiki, a powerful, free, highly customizable and open-source personal wiki.
-We took the best of it, it's powerfull customization system, and mixed it with one of the best
-embedded databases available, [[PouchDb|http://www.pouchdb.com]], for bringing the synchronization capabilities you need.
+We took the best of it, it's powerful customization system, and mixed it with one of the best
+embedded databases available, [[PouchDb|http://www.pouchdb.com]], to bring in the synchronization capabilities you need.
 
 Do you want to know more? Take a look at the [[Features]]!
