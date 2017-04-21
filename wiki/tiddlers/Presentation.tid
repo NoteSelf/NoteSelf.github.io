@@ -3,7 +3,7 @@ tags: Home even
 home-order: 0
 list-after: Features
 
-<span class="tc-image-wrapper">[img[ExampleNotebooks]]</span>
+<span class="tc-image-wrapper" style="display: block; margin: 0 auto;">[img[ExampleNotebooks]]</span>
 
 NoteSelf is your personal, private, customizable, Evernote-like experience.
 You want cloud? Fine! You don't? Fine too! It's all yours, it's your decision!
@@ -15,7 +15,7 @@ whatever you want to put into it! NoteSelf will store, index, and make it easily
 searchable so you will find it instantly whenever you need it! 
 
 
-You already know and love Evernote, we know it. It is comfortable, it syncs, has search capabilities...
+You already know and love Evernote, we know. It is comfortable, it syncs, has search capabilities...
 Wow, it's almost perfect, but what about:
 
 * Privacy - Everything is stored on Evernote's servers!
