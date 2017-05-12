@@ -3,7 +3,7 @@ tags: Home even
 home-order: 0
 list-after: Features
 
-<span class="tc-image-wrapper" style="display: block; margin: 0 auto;">[img[ExampleNotebooks]]</span>
+<span class="tc-image-wrapper">[img[ExampleNotebooks]]</span>
 
 NoteSelf is your personal, private, customizable, Evernote-like experience.
 You want cloud? Fine! You don't? Fine too! It's all yours, it's your decision!
