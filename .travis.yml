@@ -11,17 +11,18 @@ before_script:
  - export TIDDLYWIKI_PLUGIN_PATH="$(pwd)/pouchdb/src/plugins"
  - "(cd tpouch && npm i && npm link tiddlywiki && gulp travis --production)"
  - export TIDDLYWIKI_PLUGIN_PATH="$TIDDLYWIKI_PLUGIN_PATH:$(pwd)/tpouch/dist"
- - cd noteself
- - "git checkout develop"
+ # - cd noteself
+ # - "git checkout develop"
 script:
  - tiddlywiki ./wiki --verbose --build index --build OnlineDemo --build favicon --build library
- - "(cd ../tpouch && gulp travis)" # Build non minified version of TPouch code ( no --production flag )
+ - "(cd ./tpouch && gulp travis)" # Build non minified version of TPouch code ( no --production flag )
  - tiddlywiki ./wiki --verbose --build develop # This is the same as the online one, but to a different dist path
- - cp -r ./wiki/output/* ../dist/
+ - cp -r ./wiki/output/* ./dist/
+ - "ls -lR dist"
 deploy:
   provider: pages
   skip_cleanup: true
-  local_dir: ../dist
+  local_dir: ./dist
   target_branch: master
   github_token: $GITHUB_TOKEN # Set in travis-ci.org dashboard
   on:
