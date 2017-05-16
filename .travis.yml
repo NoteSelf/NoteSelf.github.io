@@ -18,7 +18,7 @@ script:
  - "(cd ./tpouch && gulp travis)" # Build non minified version of TPouch code ( no --production flag )
  - tiddlywiki ./wiki --verbose --build develop # This is the same as the online one, but to a different dist path
  - cp -r ./wiki/output/* ./dist/
- - "ls -l dist"
+ - "ls -lR dist"
 deploy:
   provider: pages
   skip_cleanup: true
