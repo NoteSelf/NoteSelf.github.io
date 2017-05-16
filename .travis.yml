@@ -6,6 +6,7 @@ before_install:
   - "git clone https://github.com/danielo515/tw5-pouchdb.git pouchdb"
   - "git clone https://github.com/danielo515/tiddlypouch.git tpouch"
   - "git clone https://github.com/NoteSelf/NoteSelf.github.io.git noteself"
+  - "ls -l"
 before_script:
  - export TIDDLYWIKI_PLUGIN_PATH="$(pwd)/pouchdb/src/plugins"
  - "(cd tpouch && npm i && npm link tiddlywiki && gulp travis --production)"
