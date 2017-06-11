@@ -12,6 +12,9 @@ In any case, your information is stored locally within your browser.
 
 !!How can I sync multiple devices?
 The best way at this moment is to use a remote `couchdb` server. There are plenty of compatible servers but for simplicity, price and availability we recommend [[cloudant|https://cloudant.com/]]
+Here is a small video tutorial about how to configure `cloudant` for multi-device synchronization:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Oc5lNND8dZE" frameborder="0" allowfullscreen></iframe>
 
 !!I just opened my Wiki in a different browser and I have nothing!
 That's because data is stored in your browser. This means inside your browser

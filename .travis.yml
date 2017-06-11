@@ -9,8 +9,7 @@ before_install:
   - "ls -l"
 before_script:
  - export TIDDLYWIKI_PLUGIN_PATH="$(pwd)/pouchdb/src/plugins"
-# - "(cd tpouch && npm i && gulp travis --production)" # Remove the production flag until we fix the babel issue
- - "(cd tpouch && npm i && gulp travis)"
+ - "(cd tpouch && npm i && gulp travis --production)"
  - export TIDDLYWIKI_PLUGIN_PATH="$TIDDLYWIKI_PLUGIN_PATH:$(pwd)/tpouch/dist"
  # - cd noteself
  # - "git checkout develop"
