@@ -6,6 +6,8 @@ var vendor = {
   fontAwesome: 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3'
 };
 
+var currentDomain = 'https://noteself.github.io';
+
 var URLS = {
   app: [
     'icons/launcher-icon-0-75x.png',
@@ -25,12 +27,16 @@ var URLS = {
 }
 
 var CACHE_NAMES = {
-  app: 'noteself-cache-v7',
-  vendor: 'vendor-cache-v7'
+  app: 'noteself-cache-v8',
+  vendor: 'vendor-cache-v8'
 };
 
 function isVendor(url) {
   return url.startsWith(cdn.max);
+}
+
+function isCurrentDomain(url) {
+  return url.startsWith(currentDomain);
 }
 
 function cacheAll(cacheName, urls) {
@@ -107,7 +113,7 @@ self.addEventListener('fetch', function(evt) {
   var response;
 
   // only handle GET requests
-  if (request.method !== 'GET') return;
+  if (request.method !== 'GET' || !isCurrentDomain(request.url)) return;
 
   if (isVendor(request.url)) {
     // vendor requests: check cache first, fallback to fetch
