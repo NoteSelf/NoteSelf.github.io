@@ -4,8 +4,8 @@
   "description": "A notebook that syncs!",
   "main": "index.js",
   "scripts": {
-    "tw":"TIDDLYWIKI_PLUGIN_PATH=../../plugins_dist tiddlywiki ./wiki --verbose",
-    "build":"npm run tw -- --build index --build OnlineDemo"
+    "tw": "cross-env TIDDLYWIKI_PLUGIN_PATH=../../plugins_dist tiddlywiki ./wiki --verbose",
+    "build": "npm run tw -- --build index --build OnlineDemo"
   },
   "repository": {
     "type": "git",
@@ -18,5 +18,9 @@
     "sync"
   ],
   "author": "Danielo Rodríguez Rivero",
-  "license": "BSD-3-Clause"
+  "license": "BSD-3-Clause",
+  "devDependencies": {
+    "cross-env": "^5.0.1",
+    "travis-weigh-in": "^1.0.2"
+  }
 }
