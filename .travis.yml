@@ -17,6 +17,10 @@ script:
  - tiddlywiki ./wiki --verbose --build index --build OnlineDemo --build favicon --build library
  - "(cd ./tpouch && gulp travis)" # Build non minified version of TPouch code ( no --production flag )
  - tiddlywiki ./wiki --verbose --build develop # This is the same as the online one, but to a different dist path
+ # Measures file sizes and adds that data to the pull request
+ - python node_modules/travis-weigh-in/weigh_in.py wiki/output/online/index.html 
+ - python node_modules/travis-weigh-in/weigh_in.py wiki/output/dev/index.html 
+ - python node_modules/travis-weigh-in/weigh_in.py wiki/output/index.html
  - cp -r ./wiki/output/* ./dist/
  - "ls -lR dist"
 deploy:
