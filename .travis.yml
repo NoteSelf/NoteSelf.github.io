@@ -5,23 +5,20 @@ before_install:
   - "npm i -g tiddlywiki@5.1.14"
   - "git clone https://github.com/danielo515/tw5-pouchdb.git pouchdb"
   - "git clone https://github.com/danielo515/tiddlypouch.git tpouch"
-  - "git clone https://github.com/NoteSelf/NoteSelf.github.io.git noteself"
   - "ls -l"
 before_script:
  - export TIDDLYWIKI_PLUGIN_PATH="$(pwd)/pouchdb/src/plugins"
  - "(cd tpouch && npm i && gulp travis --production)"
  - export TIDDLYWIKI_PLUGIN_PATH="$TIDDLYWIKI_PLUGIN_PATH:$(pwd)/tpouch/dist"
- # - cd noteself
- # - "git checkout develop"
 script:
  - tiddlywiki ./wiki --verbose --build index --build OnlineDemo --build favicon --build library
  - "(cd ./tpouch && gulp travis)" # Build non minified version of TPouch code ( no --production flag )
  - tiddlywiki ./wiki --verbose --build develop # This is the same as the online one, but to a different dist path
+ - cp -r ./wiki/output/* ./dist/ # Copy everything to the dist directory
  # Measures file sizes and adds that data to the pull request
- - python node_modules/travis-weigh-in/weigh_in.py wiki/output/online/index.html 
- - python node_modules/travis-weigh-in/weigh_in.py wiki/output/dev/index.html 
- - python node_modules/travis-weigh-in/weigh_in.py wiki/output/index.html
- - cp -r ./wiki/output/* ./dist/
+ - python node_modules/travis-weigh-in/weigh_in.py dist/online/index.html 
+ - python node_modules/travis-weigh-in/weigh_in.py dist/dev/index.html 
+ - python node_modules/travis-weigh-in/weigh_in.py dist/index.html
  - "ls -lR dist"
 deploy:
   provider: pages
