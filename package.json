@@ -4,9 +4,11 @@
   "description": "A notebook that syncs!",
   "main": "index.js",
   "scripts": {
+    "broco": "npm run clean && broccoli build wiki/plugins/core",
     "tw": "cross-env TIDDLYWIKI_PLUGIN_PATH=../../plugins_dist tiddlywiki ./wiki --verbose",
     "start": "npm run tw -- --server 8087 $:/core/save/all text/plain text/html '' '' 0.0.0.0",
-    "build": "npm run tw -- --build index --build OnlineDemo"
+    "build": "npm run tw -- --build index --build OnlineDemo",
+    "clean": "rimraf wiki/plugins/core"
   },
   "repository": {
     "type": "git",
@@ -21,7 +23,17 @@
   "author": "Danielo Rodríguez Rivero",
   "license": "BSD-3-Clause",
   "devDependencies": {
+    "babel-preset-env": "^1.6.1",
+    "broccoli-babel-transpiler": "^6.1.4",
+    "broccoli-cli": "^1.0.0",
+    "broccoli-funnel": "^2.0.1",
+    "broccoli-merge-trees": "^3.0.0",
+    "broccoli-uglify-sourcemap": "^2.1.1",
     "cross-env": "^5.0.1",
+    "rimraf": "^2.6.2",
     "travis-weigh-in": "^1.0.2"
+  },
+  "dependencies": {
+    "broccoli": "^1.1.4"
   }
 }

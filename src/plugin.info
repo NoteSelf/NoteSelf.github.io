@@ -1,0 +1,9 @@
+{
+    "title": "$:/plugins/noteself/core",
+    "description": "Core plugin of NoteSelf",
+    "author": "Danielo Rodríguez Rivero",
+    "core-version": ">=5.1.13",
+    "list": "readme",
+    "version": "1.0.0",
+    "released": "Sat, 28 Apr 2018 12:23:41 GMT"
+}

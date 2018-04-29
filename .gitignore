@@ -3,3 +3,5 @@ node_modules
 .history
 debug.log
 .DS_STORE
+.cache
+wiki/plugins/core
