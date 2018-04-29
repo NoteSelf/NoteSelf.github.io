@@ -4,8 +4,9 @@
   "description": "A notebook that syncs!",
   "main": "index.js",
   "scripts": {
+    "add-module":"node .bin/new-file.js",
     "broco": "npm run clean && broccoli build wiki/plugins/core",
-    "dev":"npm run clean && broccoli build wiki-dev/plugins/core",
+    "dev": "npm run clean && broccoli build wiki-dev/plugins/core",
     "tw": "cross-env TIDDLYWIKI_PLUGIN_PATH=../../plugins_dist tiddlywiki",
     "start": "npm run tw -- ./wiki-dev --verbose --server 8087 $:/core/save/all text/plain text/html '' '' 0.0.0.0",
     "build": "npm run tw -- ./wiki --verbose --build index --build OnlineDemo",
@@ -30,7 +31,10 @@
     "broccoli-funnel": "^2.0.1",
     "broccoli-merge-trees": "^3.0.0",
     "broccoli-uglify-sourcemap": "^2.1.1",
+    "configstore": "^3.1.2",
     "cross-env": "^5.0.1",
+    "ejs": "^2.5.9",
+    "inquirer": "^5.2.0",
     "rimraf": "^2.6.2",
     "travis-weigh-in": "^1.0.2"
   },
