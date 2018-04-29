@@ -10,7 +10,8 @@ const templateFile = (x) => join(templatesPath, templates[x]);
 
 const templates = {
     library: 'library.js',
-    startup: 'startup.js'
+    startup: 'startup.js',
+    'event-listener': 'even-listener.js'
 }
 
 

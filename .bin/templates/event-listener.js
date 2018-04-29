@@ -1,5 +1,5 @@
 /*\
-title: $:/plugins/<:- author :>/startup/<:- module_name :>
+title: $:/plugins/<:- author :>/events/<:- module_name :>
 type: application/javascript
 module-type: startup
 
@@ -8,7 +8,6 @@ module-type: startup
 @preserve
 
 \*/
-
 
 
 /*jslint node: true, browser: true */
@@ -24,8 +23,14 @@ exports.synchronous = true;
 
 
 /**
- * @module config-startup
+ * @module <:- module_name :>-startup
  */
 exports.startup = () => {
-    /** your code here */
+
+    $tw.rootWidget.addEventListener("tm-your-message-name",
+    (event) => {
+        /** your code here */
+    });
 }
+
+
