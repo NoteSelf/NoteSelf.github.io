@@ -1,5 +1,5 @@
 created: 20180429143826363
-modified: 20180429151017556
+modified: 20180429213730214
 tags: 
 title: login-form
 type: text/vnd.tiddlywiki
@@ -11,6 +11,8 @@ In order to login we will send you an email with a random unique pin. ''No regis
 ''email'': <$edit-text tag="input" tiddler="$:/state/ns/email" placeholder="email"/>
 
 <div>
-<$button class="tc-btn-big-green"> Get pin </$button>
+<$button class="tc-btn-big-green"> Get pin 
+<$action-sendmessage $message="tm-get-pin" $param={{$:/state/ns/email}}/>
+</$button>
 </div>
 </div>

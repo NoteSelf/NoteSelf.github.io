@@ -1,5 +1,5 @@
 created: 20180429150815436
-modified: 20180429151844125
+modified: 20180429213759457
 tags: 
 title: input-pin
 type: text/vnd.tiddlywiki
@@ -10,5 +10,7 @@ Please check your email. You should have received a ''PIN'' code. Input that cod
 
 ''PIN'': <$edit-text tag="input" tiddler="$:/state/ns/pin" placeholder="pin"/>
 <div>
-<$button class="tc-btn-big-green"> Login </$button>
+<$button class="tc-btn-big-green"> Login
+<$action-sendmessage $message="tm-validate-pin" $param={{$:/state/ns/pin}}/>
+</$button>
 </div>

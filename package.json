@@ -8,7 +8,7 @@
     "broco": "npm run clean && broccoli build wiki/plugins/core",
     "dev": "npm run clean && broccoli build wiki-dev/plugins/core",
     "tw": "cross-env TIDDLYWIKI_PLUGIN_PATH=../../plugins_dist tiddlywiki",
-    "start": "npm run tw -- ./wiki-dev --verbose --server 8087 $:/core/save/all text/plain text/html '' '' 0.0.0.0",
+    "start": "npm run dev && npm run tw -- ./wiki-dev --verbose --server 8087 $:/core/save/all text/plain text/html '' '' 0.0.0.0",
     "build": "npm run tw -- ./wiki --verbose --build index --build OnlineDemo",
     "clean": "rimraf wiki-dev/plugins/core"
   },
