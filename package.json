@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "tw": "cross-env TIDDLYWIKI_PLUGIN_PATH=../../plugins_dist tiddlywiki ./wiki --verbose",
+    "start": "npm run tw -- --server 8087 $:/core/save/all text/plain text/html '' '' 0.0.0.0",
     "build": "npm run tw -- --build index --build OnlineDemo"
   },
   "repository": {
