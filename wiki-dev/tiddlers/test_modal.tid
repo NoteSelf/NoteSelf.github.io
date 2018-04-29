@@ -1,0 +1,7 @@
+created: 20180429152040124
+modified: 20180429152100167
+tags: 
+title: test/modal
+type: text/vnd.tiddlywiki
+
+<$button message="tm-modal" param="login-popup">Open demo modal</$button>

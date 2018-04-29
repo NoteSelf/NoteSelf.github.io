@@ -1,0 +1,10 @@
+caption: Reveal widget
+created: 20180429151453322
+modified: 20180429151820860
+tags: $:/tags/TextEditor/Snippet
+title: __snippets/reveal-match
+type: text/vnd.tiddlywiki
+
+<$reveal type="match" state="$:/state/ns/changeme" text="no">
+
+</$reveal>
