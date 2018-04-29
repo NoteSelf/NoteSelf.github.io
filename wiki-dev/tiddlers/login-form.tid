@@ -1,7 +1,16 @@
 created: 20180429143826363
-modified: 20180429144227771
+modified: 20180429151017556
 tags: 
 title: login-form
 type: text/vnd.tiddlywiki
 
-<$edit-text tag="input" tiddler="$:/state/ns/email" placeholder="email">
+<div class="ns-login-form">
+
+In order to login we will send you an email with a random unique pin. ''No registration'' required
+
+''email'': <$edit-text tag="input" tiddler="$:/state/ns/email" placeholder="email"/>
+
+<div>
+<$button class="tc-btn-big-green"> Get pin </$button>
+</div>
+</div>

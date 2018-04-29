@@ -7,3 +7,4 @@ debug.log
 wiki/plugins/core
 wiki-dev/plugins/core
 $__StoryList.tid
+wiki-dev/tiddlers/$__DefaultTiddlers.tid

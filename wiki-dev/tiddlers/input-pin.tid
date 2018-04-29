@@ -1,0 +1,17 @@
+created: 20180429150815436
+modified: 20180429151012577
+tags: 
+title: input-pin
+type: text/vnd.tiddlywiki
+
+<div class="ns-login-form">
+
+Please check your email. You should have received a ''PIN'' code. Input that code here and click login.
+
+''email'': {{$:/state/ns/email}}
+
+''PIN'': <$edit-text tag="input" tiddler="$:/state/ns/pin" placeholder="pin"/>
+<div>
+<$button class="tc-btn-big-green"> Login </$button>
+</div>
+</div>
