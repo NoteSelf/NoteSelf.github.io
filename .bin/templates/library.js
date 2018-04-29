@@ -2,6 +2,7 @@
 title: $:/plugins/<:- author :>/<:- module_name :>
 type: application/javascript
 module-type: library
+
 <:= description :>
 
 @preserve
@@ -14,7 +15,7 @@ module-type: library
 'use strict';
 
 const myModule = () => {
-    
+
 }
 
 module.exports = myModule;
