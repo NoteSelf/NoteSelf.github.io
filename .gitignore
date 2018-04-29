@@ -5,3 +5,5 @@ debug.log
 .DS_STORE
 .cache
 wiki/plugins/core
+wiki-dev/plugins/core
+$__StoryList.tid

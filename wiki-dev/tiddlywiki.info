@@ -1,0 +1,9 @@
+{
+    "plugins": [
+        "noteself/core",
+        "tiddlywiki/filesystem",
+        "tiddlywiki/tiddlyweb"
+    ],
+    "themes": [ "tiddlywiki/vanilla" ],
+    "languages": [ "en-US" ]
+}

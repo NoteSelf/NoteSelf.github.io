@@ -1,0 +1,7 @@
+created: 20180429143826363
+modified: 20180429144227771
+tags: 
+title: login-form
+type: text/vnd.tiddlywiki
+
+<$edit-text tag="input" tiddler="$:/state/ns/email" placeholder="email">

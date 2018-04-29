@@ -5,10 +5,11 @@
   "main": "index.js",
   "scripts": {
     "broco": "npm run clean && broccoli build wiki/plugins/core",
-    "tw": "cross-env TIDDLYWIKI_PLUGIN_PATH=../../plugins_dist tiddlywiki ./wiki --verbose",
+    "dev":"npm run clean && broccoli build wiki-dev/plugins/core",
+    "tw": "cross-env TIDDLYWIKI_PLUGIN_PATH=../../plugins_dist tiddlywiki ./wiki-dev --verbose",
     "start": "npm run tw -- --server 8087 $:/core/save/all text/plain text/html '' '' 0.0.0.0",
     "build": "npm run tw -- --build index --build OnlineDemo",
-    "clean": "rimraf wiki/plugins/core"
+    "clean": "rimraf wiki-dev/plugins/core"
   },
   "repository": {
     "type": "git",

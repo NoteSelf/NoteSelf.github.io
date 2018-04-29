@@ -1,0 +1,8 @@
+caption: Edit field
+created: 20180429144055900
+modified: 20180429144219602
+tags: $:/tags/TextEditor/Snippet
+title: __snippets/edit-text
+type: text/vnd.tiddlywiki
+
+<$edit-text tag="input" tiddler="$:/state/ns/changeme" placeholder="changeme">
