@@ -1,18 +1,22 @@
 created: 20180429143826363
-modified: 20180429213730214
+modified: 20180430161242067
 tags: 
 title: login-form
 type: text/vnd.tiddlywiki
 
-<div class="ns-login-form">
-
-In order to login we will send you an email with a random unique pin. ''No registration'' required
-
-''email'': <$edit-text tag="input" tiddler="$:/state/ns/email" placeholder="email"/>
-
-<div>
-<$button class="tc-btn-big-green"> Get pin 
-<$action-sendmessage $message="tm-get-pin" $param={{$:/state/ns/email}}/>
-</$button>
-</div>
+<div class="ns-login-email">
+  <p class='login-message'>
+      In order to login we will send you an email with a random unique pin. ''No registration'' required
+  </p>
+  <div class='ns-form-input-group'>
+    <div class='btn'>
+        ''email'': <$edit-text tag="input" tiddler="$:/state/ns/email" placeholder="email"/>
+        <$reveal type="nomatch" state="$:/state/ns/login-error" text="">
+            <div class="ns-form-error">{{$:/state/ns/login-error}}</div>
+        </$reveal>
+          <$button class="tc-btn-big-green"> Get pin 
+              <$action-sendmessage $message="tm-get-pin" $param={{$:/state/ns/email}}/>
+          </$button>
+      </div>
+  </div>
 </div>

@@ -1,3 +1,34 @@
+$error-color: #ff4500;
+$breakpoint-tablet: 768px;
+
 .ns-login-form {
-    text-align: center
+    .login-message{
+        text-align: center;
+    }
+    .ns-form-input-group {
+        width: 70%;
+        margin: 0 auto;
+        .tc-btn-big-green {
+            padding: 4px;
+        }
+        // this makes a button inside this div 90% and centered
+        .btn {
+            text-align: center;
+            button {
+                width: 50%;
+            }
+        }
+        .input-card {
+            text-align: left;
+            width: 50%;
+            margin: 0 auto;            
+        }
+    }
+}
+
+.ns-form-error {
+    color: $error-color;
+    @media (max-width: $breakpoint-tablet) {
+        display: block
+    }
 }

@@ -25,6 +25,7 @@ const namespace = (prefix) => (fn) => (x, ...args) => fn(prefix + x, ...args);
 
 const stateNamespace = namespace('$:/state/ns/');
 const setTexState = stateNamespace(setText);
+const validEmail = (email) => (/\w+@\w+\.\w{2,4}/).test(email)
 
 /**
  * @module login-startup
@@ -34,7 +35,9 @@ exports.startup = () => {
     $tw.rootWidget.addEventListener("tm-get-pin",
     ({param: email}) => {
         console.log('Trying to get a pin', email);
-        setTexState('waiting-pin','yes')
+        validEmail(email) 
+            ? setTexState('waiting-pin','yes')
+            : setTexState('login-error', 'Invalid email');
     });
 
     $tw.rootWidget.addEventListener("tm-validate-pin",

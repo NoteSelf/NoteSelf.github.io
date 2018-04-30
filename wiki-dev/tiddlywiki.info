@@ -2,7 +2,8 @@
     "plugins": [
         "noteself/core",
         "tiddlywiki/filesystem",
-        "tiddlywiki/tiddlyweb"
+        "tiddlywiki/tiddlyweb",
+        "tiddlywiki/codemirror"
     ],
     "themes": [ "tiddlywiki/vanilla" ],
     "languages": [ "en-US" ]

@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "add-module": "node .bin/new-file.js",
-    "broco": "npm run clean && broccoli build wiki/plugins/core",
-    "dev": "npm run clean && broccoli build wiki-dev/plugins/core",
+    "brocco": "npm run clean && broccoli build",
+    "dev": "npm run brocco -- wiki-dev/plugins/core",
     "tw": "cross-env TIDDLYWIKI_PLUGIN_PATH=../../plugins_dist tiddlywiki",
     "tw-dev": "cross-env TIDDLYWIKI_PLUGIN_PATH=../../plugins_dist nodemon node_modules/tiddlywiki/tiddlywiki.js",
     "start": "npm run dev && npm run tw-dev -- ./wiki-dev --verbose --server 8087 $:/core/save/all text/plain text/html '' '' 0.0.0.0",
