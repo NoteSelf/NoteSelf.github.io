@@ -1,0 +1,10 @@
+{
+    "restartable": "rs",
+    "ignore": [
+      ".git",
+      "node_modules/**/node_modules"
+    ],
+    "watch": [
+        "wiki-dev/plugins/"
+    ]
+}

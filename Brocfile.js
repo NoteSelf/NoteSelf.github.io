@@ -3,18 +3,24 @@ const babel = require('broccoli-babel-transpiler');
 const uglify = require('broccoli-uglify-sourcemap');
 const Funnel = require("broccoli-funnel");
 const Merge = require("broccoli-merge-trees");
+const CompileSass = require("broccoli-sass-source-maps");
+
 
 const appRoot = "src";
 
 // Copy plugin
 const info = new Funnel(appRoot, {
-    files: ["plugin.info"],
-    annotation: "Plugin info file",
+    files: ["plugin.info", 'styles/tiddlywiki.files'],
+    annotation: "Metadata files",
 });
 
-let js = babel(appRoot, {
+let js = new Funnel(appRoot, {
+    include: ['**/*.js']
+})
+
+js = babel(js, {
     annotation: 'JS source code'
-    , filterExtensions:['js']
+    , filterExtensions: ['js']
     , presets: [
         ['env', {
             'targets': {
@@ -33,4 +39,14 @@ js = uglify(js, {
     }
 });
 
-module.exports = new Merge([js,info], {overwrite: true, annotation: "Final output"});
+// Compile sass files
+const css = new CompileSass(
+    [appRoot],
+    "styles/main.scss",
+    "styles/main.css",
+    {
+        annotation: "Sass files",
+    }
+);
+
+module.exports = new Merge([js, css, info], { annotation: "Final output" });

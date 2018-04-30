@@ -1,0 +1,12 @@
+{
+    "tiddlers": [
+        {
+            "file": "main.css",
+            "fields": {
+                "type": "text/vnd.tiddlywiki",
+                "title": "$:/plugins/noteself/core/styles/main.css",
+                "tags": "[[$:/tags/Stylesheet]]"
+            }
+        }
+    ]
+}
