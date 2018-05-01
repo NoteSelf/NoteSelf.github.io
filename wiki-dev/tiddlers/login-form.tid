@@ -1,5 +1,5 @@
 created: 20180429143826363
-modified: 20180430161242067
+modified: 20180501070752116
 tags: 
 title: login-form
 type: text/vnd.tiddlywiki
@@ -11,9 +11,7 @@ type: text/vnd.tiddlywiki
   <div class='ns-form-input-group'>
     <div class='btn'>
         ''email'': <$edit-text tag="input" tiddler="$:/state/ns/email" placeholder="email"/>
-        <$reveal type="nomatch" state="$:/state/ns/login-error" text="">
-            <div class="ns-form-error">{{$:/state/ns/login-error}}</div>
-        </$reveal>
+		 <$transclude tiddler="$:/plugins/noteself/core/form-error"/>
           <$button class="tc-btn-big-green"> Get pin 
               <$action-sendmessage $message="tm-get-pin" $param={{$:/state/ns/email}}/>
           </$button>

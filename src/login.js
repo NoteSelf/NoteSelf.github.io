@@ -28,6 +28,20 @@ const setTexState = stateNamespace(setText);
 const validEmail = (email) => (/\w+@\w+\.\w{2,4}/).test(email)
 
 /**
+ * @function markInvalidField
+ * @description mars a form field as invalid. 
+ * The current value will be used for clearing the error message as soon as the
+ * invalid value and the current value are not the same (check $:/plugins/noteself/core/form-error )
+ * @param  {String} value The invalid value (will be compared with current one)
+ * @param  {String} error The error string that should be displayed
+ * @return {Void} Currently this returns nothing
+ */
+const markInvalidField = (value, error) => {
+    setTexState('login-error', error);
+    setTexState('invalid-value', value);
+}
+
+/**
  * @module login-startup
  */
 exports.startup = () => {
@@ -37,7 +51,7 @@ exports.startup = () => {
         console.log('Trying to get a pin', email);
         validEmail(email) 
             ? setTexState('waiting-pin','yes')
-            : setTexState('login-error', 'Invalid email');
+            : markInvalidField(email, 'Invalid email');
     });
 
     $tw.rootWidget.addEventListener("tm-validate-pin",

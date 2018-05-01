@@ -1,0 +1,9 @@
+created: 20180501070255533
+modified: 20180501071139955
+tags: 
+title: $:/plugins/noteself/core/form-error
+type: text/vnd.tiddlywiki
+
+<$reveal type="match" state="$:/state/ns/invalid-value" text={{$:/state/ns/email}}>
+	<div class="ns-form-error">{{$:/state/ns/login-error}}</div>
+</$reveal>
