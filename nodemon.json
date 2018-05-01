@@ -5,9 +5,9 @@
       "node_modules/**/node_modules"
     ],
     "watch": [
-        "wiki-dev/plugins/"
+        "./plugins"
     ],
     "env": {
-        "TIDDLYWIKI_PLUGIN_PATH": "../../pouchdb/src/plugins/:../../tiddlypouch/master/dist/"
+        "TIDDLYWIKI_PLUGIN_PATH": "./plugins:../../pouchdb/src/plugins/:../../tiddlypouch/master/dist/"
     }
 }

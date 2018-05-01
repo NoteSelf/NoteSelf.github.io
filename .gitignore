@@ -4,7 +4,6 @@ node_modules
 debug.log
 .DS_STORE
 .cache
-wiki/plugins/core
-wiki-dev/plugins/core
+plugins/noteself/
 $__StoryList.tid
 wiki-dev/tiddlers/$__DefaultTiddlers.tid

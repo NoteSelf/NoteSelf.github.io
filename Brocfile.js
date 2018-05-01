@@ -42,8 +42,8 @@ js = uglify(js, {
 // Compile sass files
 const css = new CompileSass(
     [appRoot],
-    "styles/main.scss",
-    "styles/main.css",
+    "core/styles/main.scss",
+    "core/styles/main.css",
     {
         annotation: "Sass files",
     }

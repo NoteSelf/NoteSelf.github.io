@@ -4,7 +4,8 @@
         "tiddlywiki/filesystem",
         "tiddlywiki/tiddlyweb",
         "tiddlywiki/codemirror",
-        "tiddlywiki/highlight"
+        "tiddlywiki/highlight",
+        "noteself/core"
     ],
     "themes": [
         "tiddlywiki/vanilla"
