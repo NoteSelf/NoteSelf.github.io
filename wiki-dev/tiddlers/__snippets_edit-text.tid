@@ -5,4 +5,4 @@ tags: $:/tags/TextEditor/Snippet
 title: __snippets/edit-text
 type: text/vnd.tiddlywiki
 
-<$edit-text tag="input" tiddler="$:/state/ns/changeme" placeholder="changeme">
+<$edit-text tag="input" tiddler="$:/state/ns/changeme" placeholder="changeme"/>

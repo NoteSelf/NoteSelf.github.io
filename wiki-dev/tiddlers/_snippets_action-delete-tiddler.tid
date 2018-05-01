@@ -1,0 +1,10 @@
+caption: Action delete tiddler
+created: 20170101214422411
+creator: danielo515
+modified: 20180501072635095
+modifier: danielo515
+tags: $:/tags/TextEditor/Snippet
+title: _snippets/action-delete-tiddler
+type: text/vnd.tiddlywiki
+
+<$action-deletetiddler $tiddler="$:/state/deleteme"/>

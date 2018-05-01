@@ -1,0 +1,8 @@
+caption: Transclude block
+created: 20171222090318922
+modified: 20180501072635089
+tags: $:/tags/TextEditor/Snippet
+title: _snippets/transclude_block
+type: text/vnd.tiddlywiki
+
+<$transclude mode="block" tiddler="myTiddler" />

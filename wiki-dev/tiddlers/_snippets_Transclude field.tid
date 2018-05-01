@@ -1,0 +1,8 @@
+caption: Transclude field
+created: 20161103081827626
+modified: 20180501072635125
+tags: $:/tags/TextEditor/Snippet
+title: _snippets/Transclude field
+type: text/vnd.tiddlywiki
+
+{{!!text}}

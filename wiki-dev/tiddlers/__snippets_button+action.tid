@@ -1,0 +1,13 @@
+caption: Button with basic action widget 
+created: 20161103080557413
+creator: danielo515
+modified: 20170611145322170
+modifier: danielo515
+tags: $:/tags/TextEditor/Snippet
+title: __snippets/button+action
+type: text/vnd.tiddlywiki
+
+<$button>
+    Button text
+    <$action-setfield $tiddler="title" text="mytext"/>
+</$button>

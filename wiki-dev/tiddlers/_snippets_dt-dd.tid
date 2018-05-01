@@ -1,0 +1,10 @@
+caption: dt dd with title and text
+created: 20161012142401521
+modified: 20180501072635100
+tags: $:/tags/TextEditor/Snippet
+title: _snippets/dt-dd
+type: text/vnd.tiddlywiki
+
+<dl>
+  <dt>{{!!title}}</dt><dd>{{!!text}}</dd>
+</dl>

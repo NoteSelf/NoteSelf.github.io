@@ -1,0 +1,10 @@
+caption: Macrocall widget
+created: 20170101222714421
+creator: danielo515
+modified: 20180501072635120
+modifier: danielo515
+tags: $:/tags/TextEditor/Snippet
+title: _snippets/macro-call-widget
+type: text/vnd.tiddlywiki
+
+<$macrocall $name="macroName" param-name="paramValue" />

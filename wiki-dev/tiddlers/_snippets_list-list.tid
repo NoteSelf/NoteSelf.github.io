@@ -1,0 +1,12 @@
+caption: List tiddlers tagged with this one
+created: 20161012141442713
+modified: 20180501072635110
+tags: $:/tags/TextEditor/Snippet
+title: _snippets/list-list
+type: text/vnd.tiddlywiki
+
+<ol>
+  <$list filter="[tag<currentTiddler>sort[title]]">
+    <li>{{!!title}}</li>
+  </$list>
+</ol>

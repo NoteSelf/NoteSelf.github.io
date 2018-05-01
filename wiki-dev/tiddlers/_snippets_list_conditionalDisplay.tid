@@ -1,0 +1,10 @@
+caption: Conditional view
+created: 20170526080704080
+modified: 20180501072635114
+tags: $:/tags/TextEditor/Snippet
+title: _snippets/list/conditionalDisplay
+type: text/vnd.tiddlywiki
+
+<$list filter="[is[current]tag[tagname]]">
+<!-- This content will only be displayed if the current tiddler has the tag "tagname" -->
+</$list>

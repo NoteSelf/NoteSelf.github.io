@@ -1,0 +1,12 @@
+caption: dt dd with transclusion
+created: 20170804224307981
+creator: danielo515
+modified: 20180501072635105
+modifier: danielo515
+tags: $:/tags/TextEditor/Snippet
+title: _snippets/dt-dd-block
+type: text/vnd.tiddlywiki
+
+<dl>
+  <dt>{{!!title}}</dt><dd><$transclude mode="block"/></dd>
+</dl>
