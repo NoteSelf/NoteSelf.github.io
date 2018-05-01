@@ -14,7 +14,7 @@
         "en-US"
     ],
     "config": {
-        "default-tiddler-location": "../src/tiddlers",
+        "default-tiddler-location": "../src/core/tiddlers",
         "retain-original-tiddler-path": true
     },
     "build": {

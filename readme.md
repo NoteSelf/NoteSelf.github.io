@@ -19,4 +19,4 @@ Here is a list of the relevant ones:
 - `tw-dev`: spawns a tiddlywiki server using nodemon for hot reloading. Check `nodemon.json` for config details. It only watches the plugins directory.
 - `dev`: executes the build pipeline with the plugin directory as target. If you have the dev server running this should trigger a hot reload.
 - `clean`: Deletes the output directory
-- 
+- `build`: builds the distribution output files. Note that this is only for checking locally that the output files works, the actual build and deploy happens automatically on travis CI. Also note that several plugins are on above locations (pouchdb and tiddlypouch), check the `.env` file for the required paths. Also note that the folder separator varies from windows to linux/mac

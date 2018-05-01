@@ -8,7 +8,9 @@ const CompileSass = require("broccoli-sass-source-maps");
 
 const appRoot = "src";
 
-// Copy plugin
+// ===== SELECTING FILES =====
+// First select all the source files and put them into trees with Funnel. 
+// We use different trees for js metadata files and saas
 const info = new Funnel(appRoot, {
     include: ["**/*.info", '**/*.files','**/*.tid'],
     annotation: "Metadata files",
@@ -18,6 +20,7 @@ let js = new Funnel(appRoot, {
     include: ['**/*.js']
 })
 
+// ===== COMPILE JAVASCRIPT =====
 js = babel(js, {
     annotation: 'JS source code'
     , filterExtensions: ['js']
@@ -39,7 +42,7 @@ js = uglify(js, {
     }
 });
 
-// Compile sass files
+// ===== COMPILE SASS =====
 const css = new CompileSass(
     [appRoot],
     "core/styles/main.scss",
@@ -49,4 +52,5 @@ const css = new CompileSass(
     }
 );
 
+// ===== FINAL OUTPUT =====
 module.exports = new Merge([js, css, info], { annotation: "Final output" });

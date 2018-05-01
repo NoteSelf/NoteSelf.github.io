@@ -7,12 +7,13 @@
     "add-module": "node .bin/new-file.js",
     "brocco": "npm run clean && broccoli build",
     "dev": "npm run brocco -- ./plugins/noteself",
-    "tw": "cross-env TIDDLYWIKI_PLUGIN_PATH=../../plugins_dist tiddlywiki",
+    "tw": "node -r dotenv/config ./node_modules/tiddlywiki/tiddlywiki.js",
     "tw-dev": "nodemon node_modules/tiddlywiki/tiddlywiki.js",
     "start": "npm run dev && npm run tw-dev -- ./wiki-dev --verbose --server 8087 $:/core/save/all text/plain text/html '' '' 0.0.0.0",
     "build": "npm run tw -- ./wiki --verbose --build index --build OnlineDemo",
     "clean": "rimraf ./plugins/noteself",
-    "watch":"nodemon --exec 'npm run dev' --watch src "
+    "watch": "nodemon --exec 'npm run dev' --watch src",
+    "postinstall": "mkdir plugins"
   },
   "repository": {
     "type": "git",
@@ -44,6 +45,7 @@
     "travis-weigh-in": "^1.0.2"
   },
   "dependencies": {
-    "axios": "^0.18.0"
+    "axios": "^0.18.0",
+    "dotenv": "^5.0.1"
   }
 }
