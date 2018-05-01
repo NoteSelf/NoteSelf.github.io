@@ -3,8 +3,22 @@
         "noteself/core",
         "tiddlywiki/filesystem",
         "tiddlywiki/tiddlyweb",
-        "tiddlywiki/codemirror"
+        "tiddlywiki/codemirror",
+        "tiddlywiki/highlight"
     ],
-    "themes": [ "tiddlywiki/vanilla" ],
-    "languages": [ "en-US" ]
+    "themes": [
+        "tiddlywiki/vanilla"
+    ],
+    "languages": [
+        "en-US"
+    ],
+    "build": {
+        "ns-core": [
+            "--rendertiddler",
+            "$:/plugins/noteself/core",
+            "ns-core.json",
+            "text/plain",
+            "$:/core/templates/json-tiddler"
+        ]
+    }
 }
