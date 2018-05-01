@@ -1,0 +1,16 @@
+{
+    "tiddlers": [
+        {
+            "file": "../../../../node_modules/axios/dist/axios.min.js",
+            "prefix":"<script>",
+            "suffix":"</script>",
+            "fields": {
+                "type": "application/javascript",
+                "module-type": "library",
+                "title": "$:/plugins/noteself/axios",
+                "library":"yes",
+                "tags":["$:/core/wiki/rawmarkup"]
+            }
+        }
+    ]
+}

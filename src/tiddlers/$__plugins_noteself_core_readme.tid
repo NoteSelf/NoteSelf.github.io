@@ -1,0 +1,12 @@
+created: 20180501084231033
+modified: 20180501084422330
+tags: 
+title: $:/plugins/noteself/core/readme
+type: text/vnd.tiddlywiki
+
+This is the core plugin of ~NoteSelf.
+It includes the customizations that make ~NoteSelf what it is. This includes
+
+* Custom UI elements
+* Better mechanism to enhance user experience (ej: login)
+* Some useful stuff like friendly snippets
