@@ -10,7 +10,7 @@ const appRoot = "src";
 
 // Copy plugin
 const info = new Funnel(appRoot, {
-    files: ["plugin.info", 'styles/tiddlywiki.files'],
+    include: ["**/*.info", '**/*.files','**/*.tid'],
     annotation: "Metadata files",
 });
 
