@@ -1,6 +1,6 @@
 {
     "plugins": [
-        "noteself/core",
+        "danielo515/pouchdb",
         "tiddlywiki/filesystem",
         "tiddlywiki/tiddlyweb",
         "tiddlywiki/codemirror",
@@ -12,6 +12,10 @@
     "languages": [
         "en-US"
     ],
+    "config": {
+        "default-tiddler-location": "../src/tiddlers",
+        "retain-original-tiddler-path": true
+    },
     "build": {
         "ns-core": [
             "--rendertiddler",
