@@ -6,5 +6,8 @@
     ],
     "watch": [
         "wiki-dev/plugins/"
-    ]
+    ],
+    "env": {
+        "TIDDLYWIKI_PLUGIN_PATH": "../../pouchdb/src/plugins/:../../tiddlypouch/master/dist/"
+    }
 }
