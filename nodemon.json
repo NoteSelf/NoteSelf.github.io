@@ -4,8 +4,9 @@
       ".git",
       "node_modules/**/node_modules"
     ],
-    "watch": [
-        "./plugins"
+    "delay":"1000",
+    "watch":[
+        "plugins"
     ],
     "env": {
         "TIDDLYWIKI_PLUGIN_PATH": "./plugins:../../pouchdb/src/plugins/:../../tiddlypouch/master/dist/"

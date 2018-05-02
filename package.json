@@ -12,7 +12,7 @@
     "start": "npm run dev && npm run tw-dev -- ./wiki-dev --verbose --server 8087 $:/core/save/all text/plain text/html '' '' 0.0.0.0",
     "build": "npm run tw -- ./wiki --verbose --build index --build OnlineDemo",
     "clean": "rimraf ./plugins/noteself",
-    "watch": "nodemon --exec 'npm run dev' --watch src",
+    "watch": "nodemon -r dotenv/config --exec 'npm run dev' --watch src",
     "postinstall": "mkdir plugins"
   },
   "repository": {
@@ -34,6 +34,7 @@
     "broccoli-cli": "^1.0.0",
     "broccoli-funnel": "^2.0.1",
     "broccoli-merge-trees": "^3.0.0",
+    "broccoli-replace": "^0.12.0",
     "broccoli-sass-source-maps": "^2.2.0",
     "broccoli-uglify-sourcemap": "^2.1.1",
     "configstore": "^3.1.2",

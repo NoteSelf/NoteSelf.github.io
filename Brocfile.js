@@ -4,7 +4,7 @@ const uglify = require('broccoli-uglify-sourcemap');
 const Funnel = require("broccoli-funnel");
 const Merge = require("broccoli-merge-trees");
 const CompileSass = require("broccoli-sass-source-maps");
-
+const  replace = require('broccoli-replace');
 
 const appRoot = "src";
 
@@ -21,9 +21,20 @@ let js = new Funnel(appRoot, {
 })
 
 // ===== COMPILE JAVASCRIPT =====
+js = replace(js, {
+    files: [
+      '**/*.js'
+    ],
+    patterns: [
+      {
+        match: 'process.env.NOTESELF_BACKEND_URL',
+        replacement: process.env.NOTESELF_BACKEND_URL || "http://localhost:5000"
+      }
+    ]
+  });
+
 js = babel(js, {
     annotation: 'JS source code'
-    , filterExtensions: ['js']
     , presets: [
         ['env', {
             'targets': {
