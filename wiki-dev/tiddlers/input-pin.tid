@@ -1,5 +1,5 @@
 created: 20180429150815436
-modified: 20180430160907982
+modified: 20180501202450304
 tags: 
 title: input-pin
 type: text/vnd.tiddlywiki
@@ -14,7 +14,7 @@ type: text/vnd.tiddlywiki
   <div class='btn'>
     <$button class="tc-btn-big-green">
     	Login
-    	<$action-sendmessage $message="tm-validate-pin" $param={{$:/state/ns/pin}}/>
+    	<$action-sendmessage $message="tm-validate-pin" $param={{$:/state/ns/pin}} correlation_id={{$:/state/ns/correlation-id}}/>
     </$button>
   </div>
 </div>

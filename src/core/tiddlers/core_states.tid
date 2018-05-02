@@ -1,0 +1,10 @@
+created: 20180501201804481
+title: $:/state/plugins/noteself/core/states
+modified: 20180501201952530
+type: text/vnd.tiddlywiki
+
+<ol>
+  <$list filter="[prefix[$:/state/ns/]sort[title]]">
+    <li>''{{!!title}}'': {{!!text}}</li>
+  </$list>
+</ol>

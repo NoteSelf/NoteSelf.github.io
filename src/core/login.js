@@ -14,13 +14,16 @@ Event handlers for the login flow
 /*global $tw: false */
 "use strict";
 
+const { backendUrl } = require('$:/plugins/noteself/core/config');
+
+
 // Export name and synchronous status
 exports.name = "login-events";
 exports.after = ["startup"];
 exports.platforms = ["browser"];
 exports.synchronous = true;
 
-const setText = (title,text) => $tw.wiki.setText(title,'text',null,text);
+const setText = (title, text) => $tw.wiki.setText(title, 'text', null, text);
 const namespace = (prefix) => (fn) => (x, ...args) => fn(prefix + x, ...args);
 
 const stateNamespace = namespace('$:/state/ns/');
@@ -41,23 +44,48 @@ const markInvalidField = (value, error) => {
     setTexState('invalid-value', value);
 }
 
+const requestPin = (email) => {
+
+    setTexState('waiting-pin', 'yes');
+    return axios
+        .post(backendUrl + '/api/register', {
+            email
+        })
+        .then(({ data: { correlation_id } }) => {
+            setTexState('correlation-id', correlation_id);
+        })
+        .catch(() => setTexState('waiting-pin', 'no'))
+}
+
+const validatePin = (pin, correlation_id) => {
+    return axios
+        .post(backendUrl + '/api/login', {
+            pin, correlation_id
+        })
+        .then(({ data }) => {
+            setTexState('credentials', JSON.stringify(data));
+        })
+        .catch(() => setTexState('waiting-pin', 'no'))
+}
+
+
 /**
  * @module login-startup
  */
 exports.startup = () => {
 
     $tw.rootWidget.addEventListener("tm-get-pin",
-    ({param: email}) => {
-        console.log('Trying to get a pin', email);
-        validEmail(email) 
-            ? setTexState('waiting-pin','yes')
-            : markInvalidField(email, 'Invalid email');
-    });
+        ({ param: email }) => {
+            console.log('Trying to get a pin', email);
+            validEmail(email)
+                ? requestPin(email)
+                : markInvalidField(email, 'Invalid email');
+        });
 
     $tw.rootWidget.addEventListener("tm-validate-pin",
-    ({param: pin}) => {
-        console.log('Trying to validate a pin', pin);
-    });
+        ({ param: pin, paramObject: { correlation_id } }) => {
+            validatePin(pin, correlation_id);
+        });
 
 }
 
