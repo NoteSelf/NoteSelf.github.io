@@ -14,7 +14,9 @@ Event handlers for the login flow
 /*global $tw: false */
 "use strict";
 
-const { backendUrl } = require('$:/plugins/noteself/core/config');
+// I'm really sorry about this. We need to defer the require of the request until axios has been injected on the page. The require is far below
+let request; 
+const { COUCH_CONFIG, GET_PIN, VALIDATE_PIN } = require('$:/plugins/noteself/core/constants');
 
 
 // Export name and synchronous status
@@ -23,12 +25,16 @@ exports.after = ["startup"];
 exports.platforms = ["browser"];
 exports.synchronous = true;
 
+const extend = (o, ...os) => $tw.utils.extend(o, ...os)
 const setText = (title, text) => $tw.wiki.setText(title, 'text', null, text);
+const getText = (title) => $tw.wiki.getTiddlerText(title);
+const getJSON = (title) => $tw.wiki.getTiddlerData(title);
+const extendTiddler = (title, ...os) => setText(title, JSON.stringify(extend(getJSON(title), ...os)));
 const namespace = (prefix) => (fn) => (x, ...args) => fn(prefix + x, ...args);
 
 const stateNamespace = namespace('$:/state/ns/');
-const setTexState = stateNamespace(setText);
-const validEmail = (email) => (/\w+@\w+\.\w{2,4}/).test(email)
+const setTextState = stateNamespace(setText);
+const isValidEmail = (email) => (/\w+@\w+\.\w{2,4}/).test(email)
 /**
  * @function updateRemoteConfig
  * Checks if the global tiddlypouch object exists. 
@@ -43,15 +49,28 @@ const validEmail = (email) => (/\w+@\w+\.\w{2,4}/).test(email)
  */
 const updateRemoteConfig = ({ db, host, key, password }) => {
 
-    return (!$TPouch) 
-    ? Promise.reject('TiddlyPouch is not installed!!! It is a mandatory dependency')
-    : Promise.resolve(
-        $TPouch.config.updateRemoteConfig({
-            name: db,
-            url: 'https://' + host,
-            username: key,
-            password
-        }))
+    if (!$TPouch) {
+        return console.error('TiddlyPouch is not installed!!! It is a mandatory dependency');
+    }
+    // ? Promise.reject('TiddlyPouch is not installed!!! It is a mandatory dependency')
+    // : Promise.resolve(() => {
+    // This is required to update the UI
+    extendTiddler(COUCH_CONFIG, {
+        'remote.url': 'https://' + host
+        , 'remote.name': db
+        , 'remote.username': key
+        , 'remote.password': password
+    });
+    /* This updates the running database configuration. This is required because the login method 
+        will ask to the  database configuration the login url
+    */
+    return $TPouch.config.updateRemoteConfig({
+        name: db,
+        url: 'https://' + host,
+        username: key,
+        password
+    });
+    // });
 }
 
 /**
@@ -64,32 +83,65 @@ const updateRemoteConfig = ({ db, host, key, password }) => {
  * @return {Void} Currently this returns nothing
  */
 const markInvalidField = (value, error) => {
-    setTexState('login-error', error);
-    setTexState('invalid-value', value);
+    setTextState('login-form-error', error);
+    setTextState('invalid-value', value);
 }
 
+/**
+ * @function handleAxiosError
+ * Axis report all non 2XX responses as errors. 
+ * The actual error reason (API response) ins buried inside the response section of the error.
+ * This function adds that important data to the root of the error and re-throws it
+ * @param  {Error} err An error returned by axios
+ * @return {void} This functions returns nothing. It just re-trhows the error
+ */
+const handleAxiosError = (err) => {
+    throw (!err.response) 
+    ? err 
+    : extend(err, { message: err.response.data.message, statusCode: err.response.status}) // Enrich the error with response data
+};
+
+/**
+ * @function requestPin
+ * Given an email asks for a session (correlation_id) to the NoteSelf server.
+ * When you asks for a session providing an email a PIN is generated and sent to tat email.
+ * The correlation_id is stored on a state tiddler
+ * @param  {String} email A valid email
+ * @return {Promise} on @fulfil undefined is returned because the given correlation_id is stored on a temp tiddler
+ * on @reject the waiting-pin tiddler is cleared
+ */
 const requestPin = (email) => {
 
-    setTexState('waiting-pin', 'yes');
-    return axios
-        .post(backendUrl + '/api/register', {
+    setTextState('waiting-pin', 'yes');
+    return request
+        .post('/api/register', {
             email
         })
         .then(({ data: { correlation_id } }) => {
-            setTexState('correlation-id', correlation_id);
+            setTextState('correlation-id', correlation_id);
         })
-        .catch(() => setTexState('waiting-pin', 'no'))
+        .catch(handleAxiosError)
+        .catch((err) => {
+            setTextState('waiting-pin', 'no')
+            setTextState('login-error', err.message);
+        })
 }
 
+/**
+ * @function validatePin
+ * Checks the provided pin against the NoteSelf backend server.
+ * The correlation_id was provided by the NS server before
+ * @param  {String} pin            Five digits pin. Must be an string to preserve padding zeros
+ * @param  {String} correlation_id Id that identifies the current session and it's directly related to the PIN
+ * @return {Promise} @fulfills to an auth token description (key, password, db and host)
+ */
 const validatePin = (pin, correlation_id) => {
-    return axios
-        .post(backendUrl + '/api/login', {
+    return request
+        .post('/api/login', {
             pin, correlation_id
         })
-        .then(({ data }) => updateRemoteConfig(data) )
-        .catch((error) => {
-            setTexState('waiting-pin', 'no')
-        })
+        .then(({ data }) => data)
+        .catch(handleAxiosError)
 }
 
 
@@ -98,19 +150,26 @@ const validatePin = (pin, correlation_id) => {
  */
 exports.startup = () => {
 
+    request = require('$:/plugins/noteself/core/config').request; // request is an axios instance with the NoteSelf server as baseurl
+
     // ===== EVENT HANDLERS =====
     // This events arises on the UI and are dispatched to the internal methods
-    $tw.rootWidget.addEventListener("tm-get-pin",
+    $tw.rootWidget.addEventListener(GET_PIN,
         ({ param: email }) => {
             console.log('Trying to get a pin', email);
-            validEmail(email)
+            isValidEmail(email)
                 ? requestPin(email)
                 : markInvalidField(email, 'Invalid email');
         });
 
-    $tw.rootWidget.addEventListener("tm-validate-pin",
+    $tw.rootWidget.addEventListener(VALIDATE_PIN,
         ({ param: pin, paramObject: { correlation_id } }) => {
-            validatePin(pin, correlation_id);
+            validatePin(pin, correlation_id)
+                .then(updateRemoteConfig)
+                .catch((err) => {
+                    setTextState('waiting-pin', 'no')
+                    setTextState('login-error', err.message);
+                })
         });
 
 }

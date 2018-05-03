@@ -15,5 +15,6 @@ type: text/vnd.tiddlywiki
 <$reveal type="nomatch" state="$:/state/ns/waiting-pin" text="no">
     <$transclude tiddler="input-pin" mode="block"/>
 </$reveal>
+<$transclude tiddler="$:/plugins/noteself/core/login-error"/>
 
 </div>

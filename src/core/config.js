@@ -14,6 +14,8 @@ Config variables for noteself core
 
 'use strict';
 
+const {BACKEND_URL} = require('$:/plugins/noteself/core/constants');
+
 module.exports = {
-    backendUrl: "@@process.env.NOTESELF_BACKEND_URL"
+    request: axios.create({ baseURL: BACKEND_URL})
 }

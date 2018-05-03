@@ -1,0 +1,10 @@
+created: 20180503082731508
+creator: abbecomedshclausterideds
+modified: 20180503083052553
+modifier: abbecomedshclausterideds
+title: $:/plugins/noteself/core/login-error
+type: text/vnd.tiddlywiki
+
+<$reveal type="nomatch" state="$:/state/ns/login-error" text="">
+	<div class="ns-form-error">{{$:/state/ns/login-error}}</div>
+</$reveal>
