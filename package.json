@@ -6,13 +6,13 @@
   "scripts": {
     "add-module": "node .bin/new-file.js",
     "brocco": "npm run clean && broccoli build",
-    "buid-plugin": "npm run brocco -- ./plugins/noteself",
+    "build-plugin": "npm run brocco -- ./plugins/noteself",
     "tw": "node -r dotenv/config ./node_modules/tiddlywiki/tiddlywiki.js",
     "tw-dev": "nodemon node_modules/tiddlywiki/tiddlywiki.js",
-    "start": "npm run buid-plugin && npm run tw-dev -- ./wiki-dev --verbose --server 8087 $:/core/save/all text/plain text/html '' '' 0.0.0.0",
+    "start": "npm run build-plugin && npm run tw-dev -- ./wiki-dev --verbose --server 8087 $:/core/save/all text/plain text/html '' '' 0.0.0.0",
     "build": "npm run tw -- ./wiki --verbose --build index --build OnlineDemo",
     "clean": "rimraf ./plugins/noteself",
-    "watch": "nodemon -r dotenv/config --exec 'npm run buid-plugin' --watch src",
+    "watch": "nodemon -r dotenv/config --exec 'npm run build-plugin' --watch src",
     "postinstall": "mkdir plugins"
   },
   "repository": {

@@ -13,7 +13,7 @@ before_script:
  - export TIDDLYWIKI_PLUGIN_PATH="$(pwd)/pouchdb/src/plugins:$(pwd)/tpouch/dist:$(pwd)/plugins" # Plugins paths with all deps globally available
  - "(cd tpouch && npm i && gulp travis --production)"
 script:
- - npm run buid-plugin # builds NoteSelf core plugins
+ - npm run build-plugin # builds NoteSelf core plugins
  - tiddlywiki ./wiki --verbose --build index --build OnlineDemo --build favicon --build library
  - tiddlywiki ./editions/developer --verbose --build index # build the developer edition
  - tiddlywiki ./editions/edge --verbose --build index # build the edge edition (includes not well tested stuff)

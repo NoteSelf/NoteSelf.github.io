@@ -7,3 +7,5 @@ debug.log
 plugins/noteself/
 $__StoryList.tid
 wiki-dev/tiddlers/$__DefaultTiddlers.tid
+dist/developer
+dist/edge

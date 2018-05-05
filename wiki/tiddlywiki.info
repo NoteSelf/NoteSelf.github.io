@@ -2,8 +2,9 @@
     "plugins": [
         "danielo515/pouchdb",
         "danielo515/tiddlypouch",
-        "tiddlywiki/pluginlibrary",
-        "tiddlywiki/googleanalytics"
+        "tiddlywiki/pluginlibrary",        
+        "tiddlywiki/googleanalytics",
+        "noteself/online"
     ],
     "themes": [
         "tiddlywiki/vanilla",
