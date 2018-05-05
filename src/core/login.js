@@ -50,27 +50,19 @@ const isValidEmail = (email) => (/\w+@\w+\.\w{2,4}/).test(email)
 const updateRemoteConfig = ({ db, host, key, password }) => {
 
     if (!$TPouch) {
-        return console.error('TiddlyPouch is not installed!!! It is a mandatory dependency');
+        console.error('TiddlyPouch is not installed!!! It is a mandatory dependency');
+        Promise.reject(new Error('Missing TPouch dependency'))
     }
-    // ? Promise.reject('TiddlyPouch is not installed!!! It is a mandatory dependency')
-    // : Promise.resolve(() => {
-    // This is required to update the UI
-    extendTiddler(COUCH_CONFIG, {
-        'remote.url': 'https://' + host
-        , 'remote.name': db
-        , 'remote.username': key
-        , 'remote.password': password
-    });
-    /* This updates the running database configuration. This is required because the login method 
-        will ask to the  database configuration the login url
-    */
-    return $TPouch.config.updateRemoteConfig({
+
+    return $TPouch
+    .config
+    .updateRemoteConfig({ 
         name: db,
         url: 'https://' + host,
         username: key,
         password
-    });
-    // });
+    })// this returns the newly created configuration, which can be passed directly to refresh-ui
+    .then($TPouch.ui.refresh)
 }
 
 /**
