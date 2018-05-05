@@ -1,0 +1,12 @@
+{
+    "tiddlers": [
+        {
+            "file": "user-circle-o.svg",
+            "fields": {
+                "type": "text/vnd.tiddlywiki",
+                "title": "$:/plugins/noteself/core/icons/user.svg",
+                "tags": "icon"
+            }
+        }
+    ]
+}

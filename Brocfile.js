@@ -12,7 +12,7 @@ const appRoot = "src";
 // First select all the source files and put them into trees with Funnel. 
 // We use different trees for js metadata files and saas
 const info = new Funnel(appRoot, {
-    include: ["**/*.info", '**/*.files','**/*.tid','**/*.multids'],
+    include: ["**/*.info", '**/*.files','**/*.tid','**/*.multids','**/*.svg'],
     annotation: "Metadata files",
 });
 
