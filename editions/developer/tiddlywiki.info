@@ -1,0 +1,27 @@
+{
+    "plugins": [
+        "danielo515/pouchdb",
+        "danielo515/tiddlypouch",
+        "tiddlywiki/highlight",
+        "tiddlywiki/codemirror",
+        "noteself/core"
+    ],
+    "themes": [
+        "tiddlywiki/vanilla",
+        "tiddlywiki/snowwhite"
+    ],
+    "languages": [
+        "en-US"
+    ],
+    "config": {
+        "default-tiddler-location": "../src/core/tiddlers"
+    },
+    "build": {
+        "index": [
+            "--rendertiddler",
+            "$:/NoteSelf/save/online",
+            "../../../dist/developer/index.html",
+            "text/plain"
+        ]
+    }
+}

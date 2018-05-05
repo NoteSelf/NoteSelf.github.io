@@ -6,15 +6,17 @@ node_js:
   - "6"
 before_install:
   - "npm i -g tiddlywiki@5.1.14"
-  - "git clone https://github.com/danielo515/tw5-pouchdb.git pouchdb"
+  - "git clone https://github.com/danielo515/tw5-pouchdb.git pouchdb" # note that I'm naming the output folders for easier reference later
   - "git clone https://github.com/danielo515/tiddlypouch.git tpouch"
   - "ls -l"
 before_script:
- - export TIDDLYWIKI_PLUGIN_PATH="$(pwd)/pouchdb/src/plugins"
+ - export TIDDLYWIKI_PLUGIN_PATH="$(pwd)/pouchdb/src/plugins:$(pwd)/tpouch/dist:$(pwd)/plugins" # Plugins paths with all deps globally available
  - "(cd tpouch && npm i && gulp travis --production)"
- - export TIDDLYWIKI_PLUGIN_PATH="$TIDDLYWIKI_PLUGIN_PATH:$(pwd)/tpouch/dist"
 script:
+ - npm run buid-plugin # builds NoteSelf core plugins
  - tiddlywiki ./wiki --verbose --build index --build OnlineDemo --build favicon --build library
+ - tiddlywiki ./editions/developer --verbose --build index # build the developer edition
+ - tiddlywiki ./editions/edge --verbose --build index # build the edge edition (includes not well tested stuff)
  - "(cd ./tpouch && gulp travis)" # Build non minified version of TPouch code ( no --production flag )
  - tiddlywiki ./wiki --verbose --build develop # This is the same as the online one, but to a different dist path
  - cp -r ./wiki/output/* ./dist/ # Copy everything to the dist directory
