@@ -4,6 +4,9 @@ tags:
 title: $:/plugins/noteself/core/form-error
 type: text/vnd.tiddlywiki
 
-<$reveal type="match" state="$:/state/ns/invalid-value" text={{$:/state/ns/email}}>
-	<div class="ns-form-error">{{$:/state/ns/login-error}}</div>
+<!-- This widget requires a $set widget above it to determine the value to compare to
+	 The error message will only be displayed if the comparing text equals the 
+	 content of the invalid state tiddler-->
+<$reveal type="match" state="$:/state/ns/invalid-value" text=<<ns-form-current-value>> >
+	<div class="ns-form-error">{{$:/state/ns/login-form-error}}</div>
 </$reveal>

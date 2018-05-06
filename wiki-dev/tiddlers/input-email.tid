@@ -11,7 +11,9 @@ type: text/vnd.tiddlywiki
   <div class='ns-form-input-group'>
     <div class='btn'>
         ''email'': <$edit-text tag="input" tiddler="$:/state/ns/email" placeholder="email"/>
-		 <$transclude tiddler="$:/plugins/noteself/core/form-error"/>
+        <$set name="ns-form-current-value" value={{$:/state/ns/email}}>
+            <$transclude tiddler="$:/plugins/noteself/core/form-error"/>
+        </$set>
           <$button class="tc-btn-big-green"> Get pin 
               <$action-sendmessage $message="tm-get-pin" $param={{$:/state/ns/email}}/>
           </$button>

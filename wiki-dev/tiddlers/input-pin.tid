@@ -10,6 +10,9 @@ type: text/vnd.tiddlywiki
   <div class='input-card'>
     <p>''email'': {{$:/state/ns/email}}</p>
     <p>''PIN'': <$edit-text tag="input" tiddler="$:/state/ns/pin" placeholder="pin"/></p>
+    <$set name="ns-form-current-value" value={{$:/state/ns/pin}}>
+      <$transclude tiddler="$:/plugins/noteself/core/form-error"/>
+    </$set>
   </div>
   <div class='btn'>
     <$button class="tc-btn-big-green">

@@ -137,6 +137,8 @@ const validatePin = (pin, correlation_id) => {
 }
 
 
+const isValidPin = x => (/^[0-9]{5}$/).test(x);
+
 /**
  * @module login-startup
  */
@@ -156,7 +158,9 @@ exports.startup = () => {
 
     $tw.rootWidget.addEventListener(VALIDATE_PIN,
         ({ param: pin, paramObject: { correlation_id } }) => {
-            validatePin(pin, correlation_id)
+            !isValidPin(pin) 
+            ? markInvalidField(pin, 'The pin should be composed of 5 numbers')
+            : validatePin(pin, correlation_id)
                 .then(updateRemoteConfig)
                 .catch((err) => {
                     setTextState('waiting-pin', 'no')
