@@ -3,7 +3,7 @@ cache:
   directories:
     - ~/.npm
 node_js:
-  - "6"
+  - "8"
 before_install:
   - "npm i -g tiddlywiki@5.1.14"
   - "git clone https://github.com/danielo515/tw5-pouchdb.git pouchdb" # note that I'm naming the output folders for easier reference later
@@ -19,7 +19,8 @@ script:
  - "(cd ./tpouch && gulp travis)" # Build non minified version of TPouch code ( no --production flag )
  - tiddlywiki ./wiki --verbose --build develop # This is the same as the online one, but to a different dist path
  # ===== Build the edge version with the latest version of tiddlywiki just to see if it works at all =====
- - "npm i -g tiddlywiki@latest  && tiddlywiki --version && tiddlywiki ./editions/edge --verbose --build index # build the edge edition (includes not well tested stuff)"
+ - "npm un -g tiddlywiki && npm i -g tiddlywiki@latest  && tiddlywiki --version"
+ - "tiddlywiki ./editions/edge --verbose --build index " # build the edge edition (includes not well tested stuff)
  - cp -r ./wiki/output/* ./dist/ # Copy everything to the dist directory
  # Measures file sizes and adds that data to the pull request
  - python node_modules/travis-weigh-in/weigh_in.py dist/online/index.html 
