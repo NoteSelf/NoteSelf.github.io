@@ -40,15 +40,13 @@
             "outDir": null,
             "localRoot": "${workspaceRoot}",
             "remoteRoot": null
-        },
+        }
         {
-            "name": "Attach to Process",
             "type": "node",
             "request": "attach",
-            "processId": "${command.PickProcess}",
-            "port": 5858,
-            "sourceMaps": false,
-            "outDir": null
+            "name": "Attach by Process ID",
+            "protocol": "inspector",
+            "processId": "${command:PickProcess}"
         }
     ]
 }

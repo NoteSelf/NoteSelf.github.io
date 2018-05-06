@@ -14,13 +14,10 @@
     "languages": [
         "en-US"
     ],
-    "includeWikis": [
-        {"path": "../../wiki", "read-only": true}
-    ],
     "build": {
         "index": [
             "--rendertiddler",
-            "$:/NoteSelf/save/online",
+            "$:/core/save/all",
             "../../../dist/edge/index.html",
             "text/plain"
         ]
