@@ -3,18 +3,18 @@ footer: <$button message="tm-close-tiddler">Cancel</$button>
 modified: 20180430152639724
 subtitle: <div class='ns-login-popup-header'> {{$:/plugins/noteself/core/icons/user.svg}} <span>Login to ~NoteSelf</span></div>
 tags: 
-title: login-popup
+title: $:/plugins/noteself/core/login-popup
 type: text/vnd.tiddlywiki
 
 <div class="ns-login-form">
 
 <$reveal type="nomatch" state="$:/state/ns/login-succeed" text="yes">
     <$reveal type="match" state="$:/state/ns/waiting-pin" text="no">
-        <$transclude tiddler="login-form" mode="block"/>
+        <$transclude tiddler="$:/plugins/noteself/core/login-form" mode="block"/>
     </$reveal>
 
     <$reveal type="nomatch" state="$:/state/ns/waiting-pin" text="no">
-        <$transclude tiddler="input-pin" mode="block"/>
+        <$transclude tiddler="$:/plugins/noteself/core/input-pin" mode="block"/>
     </$reveal>
     <$transclude tiddler="$:/plugins/noteself/core/login-error"/>
 </$reveal>

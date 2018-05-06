@@ -1,6 +1,6 @@
 title: $:/plugins/danielo515/tiddlypouch/ui/buttons/login
 
-<$button message="tm-modal" param="login-popup" tooltip="Login" aria-label="login" class=<<tv-config-toolbar-class>>>
+<$button message="tm-modal" param="$:/plugins/noteself/core/login-popup" tooltip="Login" aria-label="login" class=<<tv-config-toolbar-class>>>
     <$list filter="[<tv-config-toolbar-icons>prefix[yes]]">
         {{$:/plugins/noteself/core/icons/user.svg}}
     </$list>

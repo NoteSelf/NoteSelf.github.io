@@ -1,7 +1,7 @@
 created: 20180429150815436
 modified: 20180501202450304
 tags: 
-title: input-pin
+title: $:/plugins/noteself/core/input-pin
 type: text/vnd.tiddlywiki
 
 <p class='login-message'>Please check your email. You should have received a ''PIN'' code.</p>

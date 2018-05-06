@@ -1,7 +1,7 @@
 created: 20180429143826363
 modified: 20180501070752116
 tags: 
-title: login-form
+title: $:/plugins/noteself/core/login-form
 type: text/vnd.tiddlywiki
 
 <div class="ns-login-email">

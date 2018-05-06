@@ -4,4 +4,4 @@ tags:
 title: test/modal
 type: text/vnd.tiddlywiki
 
-<$button message="tm-modal" param="login-popup">Open demo modal</$button>
+<$button message="tm-modal" param="$:/plugins/noteself/core/login-popup">Open demo modal</$button>
