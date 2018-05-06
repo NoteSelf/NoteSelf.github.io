@@ -10,7 +10,7 @@ before_install:
   - "git clone https://github.com/danielo515/tiddlypouch.git tpouch"
   - "ls -l"
 before_script:
- - export TIDDLYWIKI_PLUGIN_PATH="$(pwd)/pouchdb/src/plugins:$(pwd)/tpouch/dist:$(pwd)/plugins" # Plugins paths with all deps globally available
+ - export TIDDLYWIKI_PLUGIN_PATH="$(pwd)/plugins:$(pwd)/pouchdb/src/plugins:$(pwd)/tpouch/dist" # Plugins paths with all deps globally available
  - "(cd tpouch && npm i && gulp travis --production)"
 script:
  - npm run build-plugin # builds NoteSelf core plugins
