@@ -15,7 +15,7 @@ Event handlers for the login flow
 "use strict";
 
 // I'm really sorry about this. We need to defer the require of the request until axios has been injected on the page. The require is far below
-let request; 
+let request;
 const { COUCH_CONFIG, GET_PIN, VALIDATE_PIN } = require('$:/plugins/noteself/core/constants');
 
 
@@ -31,9 +31,20 @@ const getText = (title) => $tw.wiki.getTiddlerText(title);
 const getJSON = (title) => $tw.wiki.getTiddlerData(title);
 const extendTiddler = (title, ...os) => setText(title, JSON.stringify(extend(getJSON(title), ...os)));
 const namespace = (prefix) => (fn) => (x, ...args) => fn(prefix + x, ...args);
+// helper function that allows to bypass one promise in a chain passing the previous value
+// hopChain :: Promise p => ( a -> p ) -> a -> a
+const hopChain = fn => value => fn(value).then(() => value)
 
 const stateNamespace = namespace('$:/state/ns/');
 const setTextState = stateNamespace(setText);
+const setLoginError = (msg) => setTextState('login-error', msg);
+const setLoginSucceed = (msg) => setTextState('login-succeed', msg);
+
+const clearAllErrors = () => {
+    setLoginError('');
+    setTextState('login-form-error', '');
+}
+
 const isValidEmail = (email) => (/\w+@\w+\.\w{2,4}/).test(email)
 /**
  * @function updateRemoteConfig
@@ -55,14 +66,14 @@ const updateRemoteConfig = ({ db, host, key, password }) => {
     }
 
     return $TPouch
-    .config
-    .updateRemoteConfig({ 
-        name: db,
-        url: 'https://' + host,
-        username: key,
-        password
-    })// this returns the newly created configuration, which can be passed directly to refresh-ui
-    .then($TPouch.ui.refresh)
+        .config
+        .updateRemoteConfig({
+            name: db,
+            url: 'https://' + host,
+            username: key,
+            password
+        })// this returns the newly created configuration, which can be passed directly to refresh-ui
+        .then($TPouch.ui.refresh)
 }
 
 /**
@@ -88,9 +99,9 @@ const markInvalidField = (value, error) => {
  * @return {void} This functions returns nothing. It just re-trhows the error
  */
 const handleAxiosError = (err) => {
-    throw (!err.response) 
-    ? err 
-    : extend(err, { message: err.response.data.message, statusCode: err.response.status}) // Enrich the error with response data
+    throw (!err.response)
+        ? err
+        : extend(err, { message: err.response.data.message, statusCode: err.response.status }) // Enrich the error with response data
 };
 
 /**
@@ -115,7 +126,7 @@ const requestPin = (email) => {
         .catch(handleAxiosError)
         .catch((err) => {
             setTextState('waiting-pin', 'no')
-            setTextState('login-error', err.message);
+            setLoginError(err.message);
         })
 }
 
@@ -135,6 +146,11 @@ const validatePin = (pin, correlation_id) => {
         .then(({ data }) => data)
         .catch(handleAxiosError)
 }
+
+const tryToLogin = ({ key, password }) => new Promise((resolve,reject) => {
+    const loginHandler = (err) =>  err ? reject(err) : resolve();
+    $tw.syncadaptor.login(key, password, loginHandler);
+});
 
 
 const isValidPin = x => (/^[0-9]{5}$/).test(x);
@@ -158,14 +174,18 @@ exports.startup = () => {
 
     $tw.rootWidget.addEventListener(VALIDATE_PIN,
         ({ param: pin, paramObject: { correlation_id } }) => {
-            !isValidPin(pin) 
-            ? markInvalidField(pin, 'The pin should be composed of 5 numbers')
-            : validatePin(pin, correlation_id)
-                .then(updateRemoteConfig)
-                .catch((err) => {
-                    setTextState('waiting-pin', 'no')
-                    setTextState('login-error', err.message);
-                })
+            !isValidPin(pin)
+                ? markInvalidField(pin, 'The pin should be composed of 5 numbers')
+                : validatePin(pin, correlation_id)
+                    .then(hopChain(updateRemoteConfig))
+                    .then(tryToLogin)
+                    .then(() => {
+                        clearAllErrors();
+                        setLoginSucceed('yes');
+                    })
+                    .catch((err) => {
+                        setLoginError(err.message);
+                    })
         });
 
 }

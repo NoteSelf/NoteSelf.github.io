@@ -1,20 +1,30 @@
 created: 20180429151313974
 footer: <$button message="tm-close-tiddler">Cancel</$button>
 modified: 20180430152639724
-subtitle: Login to ~NoteSelf
+subtitle: <div class='ns-login-popup-header'> {{$:/plugins/noteself/core/icons/user.svg}} <span>Login to ~NoteSelf</span></div>
 tags: 
 title: login-popup
 type: text/vnd.tiddlywiki
 
 <div class="ns-login-form">
 
-<$reveal type="match" state="$:/state/ns/waiting-pin" text="no">
-    <$transclude tiddler="login-form" mode="block"/>
-</$reveal>
+<$reveal type="nomatch" state="$:/state/ns/login-succeed" text="yes">
+    <$reveal type="match" state="$:/state/ns/waiting-pin" text="no">
+        <$transclude tiddler="login-form" mode="block"/>
+    </$reveal>
 
-<$reveal type="nomatch" state="$:/state/ns/waiting-pin" text="no">
-    <$transclude tiddler="input-pin" mode="block"/>
+    <$reveal type="nomatch" state="$:/state/ns/waiting-pin" text="no">
+        <$transclude tiddler="input-pin" mode="block"/>
+    </$reveal>
+    <$transclude tiddler="$:/plugins/noteself/core/login-error"/>
 </$reveal>
-<$transclude tiddler="$:/plugins/noteself/core/login-error"/>
+<$reveal type="match" state="$:/state/ns/login-succeed" text="yes">
+    <div class='ns-form-input-group'>
+        You are now logged in. ''Wohhoo!!''
+        <div class='btn'>
+            <$button class="tc-btn-big-green" message="tm-close-tiddler" > OK! </$button>
+        </div>
+    </div>
+</$reveal>
 
 </div>

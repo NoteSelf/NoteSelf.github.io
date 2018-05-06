@@ -1,6 +1,12 @@
 $error-color: #ff4500;
 $breakpoint-tablet: 768px;
 
+.ns-login-popup-header {
+    svg {
+        margin-right: 35%;
+    }
+}
+
 .ns-login-form {
     text-align: center;
     // .login-message{

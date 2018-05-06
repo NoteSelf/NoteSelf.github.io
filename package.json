@@ -12,7 +12,7 @@
     "start": "npm run build-plugin && npm run tw-dev -- ./wiki-dev --verbose --server 8087 $:/core/save/all text/plain text/html '' '' 0.0.0.0",
     "build": "npm run tw -- ./wiki --verbose --build index --build OnlineDemo",
     "clean": "rimraf ./plugins/noteself",
-    "watch": "nodemon -r dotenv/config --exec 'npm run build-plugin' --watch src",
+    "watch": "nodemon -r dotenv/config --exec 'npm run build-plugin' --watch src -e js,sccs",
     "postinstall": "mkdir plugins"
   },
   "repository": {
