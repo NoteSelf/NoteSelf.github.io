@@ -16,10 +16,8 @@
     ],
     "build": {
         "index": [
-            "--rendertiddler",
-            "$:/core/save/all",
-            "../../../dist/developer/index.html",
-            "text/plain"
+            "--output", "./dist/developer/",
+            "--rendertiddler", "$:/core/save/all", "index.html", "text/plain"
         ]
     }
 }
