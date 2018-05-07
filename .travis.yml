@@ -14,18 +14,18 @@ before_script:
  - "(cd tpouch && npm i && gulp travis --production)"
 script:
  - npm run build-plugin # builds NoteSelf core plugins
- - tiddlywiki ./wiki --verbose --build index --build OnlineDemo --build favicon --build library
+ - tiddlywiki ./wiki --verbose --output ./dist --build index --build OnlineDemo --build favicon --build library
  - tiddlywiki ./editions/developer --verbose --build index # build the developer edition
  - "(cd ./tpouch && gulp travis)" # Build non minified version of TPouch code ( no --production flag )
  - tiddlywiki ./wiki --verbose --build develop # This is the same as the online one, but to a different dist path
  # ===== Build the edge version with the latest version of tiddlywiki just to see if it works at all =====
  - "npm i tiddlywiki@latest  && npx tiddlywiki --version"
  - "npx tiddlywiki ./editions/edge --verbose --build index" # build the edge edition (includes not well tested stuff)
- - cp -r ./wiki/output/* ./dist/ # Copy everything to the dist directory
- # Measures file sizes and adds that data to the pull request
+ # === Measures file sizes and adds that data to the pull request ===
  - python node_modules/travis-weigh-in/weigh_in.py dist/online/index.html 
  - python node_modules/travis-weigh-in/weigh_in.py dist/dev/index.html 
  - python node_modules/travis-weigh-in/weigh_in.py dist/index.html
+after_script:
  - "ls -lR dist"
 deploy:
   provider: pages
