@@ -14,7 +14,8 @@ before_script:
  - "(cd tpouch && npm i && gulp travis --production)"
 script:
  - npm run build-plugin # builds NoteSelf core plugins
- - tiddlywiki ./wiki --verbose --output ./dist --build index --build OnlineDemo --build favicon --build library
+ - tiddlywiki ./wiki --verbose --output ./dist --build index --build favicon --build library
+ - tiddlywiki ./editions/online --verbose --build index
  - tiddlywiki ./editions/developer --verbose --build index # build the developer edition
  - "(cd ./tpouch && gulp travis)" # Build non minified version of TPouch code ( no --production flag )
  - tiddlywiki ./wiki --verbose --output ./dist --build develop # This is the same as the online one, but to a different dist path
