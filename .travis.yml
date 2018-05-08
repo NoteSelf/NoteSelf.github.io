@@ -17,13 +17,16 @@ script:
  - tiddlywiki ./wiki --verbose --output ./dist --build index --build favicon --build library
  - tiddlywiki ./editions/online --verbose --build index
  - tiddlywiki ./editions/developer --verbose --build index # build the developer edition
+ # ===== Non Minified version =====
  - "(cd ./tpouch && gulp travis)" # Build non minified version of TPouch code ( no --production flag )
- - tiddlywiki ./wiki --verbose --output ./dist --build develop # This is the same as the online one, but to a different dist path
- # ===== Build the edge version with the latest version of tiddlywiki just to see if it works at all =====
+ - tiddlywiki ./editions/online --verbose --build dev # This is the same as the online one, but to a different dist path
+ # ===== Build edge version with the latest tiddlywiki and experimental plugins =====
  - "npm i tiddlywiki@latest  && npx tiddlywiki --version"
  - "npx tiddlywiki ./editions/edge --verbose --build index" # build the edge edition (includes not well tested stuff)
  # === Measures file sizes and adds that data to the pull request ===
+ - python node_modules/travis-weigh-in/weigh_in.py dist/developer/index.html 
  - python node_modules/travis-weigh-in/weigh_in.py dist/online/index.html 
+ - python node_modules/travis-weigh-in/weigh_in.py dist/edge/index.html 
  - python node_modules/travis-weigh-in/weigh_in.py dist/dev/index.html 
  - python node_modules/travis-weigh-in/weigh_in.py dist/index.html
 after_script:

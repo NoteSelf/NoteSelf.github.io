@@ -7,6 +7,10 @@
         "index": [
             "--output", "./dist/online/",
             "--rendertiddler", "$:/core/save/all", "index.html", "text/plain"
+        ],
+        "dev": [
+            "--output", "./dist/dev/",
+            "--rendertiddler", "$:/core/save/all", "index.html", "text/plain"
         ]
     }
 }
