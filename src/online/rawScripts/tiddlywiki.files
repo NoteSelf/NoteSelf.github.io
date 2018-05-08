@@ -1,0 +1,14 @@
+{
+    "tiddlers": [
+        {
+            "file": "./sw-register.js",
+            "prefix":"<script>\n",
+            "suffix":"\n</script>",
+            "fields": {
+                "type": "application/javascript",
+                "title": "$:/plugins/noteself/online/sw-register.js",
+                "tags":["$:/tags/RawMarkup"]
+            }
+        }
+    ]
+}

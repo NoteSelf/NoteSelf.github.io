@@ -1,4 +1,4 @@
-title: $:/NoteSelf/templates/online.html
+title: $:/core/templates/tiddlywiki5.html
 
 \rules only filteredtranscludeinline transcludeinline
 <!doctype html>

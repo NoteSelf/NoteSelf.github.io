@@ -1,7 +1,10 @@
 {
     "plugins": [
-        "tiddlywiki/highlight",
-        "noteself/core"
+        "danielo515/pouchdb",
+        "danielo515/tiddlypouch",
+        "tiddlywiki/googleanalytics",
+        "noteself/online",
+        "noteself/build-tools"
     ],
     "themes": [
         "tiddlywiki/vanilla",
@@ -10,10 +13,9 @@
     "languages": [
         "en-US"
     ],
-    "includeWikis": [ {"path": "../base", "read-only": true} ],
     "build": {
         "index": [
-            "--output", "./dist/edge/",
+            "--output", "./dist/online/",
             "--rendertiddler", "$:/core/save/all", "index.html", "text/plain"
         ]
     }
