@@ -4,18 +4,16 @@ title: $:/NoteSelf/templates/online.html
 <!doctype html>
 {{$:/core/templates/MOTW.html}}<html>
 <head>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />		<!-- Force IE standards mode for Intranet and HTA - should be the first meta -->
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />		<!-- Force IE standards mode for Intranet and HTA - should be the first meta -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-
 <link rel="manifest" href="manifest.json" >
-
 <meta name="application-name" content="NoteSelf" />
 <meta name="generator" content="NoteSelf" />
 <meta name="tiddlywiki-version" content="{{$:/core/templates/version}}" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="mobile-web-app-capable" content="yes"/>
 <meta name="format-detection" content="telephone=no" />
 <meta name="copyright" content="{{$:/core/copyright.txt}}" />
 <link id="faviconLink" rel="shortcut icon" href="favicon.ico">
@@ -53,28 +51,28 @@ title: $:/NoteSelf/templates/online.html
 </div>
 <!--~~ Service worker ~~-->
 <script>
-(function(){
-    var shouldRegister = window.location.protocol === 'https:' || window.location.hostname === 'localhost';
-    if ('serviceWorker' in navigator && shouldRegister) {
-    navigator.serviceWorker.register('sw.js').then(function(registration) {
-        // only show message on worker installed event
-        registration.onupdatefound = function() {
-        var worker = registration.installing;
-        if (!worker) return;
-
-        worker.onstatechange = function() {
-            if (worker.state === "installed") {
-            console.log('<i class="fa fa-download"></i> Caching completed. This app works offline!');
-            console.log($tw);
+        (function(){
+            var shouldRegister = window.location.protocol === 'https:' || window.location.hostname === 'localhost';
+            if ('serviceWorker' in navigator && shouldRegister) {
+            navigator.serviceWorker.register('sw.js').then(function(registration) {
+                // only show message on worker installed event
+                registration.onupdatefound = function() {
+                var worker = registration.installing;
+                if (!worker) return;
+        
+                worker.onstatechange = function() {
+                    if (worker.state === "installed") {
+                    console.log('<i class="fa fa-download"></i> Caching completed. This app works offline!');
+                    console.log($tw);
+                    }
+                };
+                };
+            }).catch(function(err) {
+                Raven.captureException(err);
+                console.log('sw failure', err);
+            });
             }
-        };
-        };
-    }).catch(function(err) {
-        Raven.captureException(err);
-        console.log('sw failure', err);
-    });
-    }
-})();
+        })();
 </script>
 </body>
 </html>
