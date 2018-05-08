@@ -1,0 +1,21 @@
+{
+    "plugins": [
+        "danielo515/pouchdb",
+        "danielo515/tiddlypouch",
+        "tiddlywiki/googleanalytics",
+        "noteself/online"
+    ],
+    "themes": [
+        "tiddlywiki/vanilla",
+        "tiddlywiki/snowwhite"
+    ],
+    "languages": [
+        "en-US"
+    ],
+    "build": {
+        "index": [
+            "--output", "./dist/online/",
+            "--rendertiddler", "$:/core/save/all", "index.html", "text/plain"
+        ]
+    }
+}

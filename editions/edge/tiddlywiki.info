@@ -1,10 +1,6 @@
 {
     "plugins": [
-        "danielo515/pouchdb",
-        "danielo515/tiddlypouch",
         "tiddlywiki/highlight",
-        "tiddlywiki/googleanalytics",
-        "noteself/online",
         "noteself/core"
     ],
     "themes": [
@@ -14,6 +10,7 @@
     "languages": [
         "en-US"
     ],
+    "includeWikis": [ {"path": "../base", "read-only": true} ],
     "build": {
         "index": [
             "--rendertiddler",
