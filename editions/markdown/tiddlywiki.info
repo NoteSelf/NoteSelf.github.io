@@ -1,0 +1,14 @@
+{
+    "plugins": [
+        "tiddlywiki/markdown"
+    ],
+    "themes": [],
+    "languages": [],
+    "includeWikis": [ {"path": "../base", "read-only": true} ],
+    "build": {
+        "index": [
+            "--output", "./dist/markdown/",
+            "--rendertiddler", "$:/core/save/all", "index.html", "text/plain"
+        ]
+    }
+}
