@@ -1,0 +1,6 @@
+title: $:/plugins/noteself/build-tools/readme
+
+This plugin only makes sense during NoteSelf build process.
+It contains specific tools and configuration tiddlers that are used during the build process of the different NoteSelf edditions.
+
+If you end with this plugin in your wiki it is probably a bug.

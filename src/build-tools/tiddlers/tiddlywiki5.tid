@@ -1,0 +1,53 @@
+title: $:/core/templates/tiddlywiki5.html
+
+\rules only filteredtranscludeinline transcludeinline
+<!doctype html>
+{{$:/core/templates/MOTW.html}}<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />		<!-- Force IE standards mode for Intranet and HTA - should be the first meta -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<link rel="manifest" href="manifest.json" >
+<meta name="application-name" content="NoteSelf" />
+<meta name="generator" content="NoteSelf" />
+<meta name="tiddlywiki-version" content="{{$:/core/templates/version}}" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="mobile-web-app-capable" content="yes"/>
+<meta name="format-detection" content="telephone=no" />
+<meta name="copyright" content="{{$:/core/copyright.txt}}" />
+<link id="faviconLink" rel="shortcut icon" href="favicon.ico">
+<title>{{$:/core/wiki/title}}</title>
+<!--~~ This is a Tiddlywiki file. The points of interest in the file are marked with this pattern ~~-->
+
+<!--~~ Raw markup ~~-->
+{{{ [all[shadows+tiddlers]tag[$:/core/wiki/rawmarkup]] [all[shadows+tiddlers]tag[$:/tags/RawMarkup]] ||$:/core/templates/plain-text-tiddler}}}
+{{{[all[tiddlers]field:plugin-type[plugin]]||$:/core/templates/head-area-tiddlers}}}
+</head>
+<body class="tc-body">
+<!--~~ Static styles ~~-->
+<div id="styleArea">
+{{$:/boot/boot.css||$:/core/templates/css-tiddler}}
+</div>
+<!--~~ Static content for Google and browsers without JavaScript ~~-->
+<noscript>
+<div id="splashArea">
+{{$:/core/templates/static.area}}
+</div>
+</noscript>
+<!--~~ Ordinary tiddlers ~~-->
+{{$:/core/templates/store.area.template.html}}
+<!--~~ Library modules ~~-->
+<div id="libraryModules" style="display:none;">
+{{{ [is[system]type[application/javascript]library[yes]] ||$:/core/templates/javascript-tiddler}}}
+</div>
+<!--~~ Boot kernel prologue ~~-->
+<div id="bootKernelPrefix" style="display:none;">
+{{ $:/boot/bootprefix.js ||$:/core/templates/javascript-tiddler}}
+</div>
+<!--~~ Boot kernel ~~-->
+<div id="bootKernel" style="display:none;">
+{{ $:/boot/boot.js ||$:/core/templates/javascript-tiddler}}
+</div>
+</body>
+</html>

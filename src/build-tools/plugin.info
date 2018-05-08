@@ -1,0 +1,9 @@
+{
+    "title": "$:/plugins/noteself/build-tools",
+    "description": "Contains build configurations for NoteSelf. This plugin only exists during build",
+    "author": "Danielo Rodríguez Rivero",
+    "core-version": ">=5.1.13",
+    "list": "readme",
+    "version": "1.0.0",
+    "released": "Sat, 11 Apr 2017 12:23:41 GMT"
+}

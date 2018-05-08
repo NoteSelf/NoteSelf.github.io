@@ -3,7 +3,8 @@
         "danielo515/pouchdb",
         "danielo515/tiddlypouch",
         "tiddlywiki/googleanalytics",
-        "noteself/online"
+        "noteself/online",
+        "noteself/build-tools"
     ],
     "themes": [
         "tiddlywiki/vanilla",
