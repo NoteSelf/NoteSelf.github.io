@@ -6,9 +6,7 @@
             "suffix":"\n</script>",
             "fields": {
                 "type": "application/javascript",
-                "module-type": "library",
                 "title": "$:/plugins/noteself/online/sw-register.js",
-                "library":"yes",
                 "tags":["$:/tags/RawMarkup"]
             }
         }
