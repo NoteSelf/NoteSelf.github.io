@@ -20,32 +20,10 @@
             "index.html",
             "text/plain"
         ],
-        "OnlineDemo": [
-            "--rendertiddler",
-            "$:/NoteSelf/save/online",
-            "online/index.html",
-            "text/plain"
-        ],
-        "develop": [
-            "--rendertiddler",
-            "$:/NoteSelf/save/online",
-            "dev/index.html",
-            "text/plain"
-        ],
         "favicon": [
             "--savetiddler",
             "$:/favicon.ico",
             "favicon.ico"
-        ],
-        "readme": [
-            "--rendertiddler",
-            "ReadMe",
-            "readme.md",
-            "text/html",
-            "--rendertiddler",
-            "License",
-            "license.md",
-            "text/html"
         ],
         "library": [
 			"--makelibrary","$:/UpgradeLibrary",
