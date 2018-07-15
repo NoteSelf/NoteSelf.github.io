@@ -33,6 +33,35 @@ $breakpoint-tablet: 768px;
     }
 }
 
+.tc-ns-login-popup {
+    margin-left: -15px;
+    margin-top: -15px;
+    .tc-reveal {
+        padding: 1.5rem;
+        padding-bottom: 0;
+    }
+    .tc-tp-remote-db {
+        input {
+            width: 100%;
+        }
+    }
+    .tc-tab-buttons {
+        padding-top: 0;
+        .tc-tab-selected, button {
+            border-top: none;
+            border-left: none;
+            margin-right: 0;
+        }
+    }
+}
+
+.tc-modal-body {
+    padding: 0;
+    p {
+        margin-top: 0;  
+    }
+}
+
 .ns-form-error {
     color: $error-color;
     @media (max-width: $breakpoint-tablet) {

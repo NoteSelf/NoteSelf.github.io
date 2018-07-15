@@ -1,9 +1,8 @@
-created: 20180429151313974
-footer: <$button message="tm-close-tiddler">Cancel</$button>
-modified: 20180430152639724
-subtitle: <div class='ns-login-popup-header'> {{$:/plugins/noteself/core/icons/user.svg}} <span>Login to ~NoteSelf</span></div>
+caption: ~NoteSelf
+created: 20180715115951685
+modified: 20180715120254713
 tags: 
-title: $:/plugins/noteself/core/login-popup
+title: $:/plugins/noteself/core/login/noteself
 type: text/vnd.tiddlywiki
 
 <div class="ns-login-form">
