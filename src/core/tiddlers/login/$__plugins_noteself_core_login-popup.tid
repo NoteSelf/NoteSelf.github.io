@@ -7,5 +7,5 @@ title: $:/plugins/noteself/core/login-popup
 type: text/vnd.tiddlywiki
 
 <div class="tc-ns-login-popup">
-  <<tabs "$:/plugins/noteself/core/login/noteself manual" "$:/plugins/noteself/core/login/noteself" "$:/state/noteself/login-tabs">>
+  <<tabs "$:/plugins/noteself/core/login/noteself $:/plugins/danielo515/tiddlypouch/ControlPanel/Database/remote-db" "$:/plugins/noteself/core/login/noteself" "$:/state/noteself/login-tabs">>
 </div>
