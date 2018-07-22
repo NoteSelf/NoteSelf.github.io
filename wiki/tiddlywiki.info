@@ -15,10 +15,10 @@
     ],
     "build": {
         "index": [
-            "--rendertiddler",
-            "$:/NoteSelf/save/deploy",
-            "index.html",
-            "text/plain"
+			"--savetiddlers","[type[image/png]][type[image/gif]]","images",
+			"--setfield","[type[image/png]][type[image/gif]]","_canonical_uri","$:/core/templates/canonical-uri-external-image","text/plain",
+			"--setfield","[type[image/png]][type[image/gif]]","text","","text/plain",
+            "--rendertiddler", "$:/NoteSelf/save/deploy", "index.html", "text/plain"
         ],
         "favicon": [
             "--savetiddler",
