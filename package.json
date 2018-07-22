@@ -10,7 +10,7 @@
     "tw": "node -r dotenv/config ./node_modules/tiddlywiki/tiddlywiki.js",
     "tw-dev": "nodemon node_modules/tiddlywiki/tiddlywiki.js",
     "start": "npm run build-plugin && npm run tw-dev -- ./wiki-dev --verbose --server 8087 $:/core/save/all text/plain text/html '' '' 0.0.0.0",
-    "build": "npm run tw -- ./wiki --verbose --build index --build OnlineDemo",
+    "build": "npm run tw -- ./wiki --verbose --build index",
     "clean": "rimraf ./plugins/noteself",
     "watch": "nodemon -r dotenv/config --exec 'npm run build-plugin' --watch src -e js,sccs",
     "postinstall": "mkdir plugins 2> /dev/null"

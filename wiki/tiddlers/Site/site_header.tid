@@ -12,6 +12,7 @@ tags: $:/tags/AboveStory
         <$button class="tc-btn-invisible tc-tiddlylink"><$action-sendmessage $message="tm-close-all-tiddlers"/><$list filter="[tag[About]!sort[home-order]]"><$action-navigate $to={{!!title}}/></$list>About</$button>
         <$button class="tc-btn-invisible tc-tiddlylink"><$action-navigate $to="Features"/>Features</$button>
         {{FAQ||$:/nav_btn}}
+        <a href="https://forum.noteself.org" class="tc-tiddlylink">Community</a>
         {{$:/NoteSelf/Site/Buttons/Online}}
     </div>
     <div class="tc-tp-cleaner"></div>
