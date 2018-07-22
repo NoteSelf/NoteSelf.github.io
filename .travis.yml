@@ -19,6 +19,7 @@ script:
  - tiddlywiki ./wiki --verbose --output ./dist --build index --build favicon --build library
  - tiddlywiki ./editions/online --verbose --build index
  - tiddlywiki ./editions/markdown --verbose --build index
+ - tiddlywiki ./editions/importer --verbose --build index
  - tiddlywiki ./editions/developer --verbose --build index # build the developer edition
  # ===== Non Minified version =====
  - "(cd ./tpouch && gulp travis)" # Build non minified version of TPouch code ( no --production flag )
