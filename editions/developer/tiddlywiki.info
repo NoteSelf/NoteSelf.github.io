@@ -1,7 +1,9 @@
 {
     "plugins": [
         "tiddlywiki/highlight",        
-        "tiddlywiki/codemirror"
+        "tiddlywiki/codemirror",
+        "tiddlywiki/railroad",
+        "tiddlywiki/katex"
     ],
     "themes": [ ],
     "languages": [ "en-US" ],
