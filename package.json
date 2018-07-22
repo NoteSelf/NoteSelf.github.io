@@ -39,14 +39,15 @@
     "broccoli-uglify-sourcemap": "^2.1.1",
     "configstore": "^3.1.2",
     "cross-env": "^5.0.1",
+    "dotenv": "^5.0.1",
     "ejs": "^2.5.9",
     "inquirer": "^5.2.0",
+    "nodemon": "^1.18.3",
     "rimraf": "^2.6.2",
     "tiddlywiki": "5.1.14",
     "travis-weigh-in": "^1.0.2"
   },
   "dependencies": {
-    "axios": "^0.18.0",
-    "dotenv": "^5.0.1"
+    "axios": "^0.18.0"
   }
 }
