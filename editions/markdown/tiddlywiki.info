@@ -1,6 +1,7 @@
 {
     "plugins": [
-        "tiddlywiki/markdown"
+        "tiddlywiki/markdown",
+        "tiddlywiki/katex"
     ],
     "themes": [],
     "languages": [],
