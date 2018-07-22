@@ -1,6 +1,7 @@
 {
     "plugins": [
         "tiddlywiki/highlight",
+        "tiddlywiki/qrcode",
         "noteself/core"
     ],
     "themes": [
