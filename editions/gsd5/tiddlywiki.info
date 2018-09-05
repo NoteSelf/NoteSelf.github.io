@@ -1,0 +1,12 @@
+{
+    "plugins": [ ],
+    "themes": [],
+    "languages": [],
+    "includeWikis": [ {"path": "../base", "read-only": true} ],
+    "build": {
+        "index": [
+            "--output", "./dist/gsd5/",
+            "--rendertiddler", "$:/core/save/all", "index.html", "text/plain"
+        ]
+    }
+}
