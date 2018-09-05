@@ -3,7 +3,8 @@
         "tiddlywiki/markdown",
         "tiddlywiki/evernote",
         "tiddlywiki/bibtex",
-        "tiddlywiki/xlsx-utils"
+        "tiddlywiki/xlsx-utils",
+        "tiddlywiki/jszip"
     ],
     "themes": [],
     "languages": [],
