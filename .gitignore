@@ -7,7 +7,6 @@ debug.log
 plugins/noteself/
 $__StoryList.tid
 wiki-dev/tiddlers/$__DefaultTiddlers.tid
-dist/developer
-dist/edge
-dist/online/index.html
-dist/gsd5
+dist
+!dist/online
+!dist/favicon.ico
