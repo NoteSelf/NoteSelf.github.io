@@ -1,15 +1,12 @@
 {
     "restartable": "rs",
     "ignore": [
-      ".git",
-      "node_modules/**/node_modules"
+        ".git",
+        "node_modules/**/node_modules"
     ],
     "delay":"1000",
     "watch":[
         "plugins",
         "../../tiddlypouch/master/dist/"
-    ],
-    "env": {
-        "TIDDLYWIKI_PLUGIN_PATH": "./plugins:../../pouchdb/src/plugins/:../../tiddlypouch/master/dist/"
-    }
+    ]
 }

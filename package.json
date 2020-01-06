@@ -8,8 +8,8 @@
     "brocco": "npm run clean && broccoli build",
     "build-plugin": "npm run brocco -- ./plugins/noteself",
     "tw": "node -r dotenv/config ./node_modules/tiddlywiki/tiddlywiki.js",
-    "tw-dev": "nodemon node_modules/tiddlywiki/tiddlywiki.js",
-    "start": "npm run build-plugin && npm run tw-dev -- ./wiki-dev --verbose --server 8087 $:/core/save/all text/plain text/html '' '' 0.0.0.0",
+    "tw-dev": "nodemon -r dotenv/config node_modules/tiddlywiki/tiddlywiki.js",
+    "start": "npm run tw-dev -- ./wiki-dev --verbose --server 8087 $:/core/save/all text/plain text/html '' '' 0.0.0.0",
     "build": "npm run tw -- ./wiki --verbose --build index",
     "clean": "rimraf ./plugins/noteself",
     "watch": "nodemon -r dotenv/config --exec 'npm run build-plugin' --watch src -e js,sccs",
@@ -48,6 +48,7 @@
     "travis-weigh-in": "^1.0.2"
   },
   "dependencies": {
-    "axios": "^0.18.0"
+    "axios": "^0.18.0",
+    "tw-pouchdb": "^0.1.2"
   }
 }
