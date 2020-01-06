@@ -16,7 +16,17 @@ Run any of them just by doing `npm run scriptName` where scriptName is one scrip
 Here is a list of the relevant ones:
 
 - `add-module`: asks a bunch of questions and creates a new module using one of the built-in templates. Very useful for bootstrapping new files.
-- `tw-dev`: spawns a tiddlywiki server using nodemon for hot reloading. Check `nodemon.json` for config details. It only watches the plugins directory.
+- `start`: Start a tw server for development on watch mode. It only watches the plugins directory.
+- `watch`: Rebuild plugins on any source code change. Check `nodemon.json` for config details. It watches the `src` folder aditionally
 - `build-plugin`: executes the build pipeline with the plugin directory as target. If you have the dev server running this should trigger a hot reload.
 - `clean`: Deletes the output directory
 - `build`: builds the distribution output files. Note that this is only for checking locally that the output files works, the actual build and deploy happens automatically on travis CI. Also note that several plugins are on above locations (pouchdb and tiddlypouch), check the `.env` file for the required paths. Also note that the folder separator varies from windows to linux/mac
+- `tw`: Helper script that executes tiddlywiki through **node** loading first the ENV variables at the `.env` file.
+- `tw-dev`: Helper script that executes tiddlywiki through **nodemon** loading first the ENV variables at the `.env` file.
+
+## Developing
+For now you will need to use two terminals if you want hot code reload. One for tiddlywiki server and another one for the source code automatic rebuild.
+Run `npm start` on one terminal and `npm run watch` on another one.
+Every time a change to the `src` folder is made, the build pipeline is executed, which outputs to the plugins directory, triggering a reload on the tiddlywiki server.
+
+I really want to improve this process, but I may forget to document it here, so always check `package.json/scripts` if any doubt.
