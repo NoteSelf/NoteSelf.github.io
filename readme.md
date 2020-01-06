@@ -24,9 +24,16 @@ Here is a list of the relevant ones:
 - `tw`: Helper script that executes tiddlywiki through **node** loading first the ENV variables at the `.env` file.
 - `tw-dev`: Helper script that executes tiddlywiki through **nodemon** loading first the ENV variables at the `.env` file.
 
-## Developing
+### Developing
 For now you will need to use two terminals if you want hot code reload. One for tiddlywiki server and another one for the source code automatic rebuild.
 Run `npm start` on one terminal and `npm run watch` on another one.
 Every time a change to the `src` folder is made, the build pipeline is executed, which outputs to the plugins directory, triggering a reload on the tiddlywiki server.
 
 I really want to improve this process, but I may forget to document it here, so always check `package.json/scripts` if any doubt.
+
+### Folder Structure
+
+- `wiki`: wiki used for the homepage at noteself.github.io. Building this wiki is how we generate the project's main page
+- `wiki-dev`: used for adding normal tiddlers to the core plugin. It is also used to test the local plugins (like core,online,build-tools). With some recent changes this is also used to test all the used plugins (including the tpouch ones), but this will not allow you to save tiddlers to the core plugin because tiddlypouch has more preference as a store.
+- `src`: here is where the NoteSelf-specific plugins code lives
+- `editions`: several wiki flavours with different collections of plugins. Each subfolder is a wiki that has a selection of plugins related to it's title. They are used to build the different kinds of NS versions on the main domain (/online,/developer).
