@@ -29,12 +29,12 @@ script:
  - "npm i tiddlywiki@latest  && npx tiddlywiki --version"
  - "npx tiddlywiki ./editions/edge --verbose --build index" # build the edge edition (includes not well tested stuff)
  # === Measures file sizes and adds that data to the pull request ===
- - python node_modules/travis-weigh-in/weigh_in.py dist/developer/index.html 
- - python node_modules/travis-weigh-in/weigh_in.py dist/markdown/index.html 
- - python node_modules/travis-weigh-in/weigh_in.py dist/online/index.html 
- - python node_modules/travis-weigh-in/weigh_in.py dist/edge/index.html 
- - python node_modules/travis-weigh-in/weigh_in.py dist/dev/index.html 
- - python node_modules/travis-weigh-in/weigh_in.py dist/index.html
+ - python node_modules/travis-weigh-in/weigh_in.py dist/developer/index.html  || 0
+ - python node_modules/travis-weigh-in/weigh_in.py dist/markdown/index.html  || 0
+ - python node_modules/travis-weigh-in/weigh_in.py dist/online/index.html  || 0
+ - python node_modules/travis-weigh-in/weigh_in.py dist/edge/index.html  || 0
+ - python node_modules/travis-weigh-in/weigh_in.py dist/dev/index.html  || 0
+ - python node_modules/travis-weigh-in/weigh_in.py dist/index.html || 0
 after_script:
  - "ls -lR dist"
 deploy:
