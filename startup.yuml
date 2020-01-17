@@ -1,9 +1,0 @@
-// {type:activity}
-// {generate:true}
-
-(start)->(startup-config)->|b|
-|b| -> (startup-pouch)->|c|
-|c| -> (startup-syncer)
-
-
-|c|->(end)
