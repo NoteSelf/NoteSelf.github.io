@@ -3,7 +3,7 @@ tags: footer $:/tags/BelowStory
 home-order:3
 
 <div class="tc-page-controls tc-footer tc-tiddler-frame">
-    <a href="http://www.pouchdb.com" target="_blank" class="tc-footer-icon tc-pouch-logo"></a>
-    <a href="http://tiddlywiki.com/" target="_blank" class="tc-footer-icon tc-tiddlywiki-logo"></a>
+    <a href="https://pouchdb.com" target="_blank" class="tc-footer-icon tc-pouch-logo"></a>
+    <a href="https://tiddlywiki.com/" target="_blank" class="tc-footer-icon tc-tiddlywiki-logo"></a>
     <a href="https://github.com/NoteSelf/NoteSelf.github.io"  target="_blank" class="tc-footer-icon">{{$:/core/images/github}}</a>
 </div>

@@ -1,6 +1,5 @@
 title: $:/TiddlyPouch/Site/Buttons/Download
 
-<$button class="tc-btn-big-green">
-<$action-sendmessage $message="tm-download-file" $param="$:/NoteSelf/save/download" filename="noteself.html"/>
+<a class="tc-btn-big-green" download="noteself.html" href="offline.html">
 Download
-</$button>
+</a>
