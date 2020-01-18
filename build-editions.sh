@@ -1,5 +1,5 @@
 #!/bin/bash
 
-for edition in $(ls editions); do
-    yarn tiddlywiki ./editions/$edition --verbose --build index
+for edition in editions/*; do
+    yarn tiddlywiki $edition --verbose --build index
 done

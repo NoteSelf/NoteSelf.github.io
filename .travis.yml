@@ -18,8 +18,8 @@ script:
  # ===== Build the editions
  - tiddlywiki ./wiki --verbose --output ./dist --build index --build favicon --build library
  - | 
-    for edition in $(ls editions); do
-      tiddlywiki ./editions/$edition --verbose --build index
+    for edition in editions/*; do
+      tiddlywiki $edition --verbose --build index
     done
  # ===== Non Minified version =====
  - "(cd ./tpouch && gulp travis)" # Build non minified version of TPouch code ( no --production flag )
@@ -28,9 +28,10 @@ script:
  - "npm i tiddlywiki@latest  && npx tiddlywiki --version"
  - "npx tiddlywiki ./editions/edge --verbose --build index" # build the edge edition (includes not well tested stuff)
  # === Measures file sizes and adds that data to the pull request ===
+ # The var on the for loop includes each path with a trailing slash (/)
  - |
-    for edition in $(ls dist); do
-      python node_modules/travis-weigh-in/weigh_in.py dist/${edition}/index.html || true
+    for edition in dist/*/; do
+      python node_modules/travis-weigh-in/weigh_in.py ${edition}index.html || true 
     done
  - python node_modules/travis-weigh-in/weigh_in.py dist/index.html || true
  - python node_modules/travis-weigh-in/weigh_in.py dist/offline.html || true
