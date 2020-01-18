@@ -17,11 +17,7 @@ script:
  - npm run build-plugin 
  # ===== Build the editions
  - tiddlywiki ./wiki --verbose --output ./dist --build index --build favicon --build library
- - tiddlywiki ./editions/online --verbose --build index
- - tiddlywiki ./editions/markdown --verbose --build index
- - tiddlywiki ./editions/importer --verbose --build index
- - tiddlywiki ./editions/gsd5 --verbose --build index
- - tiddlywiki ./editions/developer --verbose --build index # build the developer edition
+ - ./build-editions.sh
  # ===== Non Minified version =====
  - "(cd ./tpouch && gulp travis)" # Build non minified version of TPouch code ( no --production flag )
  - tiddlywiki ./editions/online --verbose --build dev # This is the same as the online one, but to a different dist path
@@ -29,12 +25,12 @@ script:
  - "npm i tiddlywiki@latest  && npx tiddlywiki --version"
  - "npx tiddlywiki ./editions/edge --verbose --build index" # build the edge edition (includes not well tested stuff)
  # === Measures file sizes and adds that data to the pull request ===
- - python node_modules/travis-weigh-in/weigh_in.py dist/developer/index.html || true
- - python node_modules/travis-weigh-in/weigh_in.py dist/markdown/index.html || true
- - python node_modules/travis-weigh-in/weigh_in.py dist/online/index.html || true
- - python node_modules/travis-weigh-in/weigh_in.py dist/edge/index.html || true
- - python node_modules/travis-weigh-in/weigh_in.py dist/dev/index.html || true
+ - |
+    for edition in $(ls dist); do
+      python node_modules/travis-weigh-in/weigh_in.py dist/${edition}/index.html || true
+    done
  - python node_modules/travis-weigh-in/weigh_in.py dist/index.html || true
+ - python node_modules/travis-weigh-in/weigh_in.py dist/offline.html || true
 after_script:
  - "ls -lR dist"
 deploy:
