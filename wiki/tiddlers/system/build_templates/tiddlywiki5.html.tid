@@ -1,4 +1,5 @@
 title: $:/Noteself/templates/tiddlywiki5.html
+comment: This template is used for generating the main site, containing the TPouch plugin but deactivating it's boot process with TPouch.supressBoot
 
 \rules only filteredtranscludeinline transcludeinline
 <!doctype html>
