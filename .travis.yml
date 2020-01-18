@@ -17,7 +17,10 @@ script:
  - npm run build-plugin 
  # ===== Build the editions
  - tiddlywiki ./wiki --verbose --output ./dist --build index --build favicon --build library
- - ./build-editions.sh
+ - | 
+    for edition in $(ls editions); do
+      tiddlywiki ./editions/$edition --verbose --build index
+    done
  # ===== Non Minified version =====
  - "(cd ./tpouch && gulp travis)" # Build non minified version of TPouch code ( no --production flag )
  - tiddlywiki ./editions/online --verbose --build dev # This is the same as the online one, but to a different dist path
