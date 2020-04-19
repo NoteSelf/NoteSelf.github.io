@@ -1,12 +1,24 @@
 {
-    "plugins": ["felixhayashi/tiddlymap"],
+    "plugins": [
+        "felixhayashi/tiddlymap",
+        "felixhayashi/vis"
+    ],
     "themes": [],
     "languages": [],
-    "includeWikis": [ {"path": "../base", "read-only": true} ],
+    "includeWikis": [
+        {
+            "path": "../base",
+            "read-only": true
+        }
+    ],
     "build": {
         "index": [
-            "--output", "./dist/tiddlymap/",
-            "--rendertiddler", "$:/core/save/all", "index.html", "text/plain"
+            "--output",
+            "./dist/tiddlymap/",
+            "--rendertiddler",
+            "$:/core/save/all",
+            "index.html",
+            "text/plain"
         ]
     }
 }
