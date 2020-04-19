@@ -7,6 +7,6 @@
         "index": [
             "--output", "./dist/tiddlymap/",
             "--rendertiddler", "$:/core/save/all", "index.html", "text/plain"
-        ],
+        ]
     }
 }
