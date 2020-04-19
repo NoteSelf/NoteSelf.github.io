@@ -49,6 +49,6 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "tw-pouchdb": "^0.1.2"
+    "tw-pouchdb": "*"
   }
 }

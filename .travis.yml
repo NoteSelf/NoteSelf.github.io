@@ -6,13 +6,13 @@ node_js:
   - "8"
 before_install:
   - "npm i -g tiddlywiki@5.1.21"
-  - "git clone https://github.com/danielo515/tw5-pouchdb.git pouchdb" # note that I'm naming the output folders for easier reference later
+  # note that I'm naming the output folders for easier reference later
   - "git clone https://github.com/danielo515/tiddlypouch.git tpouch"
   - "git clone https://github.com/felixhayashi/TW5-TiddlyMap.git tiddlymap" # required by tiddlymap edition
   - "git clone https://github.com/felixhayashi/TW5-Vis.js.git vis" # required by tiddlymap
   - "ls -l"
 before_script:
- - export TIDDLYWIKI_PLUGIN_PATH="$(pwd)/plugins:$(pwd)/pouchdb/src/plugins:$(pwd)/tpouch/dist:$(pwd)/tiddlymap/dist:$(pwd)/vis/dist" # Plugins paths with all deps globally available
+ - export TIDDLYWIKI_PLUGIN_PATH="$(pwd)/plugins:$(pwd)/node_modules/tw-pouchdb:$(pwd)/tpouch/dist:$(pwd)/tiddlymap/dist:$(pwd)/vis/dist" # Plugins paths with all deps globally available
  - "(cd tpouch && npm i && gulp travis --production)"
 script:
  # ===== Builds NoteSelf core plugins
