@@ -3656,7 +3656,7 @@ through@^2.3.6:
   resolved "https://registry.yarnpkg.com/through/-/through-2.3.8.tgz#0dd4c9ffaabc357960b1b724115d7e0e86a2e1f5"
   integrity sha1-DdTJ/6q8NXlgsbckEV1+Doai4fU=
 
-tiddlywiki@^5.1.22:
+tiddlywiki@5.1.22:
   version "5.1.22"
   resolved "https://registry.yarnpkg.com/tiddlywiki/-/tiddlywiki-5.1.22.tgz#09a7ed46f6ed08791ecf424ff7c4f3ed1c682618"
   integrity sha512-Iav0iC9SnwN6HTYGRfEI7kYDoq+hlKr9fw9o8aTs0wxMp0UzqlvthGwlK1JwrdVIRL92no1lpVGhQQj16ncSQQ==
