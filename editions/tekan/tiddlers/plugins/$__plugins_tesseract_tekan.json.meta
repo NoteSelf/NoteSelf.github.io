@@ -1,0 +1,13 @@
+author: Riz
+core-version: >=5.1.14
+created: 20170919234019968
+creator: Riz
+description: Tekan - Kanban TW
+list: readme
+modified: 20200420184848137
+modifier: Riz
+name: Tekan
+plugin-type: plugin
+title: $:/plugins/tesseract/tekan
+type: application/json
+version: 0.5.13
