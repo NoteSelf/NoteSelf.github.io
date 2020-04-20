@@ -13,7 +13,7 @@ before_install:
   - "ls -l"
 before_script:
  - export TIDDLYWIKI_PLUGIN_PATH="$(pwd)/plugins:$(pwd)/node_modules/tw-pouchdb:$(pwd)/tpouch/dist:$(pwd)/tiddlymap/dist:$(pwd)/vis/dist" # Plugins paths with all deps globally available
- - "(cd tpouch && npm i && gulp travis --production)"
+ - "(cd tpouch && yarn && gulp travis --production)"
 script:
  # ===== Builds NoteSelf core plugins
  - npm run build-plugin 
