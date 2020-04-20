@@ -3,7 +3,7 @@ cache:
   directories:
     - ~/.npm
 node_js:
-  - "8"
+  - "10"
 before_install:
   - "npm i -g tiddlywiki@5.1.21"
   # note that I'm naming the output folders for easier reference later
