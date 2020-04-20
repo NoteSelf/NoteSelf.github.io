@@ -16,7 +16,7 @@ Run any of them just by doing `npm run scriptName` where scriptName is one scrip
 Here is a list of the relevant ones:
 
 - `add-module`: asks a bunch of questions and creates a new module using one of the built-in templates. Very useful for bootstrapping new files.
-- `start`: Start a tw server for development on watch mode. It only watches the plugins directory.
+- `start`: Start a tw server for **in-wiki** development using nodemon. It only watches the plugins directory. The tiddlers are added directly to the core plugin at `src/core`.
 - `watch`: Rebuild plugins on any source code change. Check `nodemon.json` for config details. It watches the `src` folder aditionally
 - `build-plugin`: executes the build pipeline with the plugin directory as target. If you have the dev server running this should trigger a hot reload.
 - `clean`: Deletes the output directory
