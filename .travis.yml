@@ -39,6 +39,12 @@ script:
  - python node_modules/travis-weigh-in/weigh_in.py dist/offline.html || true
 after_script:
  - "ls -lR dist"
+
+after_success:
+- echo Deploying to netlify preview
+- wget -qO- 'https://cli.netlify.com/download/latest/linux' | tar xz
+- ./netlifyctl -v
+- netlifyctl -A "$NETLIFY_TOKEN" deploy --draft
 deploy:
   provider: pages
   skip_cleanup: true
