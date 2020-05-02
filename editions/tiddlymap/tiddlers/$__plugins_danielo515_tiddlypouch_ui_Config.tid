@@ -1,0 +1,9 @@
+created: 20200502152740248
+tags: 
+title: $:/plugins/danielo515/tiddlypouch/ui/Config
+type: text/vnd.tiddlywiki
+useFatTiddlers: true
+debug: false
+verbose: false
+
+This is a config tiddlers, the important part are the fields
