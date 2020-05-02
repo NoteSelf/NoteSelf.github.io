@@ -17,6 +17,7 @@ script:
  # ===== Builds NoteSelf core plugins
  - yarn build-plugin 
  # =====  Plugin library
+ - yarn tiddlywiki --version
  - yarn tiddlywiki ./wiki --verbose --output ./dist --build index --build favicon --build library
  # ===== Build the editions
  - | 
@@ -27,7 +28,6 @@ script:
  - "(cd ./tpouch && gulp travis)" # Build non minified version of TPouch code ( no --production flag )
  - yarn tiddlywiki ./editions/online --verbose --build dev # This is the same as the online one, but to a different dist path
  # ===== Build edge version with the latest tiddlywiki and experimental plugins =====
- - yarn tiddlywiki --version
  - "yarn add tiddlywiki@latest  && yarn tiddlywiki --version"
  - "yarn tiddlywiki ./editions/edge --verbose --build index" # build the edge edition (includes not well tested stuff)
  # === Measures file sizes and adds that data to the pull request ===
