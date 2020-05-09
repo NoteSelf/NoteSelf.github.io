@@ -9,10 +9,10 @@ before_install:
   - "git clone https://github.com/danielo515/tiddlypouch.git tpouch"
   - "git clone https://github.com/felixhayashi/TW5-TiddlyMap.git tiddlymap" # required by tiddlymap edition
   - "git clone https://github.com/felixhayashi/TW5-Vis.js.git vis" # required by tiddlymap
-  - "ls -l"
+  - ls -l
 before_script:
  - export TIDDLYWIKI_PLUGIN_PATH="$(pwd)/plugins:$(pwd)/node_modules/tw-pouchdb:$(pwd)/tpouch/dist:$(pwd)/tiddlymap/dist:$(pwd)/vis/dist" # Plugins paths with all deps globally available
- - "(cd tpouch && yarn && gulp travis --production)"
+ - (cd tpouch && yarn && gulp travis --production)
 script:
  # ===== Builds NoteSelf core plugins
  - yarn build-plugin 
@@ -25,12 +25,12 @@ script:
       yarn tiddlywiki $edition --verbose --build index
     done
  # ===== Non Minified version =====
- - "(cd ./tpouch && gulp travis)" # Build non minified version of TPouch code ( no --production flag )
+ - (cd ./tpouch && gulp travis) # Build non minified version of TPouch code ( no --production flag )
  - yarn tiddlywiki ./editions/online --verbose --build dev # This is the same as the online one, but to a different dist path
  # ===== Build edge version with the latest tiddlywiki and experimental plugins =====
  - npm i --no-save  tiddlywiki@latest  
  - yarn tiddlywiki --version
- - "yarn tiddlywiki ./editions/edge --verbose --build index" # build the edge edition (includes not well tested stuff)
+ - yarn tiddlywiki ./editions/edge --verbose --build index # build the edge edition (includes not well tested stuff)
  # === Measures file sizes and adds that data to the pull request ===
  # The var on the for loop includes each path with a trailing slash (/)
  - |
