@@ -1,7 +1,8 @@
 {
     "plugins": [
         "danielo515/pouchdb",
-        "tiddlywiki/filesystem",
+        "danielo515/tiddlypouch",
+        "__tiddlywiki/filesystem",
         "tiddlywiki/tiddlyweb",
         "tiddlywiki/codemirror",
         "tiddlywiki/highlight",
