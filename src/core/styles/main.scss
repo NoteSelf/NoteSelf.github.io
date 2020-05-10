@@ -33,6 +33,13 @@ $breakpoint-tablet: 768px;
     }
 }
 
+.ns-custom-login-form {
+    .input-card {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
 .tc-ns-login-popup {
     margin-left: -15px;
     margin-top: -15px;

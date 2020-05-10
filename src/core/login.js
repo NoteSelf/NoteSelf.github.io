@@ -16,7 +16,7 @@ Event handlers for the login flow
 
 // I'm really sorry about this. We need to defer the require of the request until axios has been injected on the page. The require is far below
 let request;
-const { COUCH_CONFIG, GET_PIN, VALIDATE_PIN } = require('$:/plugins/noteself/core/constants');
+const { COUCH_CONFIG, GET_PIN, VALIDATE_PIN, CUSTOM_LOGIN } = require('$:/plugins/noteself/core/constants');
 
 
 // Export name and synchronous status
@@ -171,6 +171,19 @@ exports.startup = () => {
                 ? requestPin(email)
                 : markInvalidField(email, 'Invalid email');
         });
+
+    $tw.rootWidget.addEventListener(CUSTOM_LOGIN, ({param: password }) => {
+        const uiConfig = $tw.wiki.getTiddlerData(COUCH_CONFIG);
+        const user = uiConfig["remote.username"]
+        return tryToLogin({ key: user, password })
+                .then(() => {
+                    clearAllErrors();
+                    setLoginSucceed('yes');
+                })
+                .catch((err) => {
+                    setLoginError(err.message);
+                })
+    });
 
     $tw.rootWidget.addEventListener(VALIDATE_PIN,
         ({ param: pin, paramObject: { correlation_id } }) => {
