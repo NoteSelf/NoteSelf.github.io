@@ -147,10 +147,20 @@ const validatePin = (pin, correlation_id) => {
         .catch(handleAxiosError)
 }
 
-const tryToLogin = ({ key, password }) => new Promise((resolve,reject) => {
-    const loginHandler = (err) =>  err ? reject(err) : resolve();
-    $tw.syncadaptor.login(key, password, loginHandler);
-});
+/**
+ * This function calls sync adaptor (should be TPouch one) login method,
+ * which just logins you with the server and the server setups a cookie.
+ * Then we need to call the getStatus which is who actually starts 
+ * the sync mechanism
+ * @param {PinResponse} param0 server credentials if pin is correctly validated
+ */
+const tryToLogin = ({ key, password }) => {
+  const step = (msg) => () => console.log(`Step ${msg} succeeded!!`);
+  // This works with callbacks in theory, but TPouch methods also return promises, so we can use them like this.
+  return $tw.syncadaptor
+    .login(key, password, step("Login"))
+    .then(() => $tw.syncadaptor.getStatus(step("Get status")));
+};
 
 
 const isValidPin = x => (/^[0-9]{5}$/).test(x);
