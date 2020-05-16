@@ -14,6 +14,16 @@ $breakpoint-tablet: 768px;
   }
 }
 
+.ns-flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ns-flex-1 {
+  flex: 1;
+}
+
 .ns-login-form {
   text-align: center;
   display: flex;

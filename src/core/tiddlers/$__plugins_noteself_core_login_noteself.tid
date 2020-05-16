@@ -6,24 +6,21 @@ title: $:/plugins/noteself/core/login/noteself
 type: text/vnd.tiddlywiki
 
 <div class="ns-login-form">
-
-<$reveal type="nomatch" state="$:/state/ns/login-succeed" text="yes">
-    <$reveal type="match" state="$:/state/ns/waiting-pin" text="no">
-        <$transclude tiddler="$:/plugins/noteself/core/login-form" mode="block"/>
+    <$reveal type="nomatch" text="yes" class="ns-flex-center ns-flex-1" tag="div" state="$:/state/ns/login-succeed" >
+        <$reveal type="match" text="no" state="$:/state/ns/waiting-pin" >
+            <$transclude tiddler="$:/plugins/noteself/core/login-form" mode="block"/>
+        </$reveal>
+        <$reveal type="nomatch" text="no" state="$:/state/ns/waiting-pin" >
+            <$transclude tiddler="$:/plugins/noteself/core/input-pin"/>
+        </$reveal>
+        <$transclude tiddler="$:/plugins/noteself/core/login-error"/>
     </$reveal>
-
-    <$reveal type="nomatch" state="$:/state/ns/waiting-pin" text="no">
-        <$transclude tiddler="$:/plugins/noteself/core/input-pin" mode="block"/>
-    </$reveal>
-    <$transclude tiddler="$:/plugins/noteself/core/login-error"/>
-</$reveal>
-<$reveal type="match" state="$:/state/ns/login-succeed" text="yes">
-    <div class='ns-form-input-group'>
-        You are now logged in. ''Wohhoo!!''
-        <div class='btn'>
-            <$button class="tc-btn-big-green" message="tm-close-tiddler" > OK! </$button>
+    <$reveal type="match" state="$:/state/ns/login-succeed" text="yes">
+        <div class='ns-form-input-group'>
+            You are now logged in. ''Wohhoo!!''
+            <div class='btn'>
+                <$button class="tc-btn-big-green" message="tm-close-tiddler" > OK! </$button>
+            </div>
         </div>
-    </div>
-</$reveal>
-
+    </$reveal>
 </div>
