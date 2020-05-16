@@ -6,17 +6,19 @@ type: text/vnd.tiddlywiki
 
 <div class="ns-login-email">
   <p class='login-message'>
-      In order to login we will send you an email with a random unique pin. ''No registration'' required
+      In order to login we will send you an email with an unique pin.
+      <div>''No registration'' required</div>
   </p>
   <div class='ns-form-input-group'>
-    <div class='btn'>
-        ''email'': <$edit-text tag="input" tiddler="$:/state/ns/email" placeholder="email"/>
+    <div class='ns-input-row'>
+        ''email'' <$edit-text tag="input" type="email" tiddler="$:/state/ns/email" placeholder="you@gmail.com"/>
         <$set name="ns-form-current-value" value={{$:/state/ns/email}}>
             <$transclude tiddler="$:/plugins/noteself/core/form-error"/>
         </$set>
-          <$button class="tc-btn-big-green"> Get pin 
-              <$action-sendmessage $message="tm-get-pin" $param={{$:/state/ns/email}}/>
-          </$button>
-      </div>
+    </div>
+    <$button class="tc-btn-big-green"> Get pin 
+            <$action-sendmessage $message="tm-get-pin" $param={{$:/state/ns/email}}/>
+    </$button>
   </div>
+  <small class="ns-side-info">If you want to use your own `CouchDB` server check the custom tab of this modal</small>
 </div>

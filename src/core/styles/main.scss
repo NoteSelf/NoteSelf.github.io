@@ -2,75 +2,117 @@ $error-color: #ff4500;
 $breakpoint-tablet: 768px;
 
 .ns-login-popup-header {
-    svg {
-        margin-right: 35%;
-    }
+  display: flex;
+  align-items: center;
+  position: relative;
+  span {
+    flex: 1;
+    text-align: center;
+  }
+  svg {
+    position: absolute;
+  }
 }
 
 .ns-login-form {
-    text-align: center;
-    // .login-message{
-    //     text-align: center;
-    // }
-    .ns-form-input-group {
-        width: 70%;
-        margin: 0 auto;
-        .tc-btn-big-green {
-            padding: 4px;
-        }
-        // this makes a button inside this div 90% and centered
-        .btn {
-            text-align: center;
-            button {
-                width: 50%;
-            }
-        }
-        .input-card {
-            text-align: left;
-            width: 50%;
-            margin: 0 auto;            
-        }
+  text-align: center;
+  display: flex;
+  padding: 1.5rem;
+  padding-bottom: 0;
+  .ns-input-row {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 8px;
+    input {
+      flex: 1;
+      margin-left: 8px;
     }
+  }
+  .ns-form-input-group {
+    display: flex;
+    flex-direction: column;
+    .tc-btn-big-green {
+      padding: 4px;
+    }
+    .input-card {
+      text-align: left;
+      width: 50%;
+      margin: 0 auto;
+    }
+  }
+  .ns-login-email {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
+/* Styles for the old login form
+* This contains several hacks because we just 
+* transclude the control panel tiddler
+*/
 .ns-custom-login-form {
-    .input-card {
-        display: flex;
-        flex-direction: column;
+  padding: 0 16px;
+  padding-bottom: 0;
+  .input-card {
+    display: flex;
+    flex-direction: column;
+  }
+  .btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 16px;
+    .tc-btn-big-green {
+      margin: 0;
+      flex: 1;
     }
+  }
+.tc-tp-remote-db > p > p:first-child {
+    display: none;
+  }
+}
+.ns-side-info {
+  font-size: 75%;
 }
 
 .tc-ns-login-popup {
+  margin-top: -15px;
+  .tc-tp-remote-db {
+    input {
+      width: 100%;
+    }
+  }
+  .tc-tab-buttons {
+    // adjust tabs to make them look better
+    padding-top: 0;
     margin-left: -15px;
-    margin-top: -15px;
-    .tc-reveal {
-        padding: 1.5rem;
-        padding-bottom: 0;
+    .tc-tab-selected,
+    button {
+      border-top: none;
+      border-left: none;
+      margin-right: 0;
     }
-    .tc-tp-remote-db {
-        input {
-            width: 100%;
-        }
-    }
-    .tc-tab-buttons {
-        padding-top: 0;
-        .tc-tab-selected, button {
-            border-top: none;
-            border-left: none;
-            margin-right: 0;
-        }
-    }
+  }
+  .ns-side-info {
+    padding-top: 1rem;
+    text-align: left;
+  }
+  input {
+    border: 1px solid #cecece;
+    padding: 4px;
+  }
 }
 
 .tc-modal-body {
-    p {
-        margin-top: 0;  
-    }
+  p {
+    margin-top: 0;
+  }
 }
 
 .ns-form-error {
-    color: $error-color;
-    @media (max-width: $breakpoint-tablet) {
-        display: block
-    }
+  color: $error-color;
+  @media (max-width: $breakpoint-tablet) {
+    display: block;
+  }
 }
