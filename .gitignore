@@ -10,3 +10,4 @@ wiki-dev/tiddlers/$__DefaultTiddlers.tid
 dist
 !dist/online
 !dist/favicon.ico
+coverage

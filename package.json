@@ -4,6 +4,8 @@
   "description": "A notebook that syncs!",
   "main": "index.js",
   "scripts": {
+    "test": "jest",
+    "pretest": "yarn build-plugin && yarn build",
     "add-module": "node .bin/new-file.js",
     "brocco": "npm run clean && broccoli build",
     "build-plugin": "npm run brocco -- ./plugins/noteself",
@@ -42,7 +44,10 @@
     "dotenv": "^5.0.1",
     "ejs": "^2.5.9",
     "inquirer": "^5.2.0",
+    "jest": "^26.0.1",
+    "jest-image-snapshot": "^4.0.0",
     "nodemon": "^2.0.3",
+    "puppeteer": "^3.0.4",
     "rimraf": "^2.6.2",
     "travis-weigh-in": "^1.0.2"
   },
