@@ -1,0 +1,31 @@
+title: $:/plugins/noteself/core/login/custom
+caption: Custom
+
+<div class='ns-custom-login-form'>
+    
+    <$transclude tiddler="$:/plugins/danielo515/tiddlypouch/ControlPanel/Database/remote-db"/>
+    <p>Before you can login, you <strong>must save the configuration</strong></p>
+    <$reveal type="match" state="$:/state/tiddlypouch/sync/status" text="offline">
+        <div class='input-card'>
+            <label for="password">Password:</label>
+            <$edit-text tag="input" name="password" default="" type="password" tiddler="$:/state/ns/password" />
+            <$set name="ns-form-current-value" value={{$:/state/ns/password}}>
+                <$transclude tiddler="$:/plugins/noteself/core/form-error"/>
+            </$set>
+        </div>
+        <div class='btn'>
+            <$button class="tc-btn-big-green">
+                Login
+                <$action-sendmessage $message="tm-custom-login" $param={{$:/state/ns/password}} />
+            </$button>
+        </div>
+    </$reveal>
+    <$reveal type="nomatch" state="$:/state/tiddlypouch/sync/status" text="offline">
+        <div class='btn'>
+            <$button class="tc-btn-big-green">
+                Logout
+                <$action-sendmessage $message="tm-logout"/>
+            </$button>
+        </div>
+    </$reveal>
+</div>

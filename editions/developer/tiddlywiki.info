@@ -3,7 +3,8 @@
         "tiddlywiki/highlight",        
         "tiddlywiki/codemirror",
         "tiddlywiki/railroad",
-        "tiddlywiki/katex"
+        "tiddlywiki/katex",
+        "noteself/core"
     ],
     "themes": [ ],
     "languages": [ "en-US" ],

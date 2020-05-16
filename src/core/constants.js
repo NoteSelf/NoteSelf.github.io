@@ -15,9 +15,12 @@ Constants used to name events and config tiddlers similar stuff
 'use strict';
 
 module.exports = {
-     COUCH_CONFIG: '$:/plugins/danielo515/tiddlypouch/config/selected_database' // used on the UI of config couch database
+      // used on the UI of config couch database. It has a different constant name on tiddlypouch
+      // TODO: make a function on tpouch side to get this info
+     COUCH_CONFIG: '$:/plugins/danielo515/tiddlypouch/config/selected_database'
      , BACKEND_URL: "@@process.env.NOTESELF_BACKEND_URL"
      // ----- UI Events
      , GET_PIN: "tm-get-pin"
      , VALIDATE_PIN: "tm-validate-pin"
+     , CUSTOM_LOGIN: "tm-custom-login"
 };

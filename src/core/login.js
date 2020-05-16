@@ -16,7 +16,7 @@ Event handlers for the login flow
 
 // I'm really sorry about this. We need to defer the require of the request until axios has been injected on the page. The require is far below
 let request;
-const { COUCH_CONFIG, GET_PIN, VALIDATE_PIN } = require('$:/plugins/noteself/core/constants');
+const { COUCH_CONFIG, GET_PIN, VALIDATE_PIN, CUSTOM_LOGIN } = require('$:/plugins/noteself/core/constants');
 
 
 // Export name and synchronous status
@@ -147,10 +147,20 @@ const validatePin = (pin, correlation_id) => {
         .catch(handleAxiosError)
 }
 
-const tryToLogin = ({ key, password }) => new Promise((resolve,reject) => {
-    const loginHandler = (err) =>  err ? reject(err) : resolve();
-    $tw.syncadaptor.login(key, password, loginHandler);
-});
+/**
+ * This function calls sync adaptor (should be TPouch one) login method,
+ * which just logins you with the server and the server setups a cookie.
+ * Then we need to call the getStatus which is who actually starts 
+ * the sync mechanism
+ * @param {PinResponse} param0 server credentials if pin is correctly validated
+ */
+const tryToLogin = ({ key, password }) => {
+  const step = (msg) => () => console.log(`Step ${msg} succeeded!!`);
+  // This works with callbacks in theory, but TPouch methods also return promises, so we can use them like this.
+  return $tw.syncadaptor
+    .login(key, password, step("Login"))
+    .then(() => $tw.syncadaptor.getStatus(step("Get status")));
+};
 
 
 const isValidPin = x => (/^[0-9]{5}$/).test(x);
@@ -171,6 +181,19 @@ exports.startup = () => {
                 ? requestPin(email)
                 : markInvalidField(email, 'Invalid email');
         });
+
+    $tw.rootWidget.addEventListener(CUSTOM_LOGIN, ({param: password }) => {
+        const uiConfig = $tw.wiki.getTiddlerData(COUCH_CONFIG);
+        const user = uiConfig["remote.username"]
+        return tryToLogin({ key: user, password })
+                .then(() => {
+                    clearAllErrors();
+                    setLoginSucceed('yes');
+                })
+                .catch((err) => {
+                    setLoginError(err.message);
+                })
+    });
 
     $tw.rootWidget.addEventListener(VALIDATE_PIN,
         ({ param: pin, paramObject: { correlation_id } }) => {
