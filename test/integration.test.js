@@ -3,6 +3,8 @@
 const puppeteer = require('puppeteer');
 const path = require('path');
 
+const wait = time => new Promise(res => setTimeout(res, time))
+
 const waitForWikiLoad = async (page) => {
     await page.waitForSelector('#TP_splash_screen', { hidden: true });
     await page.waitForSelector('body.tc-body.tc-dirty', { hidden: true });
@@ -28,6 +30,23 @@ describe('Visual regression test of online version', () => {
     });
 
     it('works', async () => {
+        const image = await page.screenshot({fullPage: true});
+        expect(image).toMatchImageSnapshot();
+    });
+
+    it('login modal', async () => {
+        await page.click('[aria-label="login"]')
+        await page.waitForSelector('.tc-ns-login-popup', {visible: true})
+        await wait(1000)
+        const image = await page.screenshot({fullPage: true});
+        expect(image).toMatchImageSnapshot();
+    });
+
+    it('custom login tab', async () => {
+        await expect( page ).toClick('[aria-label="login"]')
+        await page.waitForSelector('.tc-ns-login-popup', {visible: true})
+        await wait(1000)
+        await expect(page).toClick('button',{text: 'Custom'})
         const image = await page.screenshot({fullPage: true});
         expect(image).toMatchImageSnapshot();
     });

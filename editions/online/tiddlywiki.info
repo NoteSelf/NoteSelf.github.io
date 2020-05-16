@@ -1,16 +1,31 @@
 {
-    "plugins": [],
+    "plugins": [
+        "noteself/core"
+    ],
     "themes": [],
     "languages": [],
-    "includeWikis": [ {"path": "../base", "read-only": true} ],
+    "includeWikis": [
+        {
+            "path": "../base",
+            "read-only": true
+        }
+    ],
     "build": {
         "index": [
-            "--output", "./dist/online/",
-            "--rendertiddler", "$:/core/save/all", "index.html", "text/plain"
+            "--output",
+            "./dist/online/",
+            "--rendertiddler",
+            "$:/core/save/all",
+            "index.html",
+            "text/plain"
         ],
         "dev": [
-            "--output", "./dist/dev/",
-            "--rendertiddler", "$:/core/save/all", "index.html", "text/plain"
+            "--output",
+            "./dist/dev/",
+            "--rendertiddler",
+            "$:/core/save/all",
+            "index.html",
+            "text/plain"
         ]
     }
 }

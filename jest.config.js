@@ -117,13 +117,7 @@ module.exports = {
     // setupFiles: [],
 
     // A list of paths to modules that run some code to configure or set up the testing framework before each test
-    setupFilesAfterEnv: [ '<rootDir>/test/jest-setup.js' ],
-
-    // A list of paths to snapshot serializer modules Jest should use for snapshot testing
-    // snapshotSerializers: [],
-
-    // The test environment that will be used for testing
-    // testEnvironment: "jest-environment-jsdom",
+    setupFilesAfterEnv: [ '<rootDir>/test/jest-setup.js', "expect-puppeteer" ],
 
     // Options that will be passed to the testEnvironment
     // testEnvironmentOptions: {},
@@ -174,6 +168,4 @@ module.exports = {
     // An array of regexp patterns that are matched against all source file paths before re-running tests in watch mode
     // watchPathIgnorePatterns: [],
 
-    // Whether to use watchman for file crawling
-    // watchman: true,
 };
