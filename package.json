@@ -13,7 +13,7 @@
     "start": "npm run tw-dev -- ./wiki-dev --verbose --server 8087 $:/core/save/all text/plain text/html '' '' 0.0.0.0",
     "clean": "rimraf ./plugins/noteself",
     "watch": "nodemon -r dotenv/config --exec 'npm run build-plugin' --watch src -e js,scss,tid",
-    "postinstall": "mkdir plugins 2> /dev/null"
+    "postinstall": "mkdir -p plugins"
   },
   "repository": {
     "type": "git",
