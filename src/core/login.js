@@ -117,7 +117,7 @@ const requestPin = (email) => {
 
     setTextState('waiting-pin', 'yes');
     return request
-        .post('/api/register', {
+        .post('/register', {
             email
         })
         .then(({ data: { correlation_id } }) => {
@@ -140,7 +140,7 @@ const requestPin = (email) => {
  */
 const validatePin = (pin, correlation_id) => {
     return request
-        .post('/api/login', {
+        .post('/login', {
             pin, correlation_id
         })
         .then(({ data }) => data)

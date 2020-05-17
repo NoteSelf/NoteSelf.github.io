@@ -14,7 +14,7 @@ $breakpoint-tablet: 768px;
   }
 }
 
-.ns-flex-center {
+.ns-flex-center:not([hidden]) {
   display: flex;
   justify-content: center;
   align-items: center;
