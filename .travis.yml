@@ -44,8 +44,7 @@ after_script:
 after_success:
 - echo Deploying to netlify preview
 - wget -qO- 'https://cli.netlify.com/download/latest/linux' | tar xz
-- ./netlifyctl -v
-- ./netlifyctl -A "$NETLIFY_TOKEN" deploy --draft
+- ./netlifyctl -A "$NETLIFY_TOKEN" deploy --draft --site-id "$NETLIFY_SITE_ID" --publish-directory ./dist
 deploy:
   provider: pages
   skip_cleanup: true

@@ -11,3 +11,5 @@ dist
 !dist/online
 !dist/favicon.ico
 coverage
+# Local Netlify folder
+.netlify
