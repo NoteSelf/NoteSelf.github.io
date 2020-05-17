@@ -43,8 +43,10 @@ after_script:
 
 after_success:
 - echo Deploying to netlify preview
-- wget -qO- 'https://cli.netlify.com/download/latest/linux' | tar xz
-- ./netlifyctl -A "$NETLIFY_TOKEN" deploy --draft --site-id "$NETLIFY_SITE_ID" --publish-directory ./dist
+# - wget -qO- 'https://cli.netlify.com/download/latest/linux' | tar xz
+# - ./netlifyctl -A "$NETLIFY_TOKEN" deploy --draft --site-id "$NETLIFY_SITE_ID" --publish-directory ./dist
+- yarn add global netlify-cli
+- netlify deploy --auth="$NETLIFY_TOKEN" --dir="./dist" --site="$NETLIFY_SITE_ID" --message="CI - $TRAVIS_BRANCH"
 deploy:
   provider: pages
   skip_cleanup: true
