@@ -24,7 +24,7 @@ caption: Custom
         <div class='btn'>
             <$button class="tc-btn-big-green">
                 Logout
-                <$action-sendmessage $message="tm-logout"/>
+                <$action-sendmessage $message="tm-NS-logout"/>
             </$button>
         </div>
     </$reveal>

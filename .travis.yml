@@ -1,7 +1,5 @@
 language: node_js
-cache:
-  directories:
-    - ~/.npm
+cache: yarn
 node_js:
   - "10"
 before_install:
@@ -28,9 +26,10 @@ script:
  - (cd ./tpouch && gulp travis) # Build non minified version of TPouch code ( no --production flag )
  - yarn tiddlywiki ./editions/online --verbose --build dev # This is the same as the online one, but to a different dist path
  # ===== Build edge version with the latest tiddlywiki and experimental plugins =====
- - npm i --no-save  tiddlywiki@latest  
+ - yarn add tiddlywiki@latest  
  - yarn tiddlywiki --version
  - yarn tiddlywiki ./editions/edge --verbose --build index # build the edge edition (includes not well tested stuff)
+ - yarn remove tiddlywiki
  # === Measures file sizes and adds that data to the pull request ===
  # The var on the for loop includes each path with a trailing slash (/)
  - |
@@ -44,9 +43,10 @@ after_script:
 
 after_success:
 - echo Deploying to netlify preview
-- wget -qO- 'https://cli.netlify.com/download/latest/linux' | tar xz
-- ./netlifyctl -v
-- netlifyctl -A "$NETLIFY_TOKEN" deploy --draft
+# - wget -qO- 'https://cli.netlify.com/download/latest/linux' | tar xz
+# - ./netlifyctl -A "$NETLIFY_TOKEN" deploy --draft --site-id "$NETLIFY_SITE_ID" --publish-directory ./dist
+- yarn add global netlify-cli
+- netlify deploy --auth="$NETLIFY_TOKEN" --dir="./dist" --site="$NETLIFY_SITE_ID" --message="CI - $TRAVIS_BRANCH"
 deploy:
   provider: pages
   skip_cleanup: true

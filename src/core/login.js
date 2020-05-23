@@ -16,7 +16,7 @@ Event handlers for the login flow
 
 // I'm really sorry about this. We need to defer the require of the request until axios has been injected on the page. The require is far below
 let request;
-const { COUCH_CONFIG, GET_PIN, VALIDATE_PIN, CUSTOM_LOGIN } = require('$:/plugins/noteself/core/constants');
+const { COUCH_CONFIG, GET_PIN, VALIDATE_PIN, CUSTOM_LOGIN, LOGOUT, SYNC_STATE } = require('$:/plugins/noteself/core/constants');
 
 
 // Export name and synchronous status
@@ -117,7 +117,7 @@ const requestPin = (email) => {
 
     setTextState('waiting-pin', 'yes');
     return request
-        .post('/api/register', {
+        .post('/register', {
             email
         })
         .then(({ data: { correlation_id } }) => {
@@ -140,7 +140,7 @@ const requestPin = (email) => {
  */
 const validatePin = (pin, correlation_id) => {
     return request
-        .post('/api/login', {
+        .post('/login', {
             pin, correlation_id
         })
         .then(({ data }) => data)
@@ -182,6 +182,17 @@ exports.startup = () => {
                 : markInvalidField(email, 'Invalid email');
         });
 
+    $tw.rootWidget.addEventListener(LOGOUT, () => {
+        // TODO: handle this flow on the getStatus function of tpouch
+        // tpouch logout returns a promise
+        return $tw.syncadaptor.logout(()=>{})
+                .then(() => {
+                    setText(SYNC_STATE,'offline')
+                })
+                .catch((err) => {
+                    setLoginError(err.message);
+                })
+    });
     $tw.rootWidget.addEventListener(CUSTOM_LOGIN, ({param: password }) => {
         const uiConfig = $tw.wiki.getTiddlerData(COUCH_CONFIG);
         const user = uiConfig["remote.username"]
