@@ -47,6 +47,8 @@ after_success:
 # - ./netlifyctl -A "$NETLIFY_TOKEN" deploy --draft --site-id "$NETLIFY_SITE_ID" --publish-directory ./dist
 - yarn add global netlify-cli
 - netlify deploy --auth="$NETLIFY_TOKEN" --dir="./dist" --site="$NETLIFY_SITE_ID" --message="CI - $TRAVIS_BRANCH"
+before_deploy:
+  - cp CNAME ./dist/
 deploy:
   provider: pages
   skip_cleanup: true
