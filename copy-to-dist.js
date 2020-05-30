@@ -33,4 +33,4 @@ targets.forEach((target) => {
 
   // Copy the rest of the files for the main site
   // including manifest and service-worker
-  execSync(`cp -r _dist/ dist/`);
+  execSync(`cp -pr _dist/ dist/`);
