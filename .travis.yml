@@ -42,7 +42,7 @@ after_script:
  - "ls -lR dist"
 
 after_success:
-- node ./copy-to-dist.js # temporal, remove before merge to main
+- node ./copy-to-dist.js # this allows to test the service worker on the preview too
 - echo Deploying to netlify preview
 # - wget -qO- 'https://cli.netlify.com/download/latest/linux' | tar xz
 # - ./netlifyctl -A "$NETLIFY_TOKEN" deploy --draft --site-id "$NETLIFY_SITE_ID" --publish-directory ./dist
@@ -50,8 +50,6 @@ after_success:
   test "$TRAVIS_PULL_REQUEST" != "false" &&\
   yarn add global netlify-cli &&\
   netlify deploy --auth="$NETLIFY_TOKEN" --dir="./dist" --site="$NETLIFY_SITE_ID" --message="CI - $TRAVIS_BRANCH"
-before_deploy:
-  - node ./copy-to-dist.js
 deploy:
   provider: pages
   skip_cleanup: true
