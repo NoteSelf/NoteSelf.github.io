@@ -9,7 +9,8 @@ const distFolder = path.join(__dirname, "dist");
 const editionsFolder = path.join(__dirname, "editions");
 const targets = fs
   .readdirSync(editionsFolder)
-  .filter(file => !file.startsWith('.') && file !== 'base')
+  // exclude hidden files and the editions that do not have a subfolder
+  .filter(file => !file.startsWith('.') && !(/base|offline/).test(file))
   .filter((file) => {
     const filePath = path.join(editionsFolder, file);
     log(filePath);
