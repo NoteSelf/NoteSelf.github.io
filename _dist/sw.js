@@ -6,7 +6,7 @@ var vendor = {
   fontAwesome: 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3'
 };
 
-var currentDomain = 'https://noteself.github.io';
+var currentDomain = 'https://noteself.org';
 
 var URLS = {
   app: [
