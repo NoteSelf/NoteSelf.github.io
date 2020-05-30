@@ -2,7 +2,7 @@
     var shouldRegister = window.location.protocol === 'https:' || window.location.hostname === 'localhost';
     if ('serviceWorker' in navigator && shouldRegister) {
         navigator.serviceWorker
-            .register('sw.js')
+            .register('/sw.js')
             .then((registration) => {
                 // only show message on worker installed event
                 registration.onupdatefound = function () {
