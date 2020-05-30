@@ -32,7 +32,7 @@ const copyManifests = () => {
       JSON.stringify({ ...manifest, start_url: url, scope: url }, null, 2),
       "utf8"
     );
-    execSync(`cp _dist/sw.js ${target}`);
+    // execSync(`cp _dist/sw.js ${target}`);
   });
 };
 
@@ -47,7 +47,7 @@ const buildSW = () => {
   return workboxBuild.generateSW({
     globDirectory: "dist",
     globPatterns: ["**/*.{html,json,js,css}"],
-    globIgnores: ["offline.html"],
+    globIgnores: ["offline.html","recipes/**"],
     maximumFileSizeToCacheInBytes: 3000000,
     swDest: "dist/sw.js",
     // Define runtime caching rules.
