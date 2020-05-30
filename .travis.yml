@@ -42,6 +42,7 @@ after_script:
  - "ls -lR dist"
 
 after_success:
+- node ./copy-to-dist.js # temporal, remove before merge to main
 - echo Deploying to netlify preview
 # - wget -qO- 'https://cli.netlify.com/download/latest/linux' | tar xz
 # - ./netlifyctl -A "$NETLIFY_TOKEN" deploy --draft --site-id "$NETLIFY_SITE_ID" --publish-directory ./dist

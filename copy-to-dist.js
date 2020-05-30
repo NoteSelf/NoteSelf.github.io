@@ -10,7 +10,7 @@ const editionsFolder = path.join(__dirname, "editions");
 const targets = fs
   .readdirSync(editionsFolder)
   // exclude hidden files and the editions that do not have a subfolder
-  .filter(file => !file.startsWith('.') && !(/base|offline/).test(file))
+  .filter((file) => !file.startsWith(".") && !/base|offline/.test(file))
   .filter((file) => {
     const filePath = path.join(editionsFolder, file);
     log(filePath);
@@ -18,19 +18,60 @@ const targets = fs
   })
   .map((name) => path.join(distFolder, name));
 
+const copyManifests = () => {
+  targets.forEach((target) => {
+    const url = `/${path.basename(target)}`;
+    // copy each file of the edition
+    log("meta files for", url);
+    fs.writeFileSync(
+      path.join(target, "manifest.json"),
+      JSON.stringify({ ...manifest, start_url: url, scope: url }, null, 2),
+      "utf8"
+    );
+    execSync(`cp _dist/sw.js ${target}`);
+  });
+};
 
-targets.forEach((target) => {
-  const url = `/${path.basename(target)}`;
-  // copy each file of the edition
-  log("meta files for", url);
-  fs.writeFileSync(
-    path.join(target, "manifest.json"),
-    JSON.stringify({ ...manifest, start_url: url, scope: url }, null, 2),
-    "utf8"
-  );
-  execSync(`cp _dist/sw.js ${target}`);
-});
+/*
+ Service worker stuff
+ */
+const workboxBuild = require("workbox-build");
 
-  // Copy the rest of the files for the main site
-  // including manifest and service-worker
-  execSync(`cp -pr _dist/* dist/`);
+// NOTE: This should be run *AFTER* all your assets are built
+const buildSW = () => {
+  // This will return a Promise
+  return workboxBuild.generateSW({
+    globDirectory: "dist",
+    globPatterns: ["**/*.{html,json,js,css}"],
+    swDest: "dist/sw.js",
+    // Define runtime caching rules.
+    runtimeCaching: [
+      {
+        // Match any request that ends with .png, .jpg, .jpeg, ico or .svg.
+        urlPattern: /\.(?:png|jpg|jpeg|svg|ico)$/,
+
+        // Apply a cache-first strategy.
+        handler: "CacheFirst",
+
+        options: {
+          // Use a custom cache name.
+          cacheName: "images",
+
+          // Only cache 10 images.
+          expiration: {
+            maxEntries: 10,
+          },
+        },
+      },
+    ],
+  });
+};
+/**
+ * EXECUTE THE TASKS
+ */
+
+copyManifests();
+// Copy the rest of the files for the main site
+// including manifest and service-worker
+execSync(`cp -pr _dist/* dist/`);
+buildSW().then(console.log);
