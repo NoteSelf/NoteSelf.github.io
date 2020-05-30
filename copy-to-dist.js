@@ -43,6 +43,8 @@ const buildSW = () => {
   return workboxBuild.generateSW({
     globDirectory: "dist",
     globPatterns: ["**/*.{html,json,js,css}"],
+    globIgnores: ["offline.html"],
+    maximumFileSizeToCacheInBytes: 3000000,
     swDest: "dist/sw.js",
     // Define runtime caching rules.
     runtimeCaching: [
