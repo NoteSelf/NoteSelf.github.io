@@ -18,6 +18,10 @@ const targets = fs
   })
   .map((name) => path.join(distFolder, name));
 
+/**
+ * For each edition, copy a manifest file to it's dest directory.
+ * This should (I'm not sure) allow them to operate as separate applications
+ */
 const copyManifests = () => {
   targets.forEach((target) => {
     const url = `/${path.basename(target)}`;
