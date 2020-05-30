@@ -47,7 +47,7 @@ const buildSW = () => {
   return workboxBuild.generateSW({
     globDirectory: "dist",
     globPatterns: ["**/*.{html,json,js,css}"],
-    globIgnores: ["offline.html","recipes/**"],
+    globIgnores: ["offline.html", "recipes/**"],
     maximumFileSizeToCacheInBytes: 3000000,
     swDest: "dist/sw.js",
     // Define runtime caching rules.
@@ -64,6 +64,17 @@ const buildSW = () => {
           cacheName: "images",
 
           // Only cache 10 images.
+          expiration: {
+            maxEntries: 10,
+          },
+        },
+      },
+      {
+        // some images do not have extension
+        urlPattern: /\/images\/\w+/,
+        handler: "CacheFirst",
+        options: {
+          cacheName: "images",
           expiration: {
             maxEntries: 10,
           },
