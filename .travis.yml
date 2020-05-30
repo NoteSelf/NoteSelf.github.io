@@ -48,7 +48,7 @@ after_success:
 - yarn add global netlify-cli
 - netlify deploy --auth="$NETLIFY_TOKEN" --dir="./dist" --site="$NETLIFY_SITE_ID" --message="CI - $TRAVIS_BRANCH"
 before_deploy:
-  - cp CNAME ./dist/
+  - node ./copy-to-dist.js
 deploy:
   provider: pages
   skip_cleanup: true
