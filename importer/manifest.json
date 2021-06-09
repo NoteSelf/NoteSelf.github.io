@@ -1,0 +1,49 @@
+{
+  "name": "NoteSelf",
+  "short_name": "NoteSelf",
+  "description": "The personal wiki that syncs",
+  "lang": "en",
+  "start_url": "/importer",
+  "scope": "/importer",
+  "display": "standalone",
+  "theme_color": "#93cf93",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/icons/launcher-icon-0-75x.png",
+      "sizes": "36x36",
+      "type": "image/png",
+      "density": 0.75
+    },
+    {
+      "src": "/icons/launcher-icon-1x.png",
+      "sizes": "48x48",
+      "type": "image/png",
+      "density": 1
+    },
+    {
+      "src": "/icons/launcher-icon-1-5x.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "density": 1.5
+    },
+    {
+      "src": "/icons/launcher-icon-2x.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "density": 2
+    },
+    {
+      "src": "/icons/launcher-icon-3x.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "density": 3
+    },
+    {
+      "src": "/icons/launcher-icon-4x.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "density": 4
+    }
+  ]
+}
